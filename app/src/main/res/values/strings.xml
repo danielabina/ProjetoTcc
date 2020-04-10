@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">vamosJogarV1</string>
+    <string name="hint_email_to_login" />
+    <string name="hint_password" />
+    <string name="hint_confirm_password" />
+    <string name="sign_up" />
+    <string name="do_login" />
+</resources>
