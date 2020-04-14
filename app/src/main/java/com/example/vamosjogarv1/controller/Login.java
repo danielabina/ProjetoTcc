@@ -9,10 +9,11 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.vamosjogarv1.R;
+import com.example.vamosjogarv1.model.Pessoa;
 
 public class Login extends AppCompatActivity {
 
-    EditText editEmail,editSenha;
+    Pessoa pessoa = new Pessoa();
     Button btnEntrar,btnEsqueciSenha,btnCadastrar;
 
 
@@ -21,8 +22,9 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_main);
 
-        editEmail = (EditText) findViewById(R.id.idEmail);
-        editSenha = (EditText) findViewById(R.id.idSenha);
+
+        pessoa.setEmail((EditText)  findViewById(R.id.idEmail));
+        pessoa.setSenha((EditText) findViewById(R.id.idSenha));
 
         btnEntrar = (Button) findViewById(R.id.btnEntrar);
         btnEsqueciSenha = (Button) findViewById(R.id.btnRedefinir);
@@ -64,6 +66,17 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                if(true){
+                    btnEntrar.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent it = new Intent(Login.this, telaInicial.class);
+                            startActivity(it);
+                        }
+                    });
+                }else{
+
+                }
             }
         });
     }

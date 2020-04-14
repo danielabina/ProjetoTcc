@@ -1,6 +1,9 @@
 package com.example.vamosjogarv1.model;
 
 
+import android.view.View;
+import android.widget.EditText;
+
 /**
  * Classe de atributos PESSOA
  * @author : Daniela Bina
@@ -53,6 +56,12 @@ public class Pessoa {
 
     public void setContaPagamento(double contaPagamento) {
         this.contaPagamento = contaPagamento;
+    }
+
+    public void setEmail(EditText viewById) {
+    }
+
+    public void setSenha(EditText viewById) {
     }
 }
 
