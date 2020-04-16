@@ -26,44 +26,68 @@ public class Cadastrar extends AppCompatActivity {
         setContentView(R.layout.cadastrar_main);
 
         Button btnCadastrar;
-        EditText nome,senha,email;
+        final EditText editNome,editSenha,editEmail;
         btnCadastrar = (Button) findViewById(R.id.btnEntrar);
-        email= (EditText)  findViewById(R.id.idEmail);
-        senha = (EditText) findViewById(R.id.idSenha);
-        nome = (EditText) findViewById(R.id.idNome);
+        editEmail= (EditText)  findViewById(R.id.idEmail);
+        editSenha = (EditText) findViewById(R.id.idSenha);
+        editNome = (EditText) findViewById(R.id.idNome);
+
+        final String HOST = "http://192.168.0.114/Login/";
 
 
-        if(true){
+
             btnCadastrar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //Intent it = new Intent(Cadastrar.this, Login.class);
-                    //startActivity(it);
+                    String nome = editNome.getText().toString();
+                    String email = editEmail.getText().toString();
+                    String senha = editSenha.getText().toString();
 
-                    String url = "http://192.168.0.114/Login/teste.json";
-                    Ion.with(Cadastrar.this)
-                            .load(url)
-                            .asJsonObject()
-                            .setCallback(new FutureCallback<JsonObject>() {
-                                @Override
-                                public void onCompleted(Exception e, JsonObject result) {
-                                    try {
-                                        Toast.makeText(Cadastrar.this , "Retorno" + result.toString(), Toast.LENGTH_LONG).show();
+                    String URL = HOST + "/cadastrar.php";
 
-                                    }catch (Exception erro){
+                    if (nome.isEmpty() || email.isEmpty() || senha.isEmpty()) {
+                        Toast.makeText(Cadastrar.this, "Todos os campos(OBRIGATORIOS) devem ser preenchidos" , Toast.LENGTH_LONG).show();
+                    } else {
 
-                                        Toast.makeText(Cadastrar.this, "OPS OCORREU UM ERRO" + erro, Toast.LENGTH_LONG).show();
+                        Ion.with(Cadastrar.this)
+                                .load(URL)
+                                .setBodyParameter("nome_app",nome)
+                                .setBodyParameter("email_app",email)
+                                .setBodyParameter("senha_app",senha)
+                                .asJsonObject()
+                                .setCallback(new FutureCallback<JsonObject>() {
+                                    @Override
+                                    public void onCompleted(Exception e, JsonObject result) {
+                                        try {
+                                            String RETORNO = result.get("CADASTRO").getAsString();
+                                            if(RETORNO.equals("ERRO")) {
+                                                Toast.makeText(Cadastrar.this, "OPS! ESte email ja esta cadastrado", Toast.LENGTH_LONG).show();
+                                            }else if(RETORNO.equals("SUCESSO")){
+                                                Toast.makeText(Cadastrar.this, "Cadastrado com sucesso,aguarde voce esta logando", Toast.LENGTH_LONG).show();
+                                                Thread.sleep(1000);
+                                                Intent it = new Intent(Cadastrar.this, telaInicial.class);
+                                                startActivity(it);
+                                            }else {
+                                                Toast.makeText(Cadastrar.this, "Ops! Ocorreu o erro," , Toast.LENGTH_LONG).show();
+                                            }
+                                        } catch (Exception erro) {
+
+                                            Toast.makeText(Cadastrar.this, "OPS OCORREU UM ERRO" + erro, Toast.LENGTH_LONG).show();
+
+                                        }
 
                                     }
-
-                                }
-                            });
+                                });
+                    }
                 }
             });
-        }else{
 
-        }
+    }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        finish();
     }
 }
 

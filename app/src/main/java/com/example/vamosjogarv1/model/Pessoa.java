@@ -12,11 +12,16 @@ public class Pessoa {
     public int idPessoa;
     public String nome;
     public String email;
+    public String senha;
     public int telefone;
     public double contaPagamento;
     // incuir endereço e logo
 
 
+
+    public String getSenha() {
+        return senha;
+    }
     public int getIdPessoa() {
         return idPessoa;
     }
