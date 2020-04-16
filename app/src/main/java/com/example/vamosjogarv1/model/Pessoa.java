@@ -1,7 +1,6 @@
 package com.example.vamosjogarv1.model;
 
 
-import android.view.View;
 import android.widget.EditText;
 
 /**

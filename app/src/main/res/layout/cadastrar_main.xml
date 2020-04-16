@@ -9,20 +9,20 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="277dp"
+        android:layout_height="342dp"
         android:layout_marginTop="25dp"
         android:orientation="vertical">
 
         <ImageView
             android:id="@+id/idlogo"
             android:layout_width="match_parent"
-            android:layout_height="186dp"
+            android:layout_height="233dp"
             android:src="@drawable/esportes_png_7"
             tools:visibility="visible" />
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="91dp"
             android:background="#E6DADA"
             android:ems="30"
             android:padding="35dp"
@@ -36,9 +36,24 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="431dp"
+        android:layout_height="269dp"
+        android:layout_marginTop="2dp"
         android:orientation="vertical"
         android:padding="10dp">
+
+        <EditText
+            android:id="@+id/idNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#E8E3E3"
+            android:ems="20"
+            android:hint=" DIGITE SEU NOME"
+            android:importantForAutofill="no"
+            android:padding="15dp"
+            android:visibility="visible"
+            tools:visibility="visible">
+
+        </EditText>
 
         <EditText
             android:id="@+id/idEmail"
@@ -51,21 +66,9 @@
             android:inputType="textEmailAddress"
             android:padding="15dp"
             android:visibility="visible"
-            tools:visibility="visible">>
+            tools:visibility="visible">
 
         </EditText>
-
-        <EditText
-            android:id="@+id/idCpf"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#E8E3E3"
-            android:ems="10"
-            android:hint=" DIGITE SEU CPF"
-            android:importantForAutofill="no"
-            android:padding="15dp"
-            android:visibility="visible"
-            tools:visibility="visible"></EditText>
 
         <EditText
             android:id="@+id/idSenha"
@@ -74,11 +77,11 @@
             android:background="#E8E3E3"
             android:ems="10"
             android:hint="SENHA"
-            android:inputType="textPassword"
             android:importantForAutofill="no"
+            android:inputType="textPassword"
             android:padding="15dp"
             android:visibility="visible"
-            tools:visibility="visible"/>
+            tools:visibility="visible" />
 
         <Button
             android:id="@+id/btnEntrar"
