@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".controller.tela_cadastrar_evento">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="91dp"
+        android:background="#E6DADA"
+        android:ems="30"
+        android:padding="34dp"
+        android:text="CADASTRAR EVENTO"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="18sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="225dp">
+
+    </TextView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

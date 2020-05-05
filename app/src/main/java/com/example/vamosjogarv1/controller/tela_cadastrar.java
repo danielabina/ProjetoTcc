@@ -17,7 +17,7 @@ import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
 
 @SuppressLint("Registered")
-public class Cadastrar extends AppCompatActivity {
+public class tela_cadastrar extends AppCompatActivity {
     Pessoa pessoa = new Pessoa();
 
     @Override
@@ -46,10 +46,10 @@ public class Cadastrar extends AppCompatActivity {
                     String URL = HOST + "/cadastrar.php";
 
                     if (nome.isEmpty() || email.isEmpty() || senha.isEmpty()) {
-                        Toast.makeText(Cadastrar.this, "Todos os campos(OBRIGATORIOS) devem ser preenchidos" , Toast.LENGTH_LONG).show();
+                        Toast.makeText(tela_cadastrar.this, "Todos os campos(OBRIGATORIOS) devem ser preenchidos" , Toast.LENGTH_LONG).show();
                     } else {
 
-                        Ion.with(Cadastrar.this)
+                        Ion.with(tela_cadastrar.this)
                                 .load(URL)
                                 .setBodyParameter("nome_app",nome)
                                 .setBodyParameter("email_app",email)
@@ -61,18 +61,18 @@ public class Cadastrar extends AppCompatActivity {
                                         try {
                                             String RETORNO = result.get("CADASTRO").getAsString();
                                             if(RETORNO.equals("ERRO")) {
-                                                Toast.makeText(Cadastrar.this, "OPS! ESte email ja esta cadastrado", Toast.LENGTH_LONG).show();
+                                                Toast.makeText(tela_cadastrar.this, "OPS! ESte email ja esta cadastrado", Toast.LENGTH_LONG).show();
                                             }else if(RETORNO.equals("SUCESSO")){
-                                                Toast.makeText(Cadastrar.this, "Cadastrado com sucesso,aguarde voce esta logando", Toast.LENGTH_LONG).show();
+                                                Toast.makeText(tela_cadastrar.this, "Cadastrado com sucesso,aguarde voce esta logando", Toast.LENGTH_LONG).show();
                                                 Thread.sleep(1000);
-                                                Intent it = new Intent(Cadastrar.this, telaInicial.class);
+                                                Intent it = new Intent(tela_cadastrar.this, tela_inicial_.class);
                                                 startActivity(it);
                                             }else {
-                                                Toast.makeText(Cadastrar.this, "Ops! Ocorreu o erro," , Toast.LENGTH_LONG).show();
+                                                Toast.makeText(tela_cadastrar.this, "Ops! Ocorreu o erro," , Toast.LENGTH_LONG).show();
                                             }
                                         } catch (Exception erro) {
 
-                                            Toast.makeText(Cadastrar.this, "OPS OCORREU UM ERRO" + erro, Toast.LENGTH_LONG).show();
+                                            Toast.makeText(tela_cadastrar.this, "OPS OCORREU UM ERRO" + erro, Toast.LENGTH_LONG).show();
 
                                         }
 

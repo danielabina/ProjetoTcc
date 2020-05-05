@@ -15,7 +15,7 @@ import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
 
-public class Login extends AppCompatActivity {
+public class tela_login extends AppCompatActivity {
 
     Pessoa pessoa = new Pessoa();
     Button btnEntrar,btnEsqueciSenha,btnCadastrar;
@@ -45,7 +45,7 @@ public class Login extends AppCompatActivity {
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent it = new Intent(Login.this, Cadastrar.class);
+                Intent it = new Intent(tela_login.this, tela_cadastrar.class);
                 startActivity(it);
             }
         });
@@ -58,13 +58,13 @@ public class Login extends AppCompatActivity {
         btnEsqueciSenha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent it = new Intent(Login.this, Redefinir.class);
+                Intent it = new Intent(tela_login.this, tela_redefinir.class);
                 startActivity(it);
             }
         });
 
         /**
-         * Chama tela inicial caso Login seja autorizado
+         * Chama tela inicial caso tela_login seja autorizado
          * @author : Daniela Bina
          * @date : 10/04/2020
          */
@@ -77,10 +77,10 @@ public class Login extends AppCompatActivity {
             String email = editEmail.getText().toString();
             String senha = editSenha.getText().toString();
                 if (email.isEmpty() || senha.isEmpty()) {
-                    Toast.makeText(Login.this, "Todos os campos(OBRIGATORIOS) devem ser preenchidos" , Toast.LENGTH_LONG).show();
+                    Toast.makeText(tela_login.this, "Todos os campos(OBRIGATORIOS) devem ser preenchidos" , Toast.LENGTH_LONG).show();
                 } else {
 
-                    Ion.with(Login.this)
+                    Ion.with(tela_login.this)
                             .load(URL)
                             .setBodyParameter("email_app",email)
                             .setBodyParameter("senha_app",senha)
@@ -91,17 +91,17 @@ public class Login extends AppCompatActivity {
                                     try {
                                         String RETORNO = result.get("LOGIN").getAsString();
                                         if(RETORNO.equals("ERRO")) {
-                                            Toast.makeText(Login.this, "OPS! Email ou senham incorretos", Toast.LENGTH_LONG).show();
+                                            Toast.makeText(tela_login.this, "OPS! Email ou senham incorretos", Toast.LENGTH_LONG).show();
                                         }else if(RETORNO.equals("SUCESSO")){
-                                            Toast.makeText(Login.this, "Carregando...", Toast.LENGTH_LONG).show();
-                                            Intent it = new Intent(Login.this, telaInicial.class);
+                                            Toast.makeText(tela_login.this, "Carregando...", Toast.LENGTH_LONG).show();
+                                            Intent it = new Intent(tela_login.this, tela_inicial_.class);
                                             startActivity(it);
                                         }else {
-                                            Toast.makeText(Login.this, "Ops! Ocorreu o erro," , Toast.LENGTH_LONG).show();
+                                            Toast.makeText(tela_login.this, "Ops! Ocorreu o erro," , Toast.LENGTH_LONG).show();
                                         }
                                     } catch (Exception erro) {
 
-                                        Toast.makeText(Login.this, "OPS OCORREU UM ERRO" + erro, Toast.LENGTH_LONG).show();
+                                        Toast.makeText(tela_login.this, "OPS OCORREU UM ERRO" + erro, Toast.LENGTH_LONG).show();
 
                                     }
 
