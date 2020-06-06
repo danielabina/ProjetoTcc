@@ -61,6 +61,7 @@
         </TextView>
 
         <RadioGroup
+            android:id="@+id/radio_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -69,11 +70,13 @@
                 android:layout_height="wrap_content"
                 android:text="Feminino"
                 android:onClick="onRadioButtonClicked"/>
-            <RadioButton android:id="@+id/radio_masculino"
+
+            <RadioButton
+                android:id="@+id/radio_masculino"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Masculino"
-                android:onClick="onRadioButtonClicked"/>
+                android:onClick="onRadioButtonClicked"
+                android:text="Masculino" />
         </RadioGroup>
 
         <EditText
@@ -84,7 +87,6 @@
             android:ems="10"
             android:hint=" HABILIDADE"
             android:importantForAutofill="no"
-            android:inputType="textPassword"
             android:padding="15dp"
             android:visibility="visible"
             tools:visibility="visible" />

@@ -13,12 +13,17 @@ public class Pessoa {
     public String nome;
     public String email;
     public String senha;
-    public int telefone;
-    public double contaPagamento;
+    public String sexo;
     // incuir endereço e logo
 
 
+    public String getSexo() {
+        return sexo;
+    }
 
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
     public String getSenha() {
         return senha;
     }
@@ -46,26 +51,13 @@ public class Pessoa {
         this.email = email;
     }
 
-    public int getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(int telefone) {
-        this.telefone = telefone;
-    }
-
-    public double getContaPagamento() {
-        return contaPagamento;
-    }
-
-    public void setContaPagamento(double contaPagamento) {
-        this.contaPagamento = contaPagamento;
-    }
 
     public void setEmail(EditText viewById) {
     }
 
     public void setSenha(EditText viewById) {
     }
+
+
 }
 

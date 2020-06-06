@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,22 +28,25 @@ public class tela_cadastrar extends AppCompatActivity {
         setContentView(R.layout.cadastrar_main);
 
         Button btnCadastrar;
-        final EditText editNome,editSenha,editEmail;
+        final EditText editNome,editSenha,editEmail,editHabilidade;
+        RadioButton editSexoF,editSexoM;
         btnCadastrar = (Button) findViewById(R.id.btnEntrar);
         editEmail= (EditText)  findViewById(R.id.idEmail);
         editSenha = (EditText) findViewById(R.id.idSenha);
         editNome = (EditText) findViewById(R.id.idNome);
+        editHabilidade = (EditText) findViewById(R.id.idHabilidade);
 
         final String HOST = "http://192.168.0.114/Login/";
 
 
-
-            btnCadastrar.setOnClickListener(new View.OnClickListener() {
+        btnCadastrar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     String nome = editNome.getText().toString();
                     String email = editEmail.getText().toString();
                     String senha = editSenha.getText().toString();
+                    String habilidade = editHabilidade.getText().toString();
+                    String sexo = pessoa.getSexo();
 
                     String URL = HOST + "/cadastrar.php";
 
@@ -54,6 +59,8 @@ public class tela_cadastrar extends AppCompatActivity {
                                 .setBodyParameter("nome_app",nome)
                                 .setBodyParameter("email_app",email)
                                 .setBodyParameter("senha_app",senha)
+                                .setBodyParameter("habilidade",habilidade)
+                                .setBodyParameter("sexo",sexo)
                                 .asJsonObject()
                                 .setCallback(new FutureCallback<JsonObject>() {
                                     @Override
@@ -84,10 +91,31 @@ public class tela_cadastrar extends AppCompatActivity {
 
     }
 
+
+    public void onRadioButtonClicked(View view) {
+
+        RadioGroup rb = (RadioGroup) findViewById(R.id.radio_group);
+        rb.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId) {
+                    case R.id.radio_feminino:
+                        pessoa.setSexo("Feminino");
+                        break;
+                    case R.id.radio_masculino:
+                        pessoa.setSexo("Masculino");
+                        break;
+                }
+            }
+
+        });
+
+    }
+
     @Override
     protected void onPause() {
         super.onPause();
         finish();
     }
+
 }
 

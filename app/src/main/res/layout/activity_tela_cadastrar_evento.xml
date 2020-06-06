@@ -1,24 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".controller.tela_cadastrar_evento">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#EDEBEF"
+    android:orientation="vertical">
 
     <TextView
+        android:id="@+id/textView4"
         android:layout_width="match_parent"
-        android:layout_height="91dp"
+        android:layout_height="58dp"
         android:background="#E6DADA"
         android:ems="30"
-        android:padding="34dp"
-        android:text="CADASTRAR EVENTO"
+        android:padding="15dp"
+        android:text=" CADASTRAR EVENTO  "
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textSize="18sp"
+        android:textSize="25sp"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="225dp">
+        tools:layout_editor_absoluteX="5dp"
+        tools:layout_editor_absoluteY="24dp"></TextView>
 
-    </TextView>
+    <DataPicker
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="30dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="27dp"
+        tools:layout_editor_absoluteY="133dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </DataPicker>
+
+    <EditText
+        android:id="@+id/idLocal"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="5dp"
+        android:background="#E8E3E3"
+        android:ems="10"
+        android:hint="  DIGITE O CEP, RUA OU BAIRRO "
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="606dp">
+
+    </EditText>
+
+    <Button
+        android:id="@+id/btnProximo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="#A7433FB5"
+        android:onClick="proximo"
+        android:padding="10dp"
+        android:text="Proximo"></Button>
+
+</LinearLayout>
