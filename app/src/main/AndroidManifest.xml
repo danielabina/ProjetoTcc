@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".controller.tela_cadastrar_evento_proximo"></activity>
         <activity android:name=".controller.tela_buscar_evento" />
         <activity android:name=".controller.tela_cadastrar_evento" />
         <activity
