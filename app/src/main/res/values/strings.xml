@@ -1,4 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="numbers">
+        <item>MODALIDADE</item>
+        <item>Handebol</item>
+        <item>Basquete</item>
+        <item>Voleibol</item>
+        <item>Futebol</item>
+    </string-array>
+
     <string name="app_name">vamosJogarV1</string>
     <string name="hint_email_to_login" />
     <string name="hint_password" />

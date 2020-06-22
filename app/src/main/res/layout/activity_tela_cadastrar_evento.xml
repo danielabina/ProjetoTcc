@@ -2,12 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="#EDEBEF"
     android:orientation="vertical">
 
     <TextView
+        android:layout_marginTop="50dp"
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="58dp"
@@ -21,21 +22,41 @@
         tools:layout_editor_absoluteX="5dp"
         tools:layout_editor_absoluteY="24dp"></TextView>
 
-    <DataPicker
+    <Spinner
+        android:id="@+id/spinner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="30dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="100dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="25sp"
+        android:background="#E8E3E3"
+        android:ems="30"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="27dp"
-        tools:layout_editor_absoluteY="133dp">
+        tools:layout_editor_absoluteX="5dp"
+        tools:layout_editor_absoluteY="24dp">
+        >
+</Spinner>
 
-    </DataPicker>
+    <TextView
+        android:id="@+id/data"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="30dp"
+        android:background="#E8E3E3"
+        android:textSize="17sp"
+        android:hint="  SELECIONE A DATA DO EVENTO "
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="606dp"
+        />
+
 
     <EditText
         android:id="@+id/idLocal"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginTop="5dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
         android:background="#E8E3E3"
         android:ems="10"
         android:hint="  DIGITE O CEP, RUA OU BAIRRO "
@@ -49,7 +70,7 @@
         android:id="@+id/btnProximo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:background="#A7433FB5"
         android:onClick="proximo"
         android:padding="10dp"
