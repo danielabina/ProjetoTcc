@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".controller.tela_detalhe_local"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_marginTop="50dp"
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:background="#E6DADA"
+        android:ems="30"
+        android:padding="15dp"
+        android:text=" DETALHE O LOCAL "
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="25sp"
+        >
+
+    </TextView>
+
+
+    <Button
+        android:id="@+id/btnproximook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#A7433FB5"
+        android:padding="10dp"
+        android:text="Escolher"></Button>
+
+    <Button
+        android:id="@+id/btnvoltar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#A7433FB5"
+        android:padding="10dp"
+        android:text="voltar"></Button>
+
+
+
+</LinearLayout>

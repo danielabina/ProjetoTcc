@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".controller.tela_lista_todos_eventos">
+
+
 
     <TextView
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="58dp"
         android:background="#E6DADA"
         android:ems="30"
         android:padding="15dp"
-        android:text=" SELECIONE O LOCAL "
+        android:text=" EVENTOS PROXIMOS "
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textSize="25sp"
-      >
+        >
 
     </TextView>
-    <ListView
-        android:id="@+id/lista"
-        android:layout_marginTop="130dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </ListView>
 
-</RelativeLayout>
+
+</LinearLayout>
