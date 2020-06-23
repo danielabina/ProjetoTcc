@@ -8,19 +8,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class tela_detalhe_local extends AppCompatActivity {
-    Button btnproximook;
-
+public class tela_metodo_pagamento extends AppCompatActivity {
+Button btnProximoListar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tela_detalhe_local);
-        btnproximook = (Button) findViewById(R.id.btnproximook);
+        setContentView(R.layout.activity_tela_metodo_pagamento);
 
-        btnproximook.setOnClickListener(new View.OnClickListener() {
+        btnProximoListar = (Button) findViewById(R.id.btnProximoLista);
+
+        btnProximoListar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent it = new Intent(tela_detalhe_local.this, tela_metodo_pagamento.class);
+                Intent it = new Intent(tela_metodo_pagamento.this, tela_lista_todos_eventos.class);
                 startActivity(it);
             }
         });

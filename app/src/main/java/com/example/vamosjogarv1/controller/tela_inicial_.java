@@ -2,14 +2,18 @@ package com.example.vamosjogarv1.controller;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.NonNull;
+import androidx.core.view.GravityCompat;
 import androidx.navigation.NavController;
 import com.example.vamosjogarv1.R;
 import androidx.navigation.Navigation;
@@ -19,10 +23,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-public class tela_inicial_ extends AppCompatActivity {
+public class tela_inicial_ extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener{
 
     private AppBarConfiguration mAppBarConfiguration;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,20 +33,7 @@ public class tela_inicial_ extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-        FloatingActionButton fab = findViewById(R.id.faleconosco);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-
-                Intent it = new Intent(tela_inicial_.this, tela_fale_conosco.class);
-                startActivity(it);
-            }
-        });
-
-
+       //---------------------------------------------------------
 
         Button btnCadastrarEvento = findViewById(R.id.btnCriarEvento);
         btnCadastrarEvento.setOnClickListener(new View.OnClickListener() {
@@ -62,8 +52,24 @@ public class tela_inicial_ extends AppCompatActivity {
                 startActivity(it);
             }
         });
+
+        //------------------------------------------------------
+        FloatingActionButton fab = findViewById(R.id.faleconosco);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+
+                Intent it = new Intent(tela_inicial_.this, tela_fale_conosco.class);
+                startActivity(it);
+            }
+        });
+
+        //---------------------------------------------------------
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
@@ -73,6 +79,8 @@ public class tela_inicial_ extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        //-----------------------------------------------------------------
     }
 
     @Override
@@ -87,5 +95,29 @@ public class tela_inicial_ extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        int id = menuItem.getItemId();
+
+        if(id == R.id.nav_termo){
+            Intent it = new Intent(tela_inicial_.this, tela_termo_de_uso.class);
+            startActivity(it);
+        }else if(id == R.id.nav_avalia){
+            Intent it = new Intent(tela_inicial_.this, tela_avaliar.class);
+            startActivity(it);
+        }else if(id == R.id.nav_faleConosco){
+            Intent it = new Intent(tela_inicial_.this, tela_fale_conosco.class);
+            startActivity(it);
+        }else if(id == R.id.nav_perfil){
+            Intent it = new Intent(tela_inicial_.this, tela_perfil.class);
+            startActivity(it);
+        }
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+
+        return true;
     }
 }
