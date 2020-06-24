@@ -1,47 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context=".controller.tela_fale_conosco">
-
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/app_bar"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#EDEBEF"
+    android:orientation="vertical">
+    <TextView
+        android:layout_marginTop="50dp"
+        android:id="@+id/textView4"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/app_bar_height"
-        android:fitsSystemWindows="true"
-        android:theme="@style/AppBarOverlay">
+        android:layout_height="58dp"
+        android:background="#E6DADA"
+        android:ems="30"
+        android:padding="15dp"
+        android:text=" FALE CONOSCO "
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="25sp"></TextView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="273dp"
+        android:layout_marginTop="25dp"
+        android:orientation="vertical">
 
-        <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:id="@+id/toolbar_layout"
+        <ImageView
+            android:id="@+id/idlogo"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fitsSystemWindows="true"
-            app:contentScrim="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:toolbarId="@+id/toolbar">
+            android:layout_height="150dp"
+            android:src="@drawable/esportes_png_7"
+            tools:visibility="visible" />
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:layout_collapseMode="pin"
-                app:popupTheme="@style/PopupOverlay" />
+    </LinearLayout>
 
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
-    </com.google.android.material.appbar.AppBarLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="131dp"
+        android:orientation="vertical"
+        android:padding="10dp">
 
-    <include layout="@layout/content_tela_fale_conosco" />
+        <EditText
+            android:id="@+id/idEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#E8E3E3"
+            android:ems="10"
+            android:hint="DIGITE O EMAIL"
+            android:importantForAutofill="no"
+            android:inputType="textEmailAddress"
+            android:visibility="visible"
+            tools:visibility="visible"></EditText>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/fab_margin"
-        app:layout_anchor="@id/app_bar"
-        app:layout_anchorGravity="bottom|end"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        <EditText
+            android:id="@+id/idSenha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:ems="500"
+            android:hint="DESCRICAO"
+            android:inputType="textPassword" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="234dp"
+        android:orientation="vertical"
+        android:padding="35dp">
+
+        <Button
+            android:id="@+id/btnEnviar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#A7433FB5"
+            android:layout_marginTop="2dp"
+            android:onClick="Redefinir"
+            android:padding="10dp"
+            android:text="Enviar" />
+
+    </LinearLayout>
+
+</LinearLayout>
