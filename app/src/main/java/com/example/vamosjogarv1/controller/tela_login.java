@@ -74,7 +74,7 @@ public class tela_login extends AppCompatActivity {
         btnEsqueciSenha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent it = new Intent(tela_login.this, tela_redefinir.class);
+                Intent it = new Intent(tela_login.this, tela_redefinir_senha.class);
                 startActivity(it);
             }
         });
