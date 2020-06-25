@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.vamosjogarv1.controller.ui.gallery.GalleryFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -35,23 +36,7 @@ public class tela_inicial_ extends AppCompatActivity  implements NavigationView.
 
        //---------------------------------------------------------
 
-        Button btnCadastrarEvento = findViewById(R.id.btnCriarEvento);
-        btnCadastrarEvento.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent it = new Intent(tela_inicial_.this, tela_cadastrar_evento.class);
-                startActivity(it);
-            }
-        });
 
-        Button btnBuscarEvento = findViewById(R.id.btnBuscarEvento);
-        btnBuscarEvento.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent it = new Intent(tela_inicial_.this, tela_buscar_evento.class);
-                startActivity(it);
-            }
-        });
 
         //------------------------------------------------------
         FloatingActionButton fab = findViewById(R.id.faleconosco);
@@ -83,6 +68,19 @@ public class tela_inicial_ extends AppCompatActivity  implements NavigationView.
         //-----------------------------------------------------------------
     }
 
+
+
+    public void CadastrarEvento() {
+        Button btnCadastrarEvento = findViewById(R.id.btnCriarEvento);
+        btnCadastrarEvento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent it = new Intent(tela_inicial_.this, tela_cadastrar_evento.class);
+                startActivity(it);
+            }
+        });
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -101,16 +99,15 @@ public class tela_inicial_ extends AppCompatActivity  implements NavigationView.
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int id = menuItem.getItemId();
 
-        if(id == R.id.nav_termo){
-            Intent it = new Intent(tela_inicial_.this, tela_termo_de_uso.class);
-            startActivity(it);
+        if(id == R.id.nav_gallery){
+            getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,new GalleryFragment()).commit();
         }else if(id == R.id.nav_avalia){
             Intent it = new Intent(tela_inicial_.this, tela_avaliar.class);
             startActivity(it);
         }else if(id == R.id.nav_faleConosco){
             Intent it = new Intent(tela_inicial_.this, tela_fale_conosco.class);
             startActivity(it);
-        }else if(id == R.id.nav_perfil){
+        }else if(id == R.id.nav_avalia){
             Intent it = new Intent(tela_inicial_.this, tela_perfil.class);
             startActivity(it);
         }
@@ -119,5 +116,15 @@ public class tela_inicial_ extends AppCompatActivity  implements NavigationView.
         drawer.closeDrawer(GravityCompat.START);
 
         return true;
+    }
+
+    public void BuscarEvento(View view) {
+        Intent it = new Intent(tela_inicial_.this, tela_buscar_evento.class);
+        startActivity(it);
+    }
+
+    public void CadastrarEvento(View view) {
+        Intent it = new Intent(tela_inicial_.this, tela_cadastrar_evento.class);
+        startActivity(it);
     }
 }

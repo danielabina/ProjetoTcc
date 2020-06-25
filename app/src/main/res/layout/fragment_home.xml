@@ -1,10 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.ui.home.HomeFragment">
+    tools:context=".controller.tela_inicial_"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btnCriarEvento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#3F51B5"
+        android:text="Organizar Evento"
+        android:onClick="BuscarEvento"
+></Button>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+
+        android:text="        *Voce poderá criar eventos escolha local,data e hora">
+
+    </TextView>
+
+    <Button
+        android:id="@+id/btnBuscarEvento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="#3F51B5"
+        android:text="Listar Eventos"
+        android:onClick="CadastrarEvento"
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        ></Button>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:text="        *Voce poderá buscar eventos, preencha local desejado">
+
+    </TextView>
+
+
+
+</LinearLayout>
