@@ -4,13 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="80dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".controller.tela_termo_de_uso"
     tools:showIn="@layout/activity_termo_de_uso">
 
     <TextView
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/text_margin"

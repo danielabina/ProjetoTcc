@@ -6,9 +6,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.widget.Button;
-import android.widget.TextView;
 
-import com.example.vamosjogarv1.controller.ui.gallery.GalleryFragment;
+import com.example.vamosjogarv1.controller.ui.avaliacao.AvaliacaoFragment;
+import com.example.vamosjogarv1.controller.ui.faleConosco.FaleConoscoFragment;
+import com.example.vamosjogarv1.controller.ui.perfil.PerfilFragment;
+import com.example.vamosjogarv1.controller.ui.termodeuso.TermodeusoFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -58,7 +60,7 @@ public class tela_inicial_ extends AppCompatActivity  implements NavigationView.
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.nav_home, R.id.nav_avalia, R.id.nav_perfil,R.id.nav_termo,R.id.nav_faleConosco)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -99,17 +101,14 @@ public class tela_inicial_ extends AppCompatActivity  implements NavigationView.
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int id = menuItem.getItemId();
 
-        if(id == R.id.nav_gallery){
-            getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,new GalleryFragment()).commit();
+        if(id == R.id.nav_perfil){
+            getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,new PerfilFragment()).commit();
         }else if(id == R.id.nav_avalia){
-            Intent it = new Intent(tela_inicial_.this, tela_avaliar.class);
-            startActivity(it);
+            getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,new AvaliacaoFragment()).commit();
         }else if(id == R.id.nav_faleConosco){
-            Intent it = new Intent(tela_inicial_.this, tela_fale_conosco.class);
-            startActivity(it);
-        }else if(id == R.id.nav_avalia){
-            Intent it = new Intent(tela_inicial_.this, tela_perfil.class);
-            startActivity(it);
+            getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,new FaleConoscoFragment()).commit();
+        }else if(id == R.id.nav_termo){
+            getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,new TermodeusoFragment()).commit();
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

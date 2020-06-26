@@ -11,24 +11,32 @@
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home">
 
-        <action
-            android:id="@+id/action_nav_home_to_nav_gallery"
-            app:destination="@id/nav_gallery" />
     </fragment>
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.vamosjogarv1.controller.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" >
-        <action
-            android:id="@+id/action_nav_gallery_to_nav_slideshow"
-            app:destination="@id/nav_slideshow" />
+        android:id="@+id/nav_perfil"
+        android:name="com.example.vamosjogarv1.controller.ui.perfil.PerfilFragment"
+        android:label="PERFIL"
+        tools:layout="@layout/fragment_perfil" >
+
     </fragment>
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.vamosjogarv1.controller.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_avalia"
+        android:name="com.example.vamosjogarv1.controller.ui.avaliacao.AvaliacaoFragment"
+        android:label="AVALIACAO"
+        tools:layout="@layout/fragment_avaliacao" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_termo"
+        android:name="com.example.vamosjogarv1.controller.ui.termodeuso.TermodeusoFragment"
+        android:label="TERMO"
+        tools:layout="@layout/fragment_termodeuso" />
+
+    <fragment
+        android:id="@+id/nav_faleConosco"
+        android:name="com.example.vamosjogarv1.controller.ui.faleConosco.FaleConoscoFragment"
+        android:label="FALE CONOSCO"
+        tools:layout="@layout/fragment_faleconosco" />
 </navigation>
