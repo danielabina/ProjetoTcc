@@ -41,8 +41,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.7'
     implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
     implementation 'cn.carbs.android:MDDialog:1.0.0'
-    //noinspection GradleCompatible
-    implementation 'com.android.support:design:23.0.1'
+
 
 
     implementation 'com.koushikdutta.ion:ion:2.+'

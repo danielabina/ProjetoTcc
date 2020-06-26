@@ -1,82 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="#EDEBEF"
-    android:orientation="vertical">
-    <TextView
-        android:layout_marginTop="50dp"
-        android:id="@+id/textView4"
-        android:layout_width="match_parent"
-        android:layout_height="58dp"
-        android:background="#E6DADA"
-        android:ems="30"
-        android:padding="15dp"
-        android:text=" FALE CONOSCO "
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textSize="25sp"></TextView>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="273dp"
-        android:layout_marginTop="25dp"
-        android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="50dp">
 
-        <ImageView
-            android:id="@+id/idlogo"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:src="@drawable/esportes_png_7"
-            tools:visibility="visible" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="80dp">
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:layout_marginRight="5dp"
+        android:layout_weight="0.4"
+        android:contentDescription="Cartão VISA"
+        android:src="@drawable/user"
+        tools:ignore="Suspicious0dp" />
 
-    </LinearLayout>
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:layout_weight="0.4"
+        android:contentDescription="Cartão Master Card"
+        android:src="@drawable/user" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="131dp"
-        android:orientation="vertical"
-        android:padding="10dp">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_card_number"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="1.2">
 
         <EditText
-            android:id="@+id/idEmail"
+            android:id="@+id/card_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#E8E3E3"
-            android:ems="10"
-            android:hint="DIGITE O EMAIL"
-            android:importantForAutofill="no"
-            android:inputType="textEmailAddress"
-            android:visibility="visible"
-            tools:visibility="visible"></EditText>
-
-        <EditText
-            android:id="@+id/idSenha"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:ems="500"
-            android:hint="DESCRICAO"
-            android:inputType="textPassword" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="234dp"
-        android:orientation="vertical"
-        android:padding="35dp">
-
-        <Button
-            android:id="@+id/btnEnviar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#A7433FB5"
-            android:layout_marginTop="2dp"
-            android:onClick="Redefinir"
-            android:padding="10dp"
-            android:text="Enviar" />
-
-    </LinearLayout>
+            android:hint="Número do cartão"
+            android:inputType="number"
+            android:text="4485203648101323" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 </LinearLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="160dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nome proprietario cartão">
+
+        </EditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="100dp"
+    android:orientation="horizontal">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Mês"
+            android:inputType="number"
+            android:text="01">
+
+        </EditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="90dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="150dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ANO"
+            android:inputType="number"
+            android:text="2023">
+
+        </EditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Parcelas"
+            android:inputType="number"
+            android:text="2">
+
+        </EditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="CCV"
+            android:inputType="number"
+            android:text="2">
+
+        </EditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+</LinearLayout>
+</RelativeLayout>

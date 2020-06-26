@@ -16,19 +16,18 @@ Button btnProximoListar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.payment);
+        setContentView(R.layout.activity_tela_metodo_pagamento);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-//        btnProximoListar = (Button) findViewById(R.id.btnProximoLista);
-//
-//        btnProximoListar.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent it = new Intent(tela_metodo_pagamento.this, tela_lista_todos_eventos.class);
-//                startActivity(it);
-//            }
-//        });
+       btnProximoListar = (Button) findViewById(R.id.btnProximoLista);
+
+       btnProximoListar.setOnClickListener(new View.OnClickListener() {         @Override
+           public void onClick(View v) {
+               Intent it = new Intent(tela_metodo_pagamento.this, tela_lista_todos_eventos.class);
+               startActivity(it);
+           }
+       });
     }
 
 

@@ -1,9 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.tela_detalhe_evento">
+    android:padding="50dp">
+    <TextView
+        android:layout_marginTop="0dp"
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:background="#E6DADA"
+        android:ems="30"
+        android:padding="15dp"
+        android:text=" LOCAL "
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="25sp"
+        />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="100dp">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="0.8"
+            android:src="@drawable/esportes_png_7"
+            tools:ignore="Suspicious0dp" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_card_number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1.2">
+
+            <TextView
+                android:id="@+id/card_number"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Cancha Pinheirinho" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="190dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rua da conceição 1000">
+
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Com cobertura">
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Aluguel de bola,colete">
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Não possui churrasqueira">
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Estaciomento Incluso">
+        </TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="**Opcionais cobrados a mais no local">
+        </TextView>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="355dp"
+        android:text="aqui vai lista de participantes
+        apenas o nome e habilidae">
+    </TextView>
+    <Button
+        android:id="@+id/btnParticipar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="395dp"
+        android:background="#A7433FB5"
+        android:padding="10dp"
+        android:text="Participar"></Button>
+
+</RelativeLayout>
