@@ -5,7 +5,8 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#EDEBEF"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".controller.tela_perfil">
 
 
     <LinearLayout
@@ -83,16 +84,17 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:background="#B03F51B5"
-            android:onClick="Cadastrar"
-            android:text="SUAS AVALIAÇÕES" />
+            android:onClick="avaliacoes"
+            android:text="SUAS AVALIAÇÕES"
+            tools:ignore="OnClick" />
         <Button
             android:id="@+id/btnEditar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#A7433FB5"
             android:layout_marginTop="2dp"
-            android:onClick="Redefinir"
             android:padding="10dp"
+            android:onClick="editar"
             android:text="EDITAR" />
 
     </LinearLayout>

@@ -26,6 +26,7 @@ Button btnProximoListar;
            public void onClick(View v) {
                Intent it = new Intent(tela_metodo_pagamento.this, tela_lista_todos_eventos.class);
                startActivity(it);
+               finish();
            }
        });
     }

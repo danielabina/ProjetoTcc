@@ -26,4 +26,14 @@ public class tela_perfil extends AppCompatActivity {
             }
         });
     }
+
+    public void avaliacoes(View v){
+        Intent it = new Intent(tela_perfil.this, tela_avaliacao.class);
+        startActivity(it);
+    }
+
+    public void editar(View v){
+        Intent it = new Intent(tela_perfil.this, tela_perfil.class);
+        startActivity(it);
+    }
 }

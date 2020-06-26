@@ -4,29 +4,48 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:layout_width="match_parent">
-    />
+        />
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="328dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+    android:layout_marginLeft="30dp"
+        android:text="*Avalie jogadores em que ja participaram de algum evento com voce">
+
+    </TextView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="100dp">
 
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="0.8"
+            android:src="@drawable/user" />
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_card_number"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1.2">
 
             <TextView
                 android:id="@+id/nome"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:layout_marginLeft="20dp"
-                android:text="Otimo Jogador,porem deve aprimorar seu ataque" />
-
+                android:text="Maria Aparecida" />
+            <TextView
+                android:id="@+id/habilidae"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Lateral/Futebol" />
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
@@ -47,22 +66,31 @@
         android:orientation="horizontal"
         android:layout_marginTop="100dp">
 
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="0.8"
+            android:src="@drawable/user" />
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/til_card_number3"
+            android:id="@+id/til_card_number1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1.2">
 
             <TextView
-                android:id="@+id/nome2"
+                android:id="@+id/nome1"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:layout_marginLeft="20dp"
-                android:text="Bom,vencemos de 4 x 0,fez 3 pontos" />
-
+                android:text="Augusto da Silva" />
+            <TextView
+                android:id="@+id/habilidae1"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Atacante/Volei" />
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
@@ -70,42 +98,6 @@
 
     <RatingBar
         android:id="@+id/ratingBar1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="80dp"
-        android:numStars="5"
-        android:rating="2.0"
-        android:stepSize="1.0" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="100dp">
-
-
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/til_card_number5"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_weight="1.2">
-
-            <TextView
-                android:id="@+id/nome3"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_marginLeft="20dp"
-                android:text="Regular, deve trabalhar mais em equipe" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-    </LinearLayout>
-
-
-    <RatingBar
-        android:id="@+id/ratingBar5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="80dp"

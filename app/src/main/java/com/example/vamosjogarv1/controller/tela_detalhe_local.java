@@ -22,6 +22,7 @@ public class tela_detalhe_local extends AppCompatActivity {
             public void onClick(View v) {
                 Intent it = new Intent(tela_detalhe_local.this, tela_metodo_pagamento.class);
                 startActivity(it);
+                finish();
             }
         });
     }

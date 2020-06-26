@@ -33,6 +33,7 @@ public class tela_cadastrar_evento_proximo extends AppCompatActivity {
              public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
              Intent it = new Intent(tela_cadastrar_evento_proximo.this, tela_detalhe_local.class);
              startActivity(it);
+              finish();
                }
               });
     }

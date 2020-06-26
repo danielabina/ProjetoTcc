@@ -14,15 +14,13 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.vamosjogarv1.R;
 
-public class AvaliacaoFragment extends Fragment {
+public class AvaliarFragment extends Fragment {
 
     private AvaliacaoViewModel avaliacaoViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        avaliacaoViewModel =
-                ViewModelProviders.of(this).get(AvaliacaoViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_avaliacao, container, false);
+        View root = inflater.inflate(R.layout.fragment_avaliar, container, false);
         return root;
     }
 }

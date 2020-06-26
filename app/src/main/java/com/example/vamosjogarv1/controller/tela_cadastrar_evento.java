@@ -38,6 +38,7 @@ DatePickerDialog.OnDateSetListener  setListener;
             public void onClick(View v) {
                 Intent it = new Intent(tela_cadastrar_evento.this, tela_cadastrar_evento_proximo.class);
                 startActivity(it);
+                finish();
             }
         });
         //---------------------------

@@ -33,7 +33,7 @@ public class tela_lista_todos_eventos extends AppCompatActivity {
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent it = new Intent(tela_lista_todos_eventos.this, tela_detalhe_local.class);
+                Intent it = new Intent(tela_lista_todos_eventos.this, tela_detalhe_evento.class);
                 startActivity(it);
             }
         });

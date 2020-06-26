@@ -4,16 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="50dp">
+    android:layout_marginTop="0dp">
     <TextView
-        android:layout_marginTop="0dp"
+
+        android:layout_marginTop="50dp"
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="58dp"
         android:background="#E6DADA"
         android:ems="30"
         android:padding="15dp"
-        android:text=" LOCAL "
+        android:text="DETALHES DO LOCAL "
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textSize="25sp"
         />
@@ -22,12 +23,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="100dp">
+        android:layout_marginTop="120dp">
 
         <ImageView
             android:layout_width="0dp"
             android:layout_height="70dp"
-            android:layout_marginRight="5dp"
+
             android:layout_weight="0.8"
             android:src="@drawable/esportes_png_7"
             tools:ignore="Suspicious0dp" />
@@ -52,7 +53,8 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="190dp">
+        android:layout_marginTop="170dp"
+        android:padding="50dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -96,12 +98,4 @@
         android:padding="10dp"
         android:text="Escolher"></Button>
 
-    <Button
-        android:id="@+id/btnvoltar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="440dp"
-        android:background="#A7433FB5"
-        android:padding="10dp"
-        android:text="voltar"></Button>
 </RelativeLayout>
