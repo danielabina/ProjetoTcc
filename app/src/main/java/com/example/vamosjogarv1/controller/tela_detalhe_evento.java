@@ -22,6 +22,7 @@ public class tela_detalhe_evento extends AppCompatActivity {
             public void onClick(View v) {
                 Intent it = new Intent(tela_detalhe_evento.this, tela_lista_todos_eventos.class);
                 startActivity(it);
+                finish();
             }
         });
     }

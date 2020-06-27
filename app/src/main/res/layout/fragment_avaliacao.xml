@@ -24,6 +24,7 @@
                 android:id="@+id/nome"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
+                android:textSize="20dp"
                 android:layout_marginLeft="20dp"
                 android:text="Otimo Jogador,porem deve aprimorar seu ataque" />
 
@@ -60,6 +61,7 @@
                 android:id="@+id/nome2"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
+                android:textSize="20dp"
                 android:layout_marginLeft="20dp"
                 android:text="Bom,vencemos de 4 x 0,fez 3 pontos" />
 
@@ -96,7 +98,8 @@
                 android:id="@+id/nome3"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:layout_marginLeft="20dp"
+                android:textSize="20dp"
+                android:layout_marginLeft="10dp"
                 android:text="Regular, deve trabalhar mais em equipe" />
 
         </com.google.android.material.textfield.TextInputLayout>
