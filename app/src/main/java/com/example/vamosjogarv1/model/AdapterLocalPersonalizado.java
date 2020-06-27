@@ -56,11 +56,11 @@ public class AdapterLocalPersonalizado extends BaseAdapter {
         Categoria categoria = local.getCategoria();
 
         if (categoria.equals(Categoria.Futebol)) {
-            imagem.setImageResource(R.drawable.ic_menu_camera);
+            imagem.setImageResource(R.drawable.oi);
         } else if (categoria.equals(Categoria.Voleibol)) {
-            imagem.setImageResource(R.drawable.ic_menu_slideshow);
+            imagem.setImageResource(R.drawable.ola);
         } else if (categoria.equals(Categoria.Handebol)) {
-            imagem.setImageResource(R.drawable.ic_menu_slideshow);
+            imagem.setImageResource(R.drawable.rrr);
         }
 
         return view;

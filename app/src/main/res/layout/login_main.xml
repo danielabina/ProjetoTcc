@@ -32,13 +32,14 @@
             android:id="@+id/idEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#E8E3E3"
             android:ems="10"
             android:hint="EMAIL"
-            android:importantForAutofill="no"
             android:inputType="textEmailAddress"
-            android:visibility="visible"
-            tools:visibility="visible"></EditText>
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="135dp"
+            >
+
+        </EditText>
 
         <EditText
             android:id="@+id/idSenha"
@@ -61,7 +62,7 @@
             android:id="@+id/btnEntrar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#3F51B5"
+            android:background="@drawable/button_customizado"
             android:onClick="Login"
             android:text="Entrar" />
 
@@ -70,7 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:background="#B03F51B5"
+            android:background="@drawable/button_customizado"
             android:onClick="Cadastrar"
             android:text="CADASTRE-SE" />
 
@@ -78,7 +79,7 @@
             android:id="@+id/btnRedefinir"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#A7433FB5"
+            android:background="@drawable/button_customizado"
             android:layout_marginTop="2dp"
             android:onClick="Redefinir"
             android:padding="10dp"

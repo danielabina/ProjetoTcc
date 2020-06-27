@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="50dp">
+    android:layout_marginTop="30dp">
     <TextView
         android:layout_marginTop="0dp"
         android:id="@+id/textView4"
@@ -22,14 +22,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="100dp">
+        android:layout_marginTop="80dp">
 
         <ImageView
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_marginRight="5dp"
             android:layout_weight="0.8"
-            android:src="@drawable/esportes_png_7"
+            android:src="@drawable/ss"
             tools:ignore="Suspicious0dp" />
 
 
@@ -44,6 +44,7 @@
                 android:id="@+id/card_number"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:textSize="30sp"
                 android:text="Jogo de feriado" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -52,9 +53,10 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="125dp"
+        android:layout_marginTop="117dp"
         android:padding="50dp">
         <TextView
+            android:textSize="25sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=" 24/08/2020  19:00hrs">
@@ -63,33 +65,33 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="25sp"
             android:text="Rua da conceição 1000">
 
         </TextView>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="25sp"
             android:text="Com cobertura">
         </TextView>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="25sp"
             android:text="Aluguel de bola,colete">
         </TextView>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Não possui churrasqueira">
-        </TextView>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:textSize="25sp"
             android:text="Estaciomento Incluso">
         </TextView>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="25sp"
             android:text="**Opcionais cobrados a mais no local">
         </TextView>
     </com.google.android.material.textfield.TextInputLayout>
@@ -97,12 +99,13 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="285dp"
+        android:layout_marginTop="390dp"
         android:padding="50dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="29sp"
             android:text="PARTICIPANTES">
         </TextView>
     </com.google.android.material.textfield.TextInputLayout>
@@ -111,7 +114,7 @@
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="358dp">
+    android:layout_marginTop="480dp">
 
     <ImageView
         android:layout_width="0dp"
@@ -130,11 +133,13 @@
             android:id="@+id/nome"
             android:layout_width="match_parent"
             android:layout_height="30dp"
+            android:textSize="20sp"
             android:text="Maria Aparecida" />
         <TextView
             android:id="@+id/habilidae"
             android:layout_width="match_parent"
             android:layout_height="60dp"
+            android:textSize="20sp"
             android:text="Lateral/Futebol" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -143,8 +148,8 @@
         android:id="@+id/btnParticipar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="470dp"
-        android:background="#A7433FB5"
+        android:layout_marginTop="560dp"
+        android:background="@drawable/button_customizado"
         android:padding="10dp"
         android:text="Participar"></Button>
 

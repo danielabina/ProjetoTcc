@@ -46,8 +46,8 @@ public class tela_cadastrar_evento_proximo extends AppCompatActivity {
      */
     private List<Local> todosOsLocais() {
         return new ArrayList<>(Arrays.asList(
-                new Local("Java", "básico de Java", Categoria.Voleibol),
-                new Local("HTML e CSS", "HTML 5 e suas novidades", Categoria.Futebol),
-                new Local("Android", "boas de práticas",Categoria.Handebol)));
+                new Local("Cancha Pinheirinho", "Rua da Conceição 100", Categoria.Voleibol),
+                new Local("Trieste", "Av Toaldo Tulio", Categoria.Futebol),
+                new Local("Bom de Bola", "Av Presidente Kenedy",Categoria.Handebol)));
     }
 }

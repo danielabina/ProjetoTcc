@@ -30,7 +30,7 @@
             android:layout_height="70dp"
 
             android:layout_weight="0.8"
-            android:src="@drawable/esportes_png_7"
+            android:src="@drawable/ola"
             tools:ignore="Suspicious0dp" />
 
 
@@ -44,8 +44,9 @@
             <TextView
                 android:id="@+id/card_number"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:text="Cancha Pinheirinho" />
+                android:layout_height="match_parent"
+                android:text="Cancha Pinheirinho"
+                android:textSize="30sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
@@ -59,33 +60,33 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="28sp"
             android:text="Rua da conceição 1000">
 
         </TextView>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="28sp"
             android:text="Com cobertura">
         </TextView>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="28sp"
             android:text="Aluguel de bola,colete">
         </TextView>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Não possui churrasqueira">
-        </TextView>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:textSize="28sp"
             android:text="Estaciomento Incluso">
         </TextView>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="28sp"
             android:text="**Opcionais cobrados a mais no local">
         </TextView>
     </com.google.android.material.textfield.TextInputLayout>
@@ -93,8 +94,8 @@
         android:id="@+id/btnproximook"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="380dp"
-        android:background="#A7433FB5"
+        android:layout_marginTop="470dp"
+        android:background="@drawable/button_customizado"
         android:padding="10dp"
         android:text="Escolher"></Button>
 

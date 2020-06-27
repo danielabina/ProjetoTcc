@@ -61,7 +61,7 @@
             android:id="@+id/btnEnviar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#A7433FB5"
+            android:background="@drawable/button_customizado"
             android:layout_marginTop="2dp"
             android:padding="10dp"
             android:text="Enviar" />

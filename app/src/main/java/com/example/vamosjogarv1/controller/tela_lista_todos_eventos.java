@@ -47,9 +47,9 @@ public class tela_lista_todos_eventos extends AppCompatActivity {
      */
     private List<Evento> todosOsEventos() {
         return new ArrayList<>(Arrays.asList(
-                new Evento("Java", "básico de Java", Categoria.Voleibol),
-                new Evento("HTML e CSS", "HTML 5 e suas novidades", Categoria.Futebol),
-                new Evento("Android", "boas de práticas",Categoria.Handebol)));
+                new Evento("Jogo de Feriado", "Cancha Pinheirinho", Categoria.Voleibol),
+                new Evento("Meninas", "Jogue mais", Categoria.Futebol),
+                new Evento("Campeonato", "Trieste",Categoria.Handebol)));
     }
 }
 
