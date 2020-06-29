@@ -88,7 +88,7 @@
         android:orientation="vertical"
         android:padding="35dp">
         <Button
-            android:id="@+id/btnavaliacao"
+            android:id="@+id/btnavaliacaogg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"

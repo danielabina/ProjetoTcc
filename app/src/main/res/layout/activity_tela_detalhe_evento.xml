@@ -18,54 +18,55 @@
         android:textSize="25sp"
         />
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="80dp">
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="70dp"
-            android:layout_marginRight="5dp"
-            android:layout_weight="0.8"
-            android:src="@drawable/ss"
-            tools:ignore="Suspicious0dp" />
-
+        android:layout_marginTop="60dp">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_card_number"
             android:layout_width="0dp"
+            android:padding="5dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
             android:layout_weight="1.2">
 
             <TextView
                 android:id="@+id/card_number"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:textSize="30sp"
-                android:text="Jogo de feriado" />
+                android:layout_height="match_parent"
+                android:text="JOGO DAS MENINAS"
+                android:textSize="30sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/rrr"
+        android:layout_marginTop="110dp"
+        tools:ignore="Suspicious0dp" />
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="117dp"
-        android:padding="50dp">
+        android:layout_marginTop="270dp"
+        android:padding="10dp">
+
         <TextView
-            android:textSize="25sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=" 24/08/2020  19:00hrs">
+            android:textSize="28sp"
+            android:text="DETALHES :">
+
         </TextView>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="25sp"
+            android:layout_marginTop="0dp"
             android:text="Rua da conceição 1000">
 
         </TextView>
@@ -73,34 +74,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="25sp"
-            android:text="Com cobertura">
+            android:layout_marginTop="0dp"
+            android:text="Data/hora : 24/08/2020 19:00hrs">
         </TextView>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="25sp"
-            android:text="Aluguel de bola,colete">
-        </TextView>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="25sp"
             android:text="Estaciomento Incluso">
         </TextView>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="25sp"
-            android:text="**Opcionais cobrados a mais no local">
-        </TextView>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="390dp"
-        android:padding="50dp">
+        android:layout_marginTop="430dp"
+        android:padding="5dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -109,7 +99,6 @@
             android:text="PARTICIPANTES">
         </TextView>
     </com.google.android.material.textfield.TextInputLayout>
-
 
 <LinearLayout
     android:layout_width="match_parent"
@@ -144,6 +133,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 </LinearLayout>
+
     <Button
         android:id="@+id/btnParticipar"
         android:layout_width="match_parent"

@@ -24,7 +24,7 @@ Button btnProximoListar;
 
        btnProximoListar.setOnClickListener(new View.OnClickListener() {         @Override
            public void onClick(View v) {
-               Intent it = new Intent(tela_metodo_pagamento.this, tela_lista_todos_eventos.class);
+               Intent it = new Intent(tela_metodo_pagamento.this, tela_inicial_.class);
                startActivity(it);
                finish();
            }

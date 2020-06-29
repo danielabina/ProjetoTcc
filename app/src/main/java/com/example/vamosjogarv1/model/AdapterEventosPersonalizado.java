@@ -57,9 +57,9 @@ public class AdapterEventosPersonalizado extends BaseAdapter {
         Categoria categoria = evento.getCategoria();
 
         if (categoria.equals(Categoria.Futebol)) {
-            imagem.setImageResource(R.drawable.ss);
+            imagem.setImageResource(R.drawable.rrr);
         } else if (categoria.equals(Categoria.Voleibol)) {
-            imagem.setImageResource(R.drawable.ss);
+            imagem.setImageResource(R.drawable.ola);
         } else if (categoria.equals(Categoria.Handebol)) {
             imagem.setImageResource(R.drawable.ss);
         }

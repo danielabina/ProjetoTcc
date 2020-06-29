@@ -38,6 +38,19 @@
 </Spinner>
 
     <TextView
+        android:id="@+id/nomeEvento"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="30dp"
+        android:background="#E8E3E3"
+        android:textSize="17sp"
+        android:hint=" DIGITE O NOME DO EVENTO "
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="606dp"
+        />
+    <TextView
         android:id="@+id/data"
         android:layout_width="match_parent"
         android:layout_height="50dp"

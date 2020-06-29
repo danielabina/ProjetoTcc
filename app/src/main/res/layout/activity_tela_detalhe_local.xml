@@ -7,7 +7,7 @@
     android:layout_marginTop="0dp">
     <TextView
 
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="58dp"
@@ -23,63 +23,62 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="120dp">
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="70dp"
-
-            android:layout_weight="0.8"
-            android:src="@drawable/ola"
-            tools:ignore="Suspicious0dp" />
-
+        android:layout_marginTop="80dp">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_card_number"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
             android:layout_weight="1.2">
 
             <TextView
                 android:id="@+id/card_number"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Cancha Pinheirinho"
+                android:text="CANCHA PINHEIRINHO"
                 android:textSize="30sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
-
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ola"
+        android:layout_marginTop="130dp"
+        tools:ignore="Suspicious0dp" />
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="170dp"
-        android:padding="50dp">
+        android:layout_marginTop="300dp"
+        android:padding="10dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="28sp"
+            android:text="DETALHES :">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:layout_marginTop="10dp"
             android:text="Rua da conceição 1000">
 
         </TextView>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="28sp"
-            android:text="Com cobertura">
+            android:textSize="25sp"
+            android:text="com cobertura,">
         </TextView>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="28sp"
-            android:text="Aluguel de bola,colete">
-        </TextView>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="28sp"
+            android:textSize="25sp"
             android:text="Estaciomento Incluso">
         </TextView>
 
@@ -87,16 +86,37 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="28sp"
-            android:text="**Opcionais cobrados a mais no local">
+            android:layout_marginTop="10dp"
+            android:text="OPCIONAIS :">
+
         </TextView>
+
+        <CheckBox
+            android:layout_width="113dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="0dp"
+            android:text="BOLA">
+
+        </CheckBox>
+
+        <CheckBox
+            android:layout_width="169dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="0dp"
+            android:text="COLETE"></CheckBox>
+
     </com.google.android.material.textfield.TextInputLayout>
+
+
     <Button
         android:id="@+id/btnproximook"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="470dp"
+        android:layout_marginTop="580dp"
         android:background="@drawable/button_customizado"
         android:padding="10dp"
-        android:text="Escolher"></Button>
+        android:text="Escolher">
+
+    </Button>
 
 </RelativeLayout>

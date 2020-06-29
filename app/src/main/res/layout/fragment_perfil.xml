@@ -77,16 +77,17 @@
         android:layout_width="match_parent"
         android:layout_height="234dp"
         android:orientation="vertical"
-        android:padding="35dp">
+        android:padding="35dp"
+        tools:context=".controller.tela_perfil">
+
         <Button
-            android:id="@+id/btnavaliacao"
+            android:id="@+id/btnAvaliacao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
+            android:onClick="SuasAvaliacoes"
             android:background="@drawable/button_customizado"
-            android:onClick="avaliacoes"
-            android:text="SUAS AVALIAÇÕES"
-            tools:ignore="OnClick" />
+            android:text="SUAS AVALIAÇÕES" />
         <Button
             android:id="@+id/btnEditar"
             android:layout_width="match_parent"

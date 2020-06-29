@@ -20,7 +20,7 @@ public class tela_detalhe_evento extends AppCompatActivity {
         btnParticipar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent it = new Intent(tela_detalhe_evento.this, tela_lista_todos_eventos.class);
+                Intent it = new Intent(tela_detalhe_evento.this, tela_inicial_.class);
                 startActivity(it);
                 finish();
             }

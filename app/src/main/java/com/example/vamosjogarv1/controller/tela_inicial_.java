@@ -70,19 +70,6 @@ public class tela_inicial_ extends AppCompatActivity  implements NavigationView.
         //-----------------------------------------------------------------
     }
 
-
-
-    public void CadastrarEvento() {
-        Button btnCadastrarEvento = findViewById(R.id.btnCriarEvento);
-        btnCadastrarEvento.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent it = new Intent(tela_inicial_.this, tela_cadastrar_evento.class);
-                startActivity(it);
-            }
-        });
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
