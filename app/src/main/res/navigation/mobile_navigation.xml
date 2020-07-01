@@ -24,7 +24,7 @@
     <fragment
         android:id="@+id/nav_avalia"
         android:name="com.example.vamosjogarv1.controller.ui.avaliacao.AvaliacaoFragment"
-        android:label="AVALIACAO"
+        android:label="SUAS AVALIACÕES"
         tools:layout="@layout/fragment_avaliacao" >
     </fragment>
     <fragment
@@ -37,7 +37,7 @@
     <fragment
         android:id="@+id/nav_termo"
         android:name="com.example.vamosjogarv1.controller.ui.termodeuso.TermodeusoFragment"
-        android:label="TERMO"
+        android:label="TERMO DE USO"
         tools:layout="@layout/fragment_termodeuso" />
 
     <fragment

@@ -6,6 +6,7 @@
     android:layout_height="fill_parent"
     android:background="#EDEBEF"
     android:orientation="vertical"
+    android:id="@+id/IdfragmentPerfil"
     tools:context=".controller.tela_perfil">
 
 
@@ -80,14 +81,13 @@
         android:padding="35dp"
         tools:context=".controller.tela_perfil">
 
-        <Button
-            android:id="@+id/btnAvaliacao"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:onClick="SuasAvaliacoes"
-            android:background="@drawable/button_customizado"
-            android:text="SUAS AVALIAÇÕES" />
+<!--        <Button-->
+<!--            android:id="@+id/btnAvaliacao"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="2dp"-->
+<!--            android:background="@drawable/button_customizado"-->
+<!--            android:text="SUAS AVALIAÇÕES" />-->
         <Button
             android:id="@+id/btnEditar"
             android:layout_width="match_parent"

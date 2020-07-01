@@ -1,5 +1,6 @@
 package com.example.vamosjogarv1.controller.ui.perfil;
 
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -19,6 +20,7 @@ import com.example.vamosjogarv1.R;
 import com.example.vamosjogarv1.controller.tela_avaliacao;
 import com.example.vamosjogarv1.controller.tela_perfil;
 import com.example.vamosjogarv1.controller.ui.avaliacao.AvaliacaoFragment;
+import com.example.vamosjogarv1.model.Perfil;
 
 public class PerfilFragment extends Fragment implements View.OnClickListener {
 
@@ -29,14 +31,27 @@ public class PerfilFragment extends Fragment implements View.OnClickListener {
         perfilViewModel =
                 ViewModelProviders.of(this).get(PerfilViewModel.class);
         View root = inflater.inflate(R.layout.fragment_perfil, container, false);
-        Button b = (Button) root.findViewById(R.id.btnAvaliacao);
-        b.setOnClickListener(this);
+//        Button b = (Button) root.findViewById(R.id.btnAvaliacao);
+//        b.setOnClickListener(this);
         return root;
     }
 
     @Override
     public void onClick(View v) {
+//        switch (v.getId()){
+//            case R.id.btnAvaliacao:
+//                FragmentManager mFragmentManager = getActivity().getSupportFragmentManager();
+//                AvaliacaoFragment perfil = new AvaliacaoFragment();
+//                mFragmentManager
+//                        .beginTransaction()
+//                        .replace(R.id.IdfragmentAvaliacao,
+//                                perfil, "IdfragmentAvaliacao")
+//                        .commit();
+//                break;
 
+
+        }
 
     }
-}
+
+

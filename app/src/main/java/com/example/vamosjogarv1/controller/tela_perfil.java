@@ -18,13 +18,13 @@ Button btnAvaliacoes;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
 
-        btnAvaliacoes = (Button) findViewById(R.id.btnAvaliacao);
-        btnAvaliacoes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent it = new Intent(tela_perfil.this, tela_avaliacao.class);
-                startActivity(it);            }
-        });
+//        btnAvaliacoes = (Button) findViewById(R.id.btnAvaliacao);
+//        btnAvaliacoes.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent it = new Intent(tela_perfil.this, tela_avaliacao.class);
+//                startActivity(it);            }
+//        });
     }
 
     public void editar(View view){
