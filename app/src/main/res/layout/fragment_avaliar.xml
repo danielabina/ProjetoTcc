@@ -4,14 +4,14 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:layout_width="match_parent">
-        />
+    />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="328dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-    android:layout_marginLeft="30dp"
+        android:layout_marginLeft="30dp"
         android:text="*Avalie jogadores em que ja participaram de algum evento com voce">
 
     </TextView>

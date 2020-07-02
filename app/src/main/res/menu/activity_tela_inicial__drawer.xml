@@ -12,10 +12,6 @@
             android:id="@+id/nav_avalia"
             android:icon="@android:drawable/sym_action_chat"
             android:title="Suas Avaliações" />
-       <item
-        android:id="@+id/nav_avaliar"
-        android:icon="@android:drawable/ic_dialog_info"
-        android:title="Avaliar" />
         <item
             android:id="@+id/nav_faleConosco"
             android:icon="@android:drawable/ic_dialog_email"

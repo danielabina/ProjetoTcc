@@ -21,12 +21,12 @@
 
     </fragment>
 
-    <fragment
-        android:id="@+id/nav_avalia"
-        android:name="com.example.vamosjogarv1.controller.ui.avaliacao.AvaliacaoFragment"
-        android:label="SUAS AVALIACÕES"
-        tools:layout="@layout/fragment_avaliacao" >
-    </fragment>
+<!--    <fragment-->
+<!--        android:id="@+id/nav_avalia"-->
+<!--        android:name="com.example.vamosjogarv1.controller.ui.avaliacao.AvaliacaoFragment"-->
+<!--        android:label="SUAS AVALIACÕES"-->
+<!--        tools:layout="@layout/fragment_avaliacao" >-->
+<!--    </fragment>-->
     <fragment
         android:id="@+id/nav_avaliar"
         android:name="com.example.vamosjogarv1.controller.ui.avaliacao.AvaliarFragment"

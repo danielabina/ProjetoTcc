@@ -90,13 +90,15 @@ public class tela_inicial_ extends AppCompatActivity  implements NavigationView.
 
         if(id == R.id.nav_perfil){
             getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,new PerfilFragment()).commit();
-        }else if(id == R.id.nav_avalia){
-            getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,new AvaliacaoFragment()).commit();
         }else if(id == R.id.nav_faleConosco){
             getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,new FaleConoscoFragment()).commit();
         }else if(id == R.id.nav_termo){
             getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,new TermodeusoFragment()).commit();
         }
+
+//        else if(id == R.id.nav_avalia){
+//            getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,new AvaliacaoFragment()).commit();
+//        }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -104,6 +106,10 @@ public class tela_inicial_ extends AppCompatActivity  implements NavigationView.
         return true;
     }
 
+    public void MeusEvento(View view) {
+        Intent it = new Intent(tela_inicial_.this, tela_menu_eventos.class);
+        startActivity(it);
+    }
     public void BuscarEvento(View view) {
         Intent it = new Intent(tela_inicial_.this, tela_buscar_evento.class);
         startActivity(it);
