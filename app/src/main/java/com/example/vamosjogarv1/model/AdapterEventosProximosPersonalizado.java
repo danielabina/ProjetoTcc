@@ -59,9 +59,9 @@ public class AdapterEventosProximosPersonalizado extends BaseAdapter {
         if (categoria.equals(Categoria.Futebol)) {
             imagem.setImageResource(R.drawable.ic_menu_camera);
         } else if (categoria.equals(Categoria.Voleibol)) {
-            imagem.setImageResource(R.drawable.ic_menu_slideshow);
+            imagem.setImageResource(R.drawable.ic_menu_camera);
         } else if (categoria.equals(Categoria.Handebol)) {
-            imagem.setImageResource(R.drawable.ic_menu_slideshow);
+            imagem.setImageResource(R.drawable.ic_menu_camera);
         }
 
         return view;
