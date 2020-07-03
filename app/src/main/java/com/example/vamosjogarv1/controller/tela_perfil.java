@@ -27,13 +27,4 @@ Button btnAvaliacoes;
 //        });
     }
 
-    public void editar(View view){
-        Intent it = new Intent(tela_perfil.this, tela_perfil.class);
-        startActivity(it);
-    }
-
-    public  void SuasAvaliacoes(View view) {
-        Intent it = new Intent(tela_perfil.this, AvaliacaoFragment.class);
-        startActivity(it);
-    }
 }

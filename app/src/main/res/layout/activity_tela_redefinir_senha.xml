@@ -42,7 +42,6 @@
             android:id="@+id/idEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/button_customizado"
             android:ems="10"
             android:hint="DIGITE O EMAIL PARA REDEFINIR "
             android:importantForAutofill="no"

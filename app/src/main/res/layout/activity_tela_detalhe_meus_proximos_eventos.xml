@@ -141,7 +141,6 @@
         android:layout_marginTop="560dp"
         android:background="@drawable/button_customizado"
         android:padding="10dp"
-        android:onClick="cancelarparticipar"
         android:text="Cancelar Participação"></Button>
 
 </RelativeLayout>

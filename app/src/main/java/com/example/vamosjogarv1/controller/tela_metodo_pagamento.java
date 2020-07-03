@@ -5,10 +5,13 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.vamosjogarv1.R;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 public class tela_metodo_pagamento extends AppCompatActivity {
@@ -22,14 +25,38 @@ Button btnProximoListar;
 
        btnProximoListar = (Button) findViewById(R.id.btnProximoLista);
 
-       btnProximoListar.setOnClickListener(new View.OnClickListener() {         @Override
+       btnProximoListar.setOnClickListener(new View.OnClickListener() {
+           @Override
            public void onClick(View v) {
-               Intent it = new Intent(tela_metodo_pagamento.this, tela_inicial_.class);
-               startActivity(it);
-               finish();
+           confirmarPagamento();
            }
        });
     }
+    public void confirmarPagamento(){
+        AlertDialog.Builder msgBox = new AlertDialog.Builder(this);
+        msgBox.setTitle("Confirmar Pagamento");
+        msgBox.setIcon(android.R.drawable.ic_menu_add);
+        msgBox.setMessage("Tem Certeza que deseja confirmar o pagamento?");
+        msgBox.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(tela_metodo_pagamento.this,"Pagamento confirmado com sucesso!",Toast.LENGTH_SHORT).show();
+                Intent it = new Intent(tela_metodo_pagamento.this, tela_inicial_.class);
+                startActivity(it);
+                finish();
+            }
+        });
+        msgBox.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(tela_metodo_pagamento.this,"Voce cancelou o pagemento ",Toast.LENGTH_SHORT).show();
+                Intent it = new Intent(tela_metodo_pagamento.this, tela_metodo_pagamento.class);
+                startActivity(it);
+            }
+        });
+        msgBox.show();
 
+
+    }
 
 }
