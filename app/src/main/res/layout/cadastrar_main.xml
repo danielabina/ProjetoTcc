@@ -64,7 +64,7 @@
             android:importantForAutofill="no"
             android:padding="10dp"
             android:ems="20"
-            android:text="   GENERO"
+            android:text="   GÊNERO"
             android:textSize="18sp">
 
         </TextView>

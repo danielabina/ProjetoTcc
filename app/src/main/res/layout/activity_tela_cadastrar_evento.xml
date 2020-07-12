@@ -93,6 +93,6 @@
 
         android:onClick="proximo"
         android:padding="10dp"
-        android:text="Proximo"></Button>
+        android:text="Próximo"></Button>
 
 </LinearLayout>

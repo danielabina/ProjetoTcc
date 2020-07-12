@@ -38,7 +38,7 @@
         android:layout_marginTop="10dp"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:text="       *Voce poderá criar eventos escolha local,data e hora ">
+        android:text="       *Você poderá criar eventos escolha local,data e hora ">
 
     </TextView>
 
@@ -61,7 +61,7 @@
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"
         android:textSize="20sp"
-        android:text="        *Voce poderá buscar eventos, preencha local desejado">
+        android:text="        *Você poderá buscar eventos, preencha local desejado">
 
     </TextView>
 

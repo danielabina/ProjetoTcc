@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:layout_marginLeft="30dp"
+        android:textSize="20dp"
         android:text="*Avalie jogadores em que ja participaram de algum evento com voce">
 
     </TextView>

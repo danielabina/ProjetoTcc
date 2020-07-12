@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/button_customizado"
         android:textSize="25sp"
-        android:text="PROXIMOS EVENTOS"
+        android:text="PRÓXIMOS EVENTOS"
         android:onClick="ProximosEventos"
         ></Button>
 

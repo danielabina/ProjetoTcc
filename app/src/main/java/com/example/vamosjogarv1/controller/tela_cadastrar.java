@@ -36,7 +36,7 @@ public class tela_cadastrar extends AppCompatActivity {
         editNome = (EditText) findViewById(R.id.idNome);
         editHabilidade = (EditText) findViewById(R.id.idHabilidade);
 
-        final String HOST = "http://192.168.0.114/Login/";
+        final String HOST = "http://192.168.0.108//Login/";
 
 
         btnCadastrar.setOnClickListener(new View.OnClickListener() {

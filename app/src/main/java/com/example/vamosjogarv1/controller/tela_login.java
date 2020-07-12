@@ -22,28 +22,28 @@ public class tela_login extends AppCompatActivity {
     Pessoa pessoa = new Pessoa();
     Button btnEntrar,btnEsqueciSenha,btnCadastrar;
     EditText editEmail,editSenha;
-    private String HOST = "http://192.168.0.114/Login/";
+    private String HOST = "http://192.168.0.108/Login/";
 
-//    public void verificaDados() {
-//
-//        SharedPreferences pref = getSharedPreferences("info", MODE_PRIVATE);
-//        String emailEncrypt = pref.getString(encrypt("email"), "");
-//
-//        String email = decrypt(emailEncrypt);
-//
-//        if(!email.isEmpty()) {
-//
-//            Intent abrePrincipal = new Intent(tela_login.this, tela_inicial_.class);
-//            startActivity(abrePrincipal);
-//        }
-//    }
+    public void verificaDados() {
+
+        SharedPreferences pref = getSharedPreferences("info", MODE_PRIVATE);
+        String emailEncrypt = pref.getString(encrypt("email"), "");
+
+        String email = decrypt(emailEncrypt);
+
+        if(!email.isEmpty()) {
+
+            Intent abrePrincipal = new Intent(tela_login.this, tela_inicial_.class);
+            startActivity(abrePrincipal);
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_main);
 
-        //verificaDados();
+        verificaDados();
 
 
         btnEntrar = (Button) findViewById(R.id.btnEntrar);
@@ -88,73 +88,72 @@ public class tela_login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent it = new Intent(tela_login.this, tela_inicial_.class);
-                startActivity(it);
-//                String URL = HOST + "/logar.php";
-//
-//            String email = editEmail.getText().toString();
-//            String senha = editSenha.getText().toString();
-//                if (email.isEmpty() || senha.isEmpty()) {
-//                    Toast.makeText(tela_login.this, "Todos os campos(OBRIGATORIOS) devem ser preenchidos" , Toast.LENGTH_LONG).show();
-//                } else {
-//
-//                    Ion.with(tela_login.this)
-//                            .load(URL)
-//                            .setBodyParameter("email_app",email)
-//                            .setBodyParameter("senha_app",senha)
-//                            .asJsonObject()
-//                            .setCallback(new FutureCallback<JsonObject>() {
-//                                @Override
-//                                public void onCompleted(Exception e, JsonObject result) {
-//                                    try {
-//                                        String RETORNO = result.get("LOGIN").getAsString();
-//                                        if(RETORNO.equals("ERRO")) {
-//                                            Toast.makeText(tela_login.this, "OPS! Email ou senham incorretos", Toast.LENGTH_LONG).show();
-//                                        }else if(RETORNO.equals("SUCESSO")){
-//                                            Toast.makeText(tela_login.this, "Carregando...", Toast.LENGTH_LONG).show();
-//
-//                                            String nome = result.get("NOME").getAsString();
-//                                            String email = result.get("EMAIL").getAsString();
-//
-//                                            SharedPreferences.Editor pref = getSharedPreferences("info", MODE_PRIVATE).edit();
-//
-//                                            pref.putString(encrypt("nome"), encrypt(nome));
-//                                            pref.putString(encrypt("email"), encrypt(email));
-//
-//                                            pref.commit();
-//
-//                                            Intent it = new Intent(tela_login.this, tela_inicial_.class);
-//                                            startActivity(it);
-//                                        }else {
-//                                            Toast.makeText(tela_login.this, "Ops! Ocorreu o erro," , Toast.LENGTH_LONG).show();
-//                                        }
-//                                    } catch (Exception erro) {
-//
-//                                        Toast.makeText(tela_login.this, "OPS OCORREU UM ERRO" + erro, Toast.LENGTH_LONG).show();
-//
-//                                    }
-//
-////                                }
-////                            });
-//                }
-//
-         }
+
+                String URL = HOST + "/logar.php";
+
+                String email = editEmail.getText().toString();
+                String senha = editSenha.getText().toString();
+                if (email.isEmpty() || senha.isEmpty()) {
+                    Toast.makeText(tela_login.this, "Todos os campos(OBRIGATORIOS) devem ser preenchidos" , Toast.LENGTH_LONG).show();
+                } else {
+
+                    Ion.with(tela_login.this)
+                            .load(URL)
+                            .setBodyParameter("email_app",email)
+                            .setBodyParameter("senha_app",senha)
+                            .asJsonObject()
+                            .setCallback(new FutureCallback<JsonObject>() {
+                                @Override
+                                public void onCompleted(Exception e, JsonObject result) {
+                                    try {
+                                        String RETORNO = result.get("LOGIN").getAsString();
+                                        if(RETORNO.equals("ERRO")) {
+                                            Toast.makeText(tela_login.this, "OPS! Email ou senham incorretos", Toast.LENGTH_LONG).show();
+                                        }else if(RETORNO.equals("SUCESSO")){
+                                            Toast.makeText(tela_login.this, "Carregando...", Toast.LENGTH_LONG).show();
+
+                                            String nome = result.get("NOME").getAsString();
+                                            String email = result.get("EMAIL").getAsString();
+
+                                            SharedPreferences.Editor pref = getSharedPreferences("info", MODE_PRIVATE).edit();
+
+                                            pref.putString(encrypt("nome"), encrypt(nome));
+                                            pref.putString(encrypt("email"), encrypt(email));
+
+                                            pref.commit();
+
+                                            Intent it = new Intent(tela_login.this, tela_inicial_.class);
+                                            startActivity(it);
+                                        }else {
+                                            Toast.makeText(tela_login.this, "Ops! Ocorreu o erro," , Toast.LENGTH_LONG).show();
+                                        }
+                                    } catch (Exception erro) {
+
+                                        Toast.makeText(tela_login.this, "OPS OCORREU UM ERRO" + erro, Toast.LENGTH_LONG).show();
+
+                                    }
+
+                                }
+                            });
+                }
+
+            }
         });
     }
 
-//    public String encrypt(String palavra) {
-//
-//        return Base64.encodeToString(palavra.getBytes(), Base64.DEFAULT);
-//    }
-//
-//    public String decrypt(String palavra) {
-//
-//        return new String(Base64.decode(palavra, Base64.DEFAULT));
-//    }
+    public String encrypt(String palavra) {
 
-//    @Override
-//    protected void onPause() {
-//        super.onPause();
-//        finish();
-//    }
+        return Base64.encodeToString(palavra.getBytes(), Base64.DEFAULT);
+    }
+
+    public String decrypt(String palavra) {
+
+        return new String(Base64.decode(palavra, Base64.DEFAULT));
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        finish();
+    }
 }
