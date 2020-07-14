@@ -3,8 +3,7 @@ package com.example.vamosjogarv1.controller;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.vamosjogarv1.model.AdapterAvaliacaoPersonalizado;
-import com.example.vamosjogarv1.model.AdapterEventosPersonalizado;
+//import com.example.vamosjogarv1.model.AdapterEventosPersonalizado;
 import com.example.vamosjogarv1.model.Categoria;
 import com.example.vamosjogarv1.model.Evento;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -34,8 +33,8 @@ public class tela_avaliacao extends AppCompatActivity {
 
         ListView lista = (ListView) findViewById(R.id.lista);
         List<Evento> eventos = todosOsEventos();
-        AdapterAvaliacaoPersonalizado adapter = new AdapterAvaliacaoPersonalizado(eventos, eventos, this);
-        lista.setAdapter(adapter);
+//        AdapterAvaliacaoPersonalizado adapter = new AdapterAvaliacaoPersonalizado(eventos, eventos, this);
+//        lista.setAdapter(adapter);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

@@ -2,8 +2,8 @@ package com.example.vamosjogarv1.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.vamosjogarv1.R;
-import com.example.vamosjogarv1.model.AdapterEventosAnterioresPersonalizado;
-import com.example.vamosjogarv1.model.AdapterEventosProximosPersonalizado;
+//import com.example.vamosjogarv1.model.AdapterEventosAnterioresPersonalizado;
+//import com.example.vamosjogarv1.model.AdapterEventosProximosPersonalizado;
 import com.example.vamosjogarv1.model.Categoria;
 import com.example.vamosjogarv1.model.Evento;
 
@@ -25,8 +25,8 @@ public class tela_meus_proximos_eventos extends AppCompatActivity {
         setContentView(R.layout.activity_tela_meus_proximos_eventos);
         ListView lista = (ListView) findViewById(R.id.lista3);
         List<Evento> eventos = todosOsEventos();
-        AdapterEventosProximosPersonalizado adapter = new AdapterEventosProximosPersonalizado(eventos, eventos, this);
-        lista.setAdapter(adapter);
+//        AdapterEventosProximosPersonalizado adapter = new AdapterEventosProximosPersonalizado(eventos, eventos, this);
+//        lista.setAdapter(adapter);
 
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {

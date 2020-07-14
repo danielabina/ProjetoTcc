@@ -20,9 +20,10 @@ import com.koushikdutta.ion.Ion;
 public class tela_login extends AppCompatActivity {
 
     Pessoa pessoa = new Pessoa();
+    connection Connection = new connection();
     Button btnEntrar,btnEsqueciSenha,btnCadastrar;
     EditText editEmail,editSenha;
-    private String HOST = "http://192.168.0.108/Login/";
+    private String HOST = Connection.getLogin();
 
     public void verificaDados() {
 
@@ -89,7 +90,7 @@ public class tela_login extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                String URL = HOST + "/logar.php";
+                String URL = HOST;
 
                 String email = editEmail.getText().toString();
                 String senha = editSenha.getText().toString();

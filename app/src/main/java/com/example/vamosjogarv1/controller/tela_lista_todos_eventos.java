@@ -2,7 +2,7 @@ package com.example.vamosjogarv1.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.vamosjogarv1.R;
-import com.example.vamosjogarv1.model.AdapterEventosPersonalizado;
+//import com.example.vamosjogarv1.model.AdapterEventosPersonalizado;
 import com.example.vamosjogarv1.model.AdapterLocalPersonalizado;
 import com.example.vamosjogarv1.model.Categoria;
 import com.example.vamosjogarv1.model.Evento;
@@ -26,8 +26,8 @@ public class tela_lista_todos_eventos extends AppCompatActivity {
         setContentView(R.layout.activity_tela_lista_todos_eventos);
         ListView lista = (ListView) findViewById(R.id.lista);
         List<Evento> eventos = todosOsEventos();
-        AdapterEventosPersonalizado adapter = new AdapterEventosPersonalizado(eventos, eventos, this);
-        lista.setAdapter(adapter);
+//        AdapterEventosPersonalizado adapter = new AdapterEventosPersonalizado(eventos, eventos, this);
+//        lista.setAdapter(adapter);
 
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {

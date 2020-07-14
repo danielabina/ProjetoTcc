@@ -22,7 +22,7 @@
         <activity android:name=".controller.tela_detalhe_local" />
         <activity android:name=".controller.tela_lista_todos_eventos" />
         <activity android:name=".controller.tela_lista_eventos_anteriores" />
-        <activity android:name=".controller.tela_cadastrar_evento_proximo" />
+        <activity android:name=".controller.tela_lista_local" />
         <activity android:name=".controller.tela_buscar_evento" />
         <activity android:name=".controller.tela_cadastrar_evento" />
         <activity

@@ -36,7 +36,7 @@ DatePickerDialog.OnDateSetListener  setListener;
         btnProximo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent it = new Intent(tela_cadastrar_evento.this, tela_cadastrar_evento_proximo.class);
+                Intent it = new Intent(tela_cadastrar_evento.this, tela_lista_local.class);
                 startActivity(it);
                 finish();
             }

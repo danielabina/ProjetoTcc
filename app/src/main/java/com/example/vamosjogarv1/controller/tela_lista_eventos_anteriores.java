@@ -9,8 +9,8 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.vamosjogarv1.R;
-import com.example.vamosjogarv1.model.AdapterEventosAnterioresPersonalizado;
-import com.example.vamosjogarv1.model.AdapterEventosPersonalizado;
+//import com.example.vamosjogarv1.model.AdapterEventosAnterioresPersonalizado;
+//import com.example.vamosjogarv1.model.AdapterEventosPersonalizado;
 import com.example.vamosjogarv1.model.Categoria;
 import com.example.vamosjogarv1.model.Evento;
 
@@ -26,8 +26,8 @@ public class tela_lista_eventos_anteriores extends AppCompatActivity {
         setContentView(R.layout.activity_tela_lista_eventos_anteriores);
         ListView lista = (ListView) findViewById(R.id.lista3);
         List<Evento> eventos = todosOsEventos();
-        AdapterEventosAnterioresPersonalizado adapter = new AdapterEventosAnterioresPersonalizado(eventos, eventos, this);
-        lista.setAdapter(adapter);
+//        AdapterEventosAnterioresPersonalizado adapter = new AdapterEventosAnterioresPersonalizado(eventos, eventos, this);
+//        lista.setAdapter(adapter);
 
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {

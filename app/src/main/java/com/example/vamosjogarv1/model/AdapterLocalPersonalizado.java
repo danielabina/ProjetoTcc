@@ -1,68 +1,114 @@
 package com.example.vamosjogarv1.model;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.example.vamosjogarv1.R;
 
-import com.example.vamosjogarv1.controller.tela_cadastrar_evento_proximo;
+import com.example.vamosjogarv1.controller.tela_lista_local;
 
+import java.io.InputStream;
 import java.util.List;
 
-public class AdapterLocalPersonalizado extends BaseAdapter {
-    private final List<Local> locais;
-    private final Activity act;
+public class AdapterLocalPersonalizado extends ArrayAdapter<String> {
 
-    public AdapterLocalPersonalizado(List<Local> local, List<Local> locais, tela_cadastrar_evento_proximo act) {
-        this.locais = locais;
-        this.act = act;
+    private String[] nome;
+    private String[] endereco;
+    private String[] imagepath;
+    private Activity context;
+    Bitmap bitmap;
+
+    public AdapterLocalPersonalizado(Activity context,String[] nome,String[] endereco,String[] imagepath) {
+        super(context, R.layout.activity_tela_lista_local_personalizada,nome);
+        this.context=context;
+        this.nome=nome;
+        this.endereco=endereco;
+        this.imagepath=imagepath;
     }
 
-
+    @NonNull
     @Override
-    public int getCount() {
-        return locais.size();
-    }
 
-    @Override
-    public Object getItem(int position) {
-        return locais.get(position);
-    }
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent){
+        View r=convertView;
+        ViewHolder viewHolder=null;
+        if(r==null){
+            LayoutInflater layoutInflater=context.getLayoutInflater();
+            r=layoutInflater.inflate(R.layout.activity_tela_lista_local_personalizada,null,true);
+            viewHolder=new ViewHolder(r);
+            r.setTag(viewHolder);
+        }
+        else {
+            viewHolder=(ViewHolder)r.getTag();
 
-    @Override
-    public long getItemId(int position) {
-        return 0;
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        View view = act.getLayoutInflater().inflate(R.layout.activity_lista_local_personalizada, parent, false);
-
-        Local local = locais.get(position);
-
-        TextView nome = (TextView)
-                view.findViewById(R.id.lista_local_personalizada_nome);
-        TextView descricao = (TextView)
-                view.findViewById(R.id.lista_local_personalizada_descricao);
-        ImageView imagem = (ImageView)
-                view.findViewById(R.id.lista_local_personalizada_imagem);
-
-        nome.setText(local.getNome());
-        descricao.setText(local.getDescricao());
-
-        Categoria categoria = local.getCategoria();
-
-        if (categoria.equals(Categoria.Futebol)) {
-            imagem.setImageResource(R.drawable.oi);
-        } else if (categoria.equals(Categoria.Voleibol)) {
-            imagem.setImageResource(R.drawable.ola);
-        } else if (categoria.equals(Categoria.Handebol)) {
-            imagem.setImageResource(R.drawable.rrr);
         }
 
-        return view;
+        viewHolder.tvw1.setText(nome[position]);
+        viewHolder.tvw2.setText(endereco[position]);
+        new GetImageFromURL(viewHolder.ivw).execute(imagepath[position]);
+
+        return r;
     }
+
+    class ViewHolder{
+
+        TextView tvw1;
+        TextView tvw2;
+        ImageView ivw;
+
+        ViewHolder(View v){
+            tvw1=(TextView)v.findViewById(R.id.tvprofilename);
+            tvw2=(TextView)v.findViewById(R.id.tvemail);
+            ivw=(ImageView)v.findViewById(R.id.imageView);
+        }
+
+    }
+
+    public class GetImageFromURL extends AsyncTask<String,Void,Bitmap>
+    {
+
+        ImageView imgView;
+        public GetImageFromURL(ImageView imgv)
+        {
+            this.imgView=imgv;
+        }
+        @Override
+        protected Bitmap doInBackground(String... url) {
+            String urldisplay=url[0];
+            bitmap=null;
+
+            try{
+
+                InputStream ist=new java.net.URL(urldisplay).openStream();
+                bitmap= BitmapFactory.decodeStream(ist);
+            }
+            catch (Exception ex)
+            {
+                ex.printStackTrace();
+            }
+
+            return bitmap;
+        }
+
+        @Override
+        protected void onPostExecute(Bitmap bitmap){
+
+            super.onPostExecute(bitmap);
+            imgView.setImageBitmap(bitmap);
+        }
+
+    }
+
 }
