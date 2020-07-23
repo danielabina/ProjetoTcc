@@ -11,35 +11,62 @@
         android:padding="15dp">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/foto"
             android:layout_width="70dp"
             android:layout_height="86dp"
+            android:background="@drawable/esportes_png_7"
             android:layout_weight="1" />
 
         <TextView
-            android:id="@+id/tvprofilename"
+            android:id="@+id/namec"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_marginLeft="26dp"
             android:layout_marginStart="26dp"
             android:layout_marginTop="16dp"
-            android:layout_toEndOf="@id/imageView"
-            android:layout_toRightOf="@id/imageView"
+            android:layout_toEndOf="@id/foto"
+            android:layout_toRightOf="@id/foto"
             android:textColor="#333"
             android:textSize="22dp"
             />
 
         <TextView
-            android:id="@+id/tvemail"
+            android:id="@+id/categoria"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_marginLeft="26dp"
             android:layout_marginStart="26dp"
             android:layout_marginTop="50dp"
-            android:layout_toEndOf="@id/imageView"
-            android:layout_toRightOf="@id/imageView"
+            android:layout_toEndOf="@id/foto"
+            android:layout_toRightOf="@id/foto"
+            android:textColor="#333"
+            android:textSize="22dp"
+            />
+        <TextView
+            android:id="@+id/ende"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="26dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="50dp"
+            android:layout_toEndOf="@id/categoria"
+            android:layout_toRightOf="@id/categoria"
+            android:textColor="#333"
+            android:textSize="22dp"
+            />
+        <TextView
+            android:id="@+id/valor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="26dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="50dp"
+            android:layout_toEndOf="@id/ende"
+            android:layout_toRightOf="@id/ende"
             android:textColor="#333"
             android:textSize="22dp"
             />

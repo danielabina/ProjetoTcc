@@ -6,7 +6,7 @@ public class connection {
     String Busca;
 
     public String getLogin() {
-        return Login = "http://192.168.0.101/Login/logar.php";
+        return Login = "http://192.168.0.109/Login/logar.php";
     }
 
     public void setLogin(String login) {
@@ -14,7 +14,7 @@ public class connection {
     }
 
     public String getBusca() {
-        return Busca = "http://192.168.0.101/Controller/displayprofile.php";
+        return Busca = "http://192.168.0.109/Controller/BuscarLocal.php";
     }
 
 

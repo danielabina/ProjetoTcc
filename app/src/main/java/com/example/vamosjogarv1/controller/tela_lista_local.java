@@ -1,124 +1,273 @@
 package com.example.vamosjogarv1.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.vamosjogarv1.R;
 import com.example.vamosjogarv1.model.AdapterLocalPersonalizado;
-import com.example.vamosjogarv1.model.Categoria;
+import com.example.vamosjogarv1.model.Cancha;
 import com.example.vamosjogarv1.model.Local;
+import com.google.gson.JsonArray;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import com.google.gson.JsonObject;
+import com.koushikdutta.async.future.FutureCallback;
+import com.koushikdutta.ion.Ion;
 
 import android.content.Intent;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.StrictMode;
-import android.view.View;
-import android.widget.AdapterView;
+import android.util.Log;
+import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
-import java.net.ProtocolException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class tela_lista_local extends AppCompatActivity {
 
-    connection connection = new connection();
-    String urladdress = connection.getBusca();
-    String[] name;
-    String[] endereco;
-    String[] imagepath;
-    ListView listView;
-    BufferedInputStream is;
-    String line = null;
-    String result = null;
+
+    AdapterLocalPersonalizado adapterLocalPersonalizado;
+    List<Local> localList;
+    Local local;
+    String endereco,categoria,token;
+
+
+    connection con = new connection();
+    ListarLocalAsyncTask listarLocaisAsyncTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_lista_local);
-        System.setProperty("http.keepAlive", "false");
+        token = "tcc";
+        Intent it = getIntent();
+         categoria = it.getStringExtra("categoria");
+         endereco = it.getStringExtra("endereco");
 
-        ListView listView = (ListView) findViewById(R.id.lview);
+        listarLocaisAsyncTask = new ListarLocalAsyncTask(token);
+        listarLocaisAsyncTask.execute();
 
-        StrictMode.setThreadPolicy((new StrictMode.ThreadPolicy.Builder().permitNetwork().build()));
-        collectData();
-        AdapterLocalPersonalizado customListView = new AdapterLocalPersonalizado(this, name, endereco, imagepath);
-        listView.setAdapter(customListView);
-//        ListView lista = (ListView) findViewById(R.id.lista);
-//        List<Local> locais = todosOsLocais();
-//        AdapterLocalPersonalizado adapter = new AdapterLocalPersonalizado(locais, locais, this);
-//        lista.setAdapter(adapter);
-//        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//          @Override
-//             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//             Intent it = new Intent(tela_lista_local.this, tela_detalhe_local.class);
-//             startActivity(it);
-//              finish();
-//               }
-//              });
+        RecyclerView listView = findViewById(R.id.recyclerViewLocal);
+        adapterLocalPersonalizado = new AdapterLocalPersonalizado(localList, getApplicationContext());
+
+        listView.setAdapter(adapterLocalPersonalizado);
+        listView.setLayoutManager(new LinearLayoutManager(this));
+
     }
 
-    private void collectData() {
-//Connection
-        try {
-            URL url=new URL(urladdress);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("GET");
-            connection.connect();// get the response code, returns 200 if it's OK
-            int responseCode = connection.getResponseCode();
-            if(responseCode == 200) { // response code is OK
-                connection.getInputStream();
-                }else{ // response code is not OK
-                }
+    public class ListarLocalAsyncTask extends AsyncTask<String, String, String> {
+
+        String api_token, query;
+
+        HttpURLConnection conn;
+        URL url = null;
+        Uri.Builder builder;
+
+        final String URL_WEB_SERVICES = "http://192.168.0.104/Controller/APIListarLocal.php";
+
+        final int READ_TIMEOUT = 10000; // MILISSEGUNDOS
+        final int CONNECTION_TIMEOUT = 30000;
+
+        int response_code;
 
 
-                String line;
-                BufferedReader is = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-            connection.setRequestProperty("Connection","close");
-                StringBuilder sb = new StringBuilder();
-                while ((line = is.readLine()) != null) {
-                    sb.append(line + "\n");
-                }
-                is.close();
-                result = sb.toString();
+        public ListarLocalAsyncTask(String token) {
 
+            this.api_token = token;
+            this.builder = new Uri.Builder();
+            builder.appendQueryParameter("api_token", api_token);
+            builder.appendQueryParameter("api_categoria", categoria);
 
+        }
 
+        @Override
+        protected void onPreExecute() {
 
-//JSON
+            Log.i("APIListar", "onPreExecute()");
+
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+
+            Log.i("APIListar", "doInBackground()");
+
+            // Gerar o conteúdo para a URL
+
             try {
-                JSONArray ja = new JSONArray(result);
-                JSONObject jo = null;
-                name = new String[ja.length()];
-                endereco = new String[ja.length()];
-                imagepath = new String[ja.length()];
 
-                for (int i = 0; i <= ja.length(); i++) {
-                    jo = ja.getJSONObject(i);
-                    name[i] = jo.getString("name");
-                    endereco[i] = jo.getString("endereco");
-                    imagepath[i] = jo.getString("photo");
+                url = new URL(URL_WEB_SERVICES);
+
+            } catch (MalformedURLException e) {
+
+                Log.i("APIListar", "MalformedURLException --> " + e.getMessage());
+
+            } catch (Exception e) {
+
+                Log.i("APIListar", "doInBackground() --> " + e.getMessage());
+            }
+
+            // Gerar uma requisição HTTP - POST - Result será um ArrayJson
+
+            // conn
+
+            try {
+
+                conn = (HttpURLConnection) url.openConnection();
+                conn.setReadTimeout(READ_TIMEOUT);
+                conn.setConnectTimeout(CONNECTION_TIMEOUT);
+                conn.setRequestMethod("POST");
+                conn.setRequestProperty("charset", "utf-8");
+
+                conn.setDoInput(true);
+                conn.setDoOutput(true);
+
+                conn.connect();
+
+            } catch (Exception e) {
+
+                Log.i("APIListar", "HttpURLConnection --> " + e.getMessage());
+
+            }
+
+            // Adicionar o TOKEN e/ou outros parâmetros como por exemplo
+            // um objeto a ser incluido, deletado ou alterado.
+            // CRUD completo
+
+            try {
+
+                query = builder.build().getEncodedQuery();
+
+                OutputStream stream = conn.getOutputStream();
+
+                BufferedWriter writer = new BufferedWriter(
+                        new OutputStreamWriter(stream, "utf-8"));
+
+                writer.write(query);
+                writer.flush();
+                writer.close();
+                stream.close();
+
+                conn.connect();
+
+
+            } catch (Exception e) {
+
+                Log.i("APIListar", "BufferedWriter --> " + e.getMessage());
+
+
+            }
+
+            // receber o response - arrayJson
+            // http - código do response | 200 | 404 | 503
+
+            try {
+
+                response_code = conn.getResponseCode();
+
+                if (response_code == HttpURLConnection.HTTP_OK) {
+
+
+                    InputStream input = conn.getInputStream();
+                    BufferedReader reader = new BufferedReader(
+
+                            new InputStreamReader(input)
+
+                    );
+
+                    StringBuilder result = new StringBuilder();
+
+                    String linha = null;
+
+                    while ((linha = reader.readLine()) != null) {
+
+                        result.append(linha);
+                    }
+
+                    return result.toString();
+
+                } else {
+
+                    return "HTTP ERRO: " + response_code;
                 }
-            } catch (Exception ex) {
 
-                ex.printStackTrace();
+
+            } catch (Exception e) {
+
+                Log.i("APIListar", "StringBuilder --> " + e.getMessage());
+
+                return "Exception Erro: " + e.getMessage();
+
+            } finally {
+
+                conn.disconnect();
             }
 
 
-        } catch (ProtocolException e) {
-            e.printStackTrace();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+
+            Log.i("APIListar", "onPostExecute()--> Result: " + result);
+
+            try {
+
+                Local local;
+
+                JSONArray jsonArray = new JSONArray(result);
+
+                localList = new ArrayList<>();
+
+                if (jsonArray.length() != 0) {
+
+                    for (int i = 0; i < jsonArray.length(); i++) {
+
+                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+
+                        local = new Local(jsonObject.getInt("id"),
+                                jsonObject.getString("nome"),
+                                jsonObject.getString("endereco"),
+                                jsonObject.getString("categoria"),
+                                jsonObject.getString("valor"));
+
+                        localList.add(local);
+
+                        Log.i("APIListar", "Estado: -> " + local.getId() + " - " +local.getNome());
+
+
+                    }
+
+                    Toast.makeText(tela_lista_local.this, localList.size() + " local Listados no LogCat", Toast.LENGTH_LONG)
+                            .show();
+                }
+
+            } catch (Exception e) {
+
+
+                Log.i("APIListar", "onPostExecute()--> " + e.getMessage());
+
+
+            }
+
+
         }
     }
 }

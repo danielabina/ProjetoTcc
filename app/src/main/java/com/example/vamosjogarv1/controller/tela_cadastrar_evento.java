@@ -6,11 +6,13 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -24,6 +26,9 @@ import java.util.Calendar;
 public class tela_cadastrar_evento extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
     TextView data;
 DatePickerDialog.OnDateSetListener  setListener;
+    String categoria;
+    Button btnProximo;
+    EditText nomeRua;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,12 +36,13 @@ DatePickerDialog.OnDateSetListener  setListener;
         setContentView(R.layout.activity_tela_cadastrar_evento);
 
 
-        Button btnProximo;
+        nomeRua = findViewById(R.id.nomeRua);
         btnProximo = findViewById(R.id.btnProximo);
         btnProximo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent it = new Intent(tela_cadastrar_evento.this, tela_lista_local.class);
+                it.putExtra("categoria",categoria);
                 startActivity(it);
                 finish();
             }
@@ -52,26 +58,26 @@ DatePickerDialog.OnDateSetListener  setListener;
 
         //---------------------------------------------------
 
-        data = findViewById(R.id.data);
-        Calendar calendar = Calendar.getInstance();
-        final int year = calendar.get(Calendar.YEAR);
-        final int month = calendar.get(Calendar.MONTH);
-        final int day = calendar.get(Calendar.DAY_OF_MONTH);
-        final int hour = calendar.get(Calendar.HOUR);
+//        data = findViewById(R.id.data);
+//        Calendar calendar = Calendar.getInstance();
+//        final int year = calendar.get(Calendar.YEAR);
+//        final int month = calendar.get(Calendar.MONTH);
+//        final int day = calendar.get(Calendar.DAY_OF_MONTH);
+//        final int hour = calendar.get(Calendar.HOUR);
 
 
-        data.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDateTimeDialog(data);
-            }
-        });
+//        data.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                showDateTimeDialog(data);
+//            }
+//        });
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String text = parent.getItemAtPosition(position).toString();
-        Toast.makeText(parent.getContext(), text,Toast.LENGTH_SHORT).show();
+         categoria = parent.getItemAtPosition(position).toString();
+        Toast.makeText(parent.getContext(), categoria,Toast.LENGTH_SHORT).show();
     }
 
     @Override

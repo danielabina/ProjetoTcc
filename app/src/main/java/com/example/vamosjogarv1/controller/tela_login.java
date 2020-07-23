@@ -52,7 +52,8 @@ public class tela_login extends AppCompatActivity {
         btnCadastrar = (Button) findViewById(R.id.btnCadastrar);
         editEmail = (EditText)  findViewById(R.id.idEmail);
         editSenha = (EditText) findViewById(R.id.idSenha);
-
+        Intent it = new Intent(tela_login.this, tela_inicial_.class);
+        startActivity(it);
 
         /**
          * Chama tela cadastrar

@@ -1,114 +1,114 @@
 package com.example.vamosjogarv1.model;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.vamosjogarv1.R;
 
+import com.example.vamosjogarv1.controller.connection;
 import com.example.vamosjogarv1.controller.tela_lista_local;
 
 import java.io.InputStream;
 import java.util.List;
 
-public class AdapterLocalPersonalizado extends ArrayAdapter<String> {
+public class AdapterLocalPersonalizado extends RecyclerView.Adapter<AdapterLocalPersonalizado.MeuViewHolder> {
 
-    private String[] nome;
-    private String[] endereco;
-    private String[] imagepath;
-    private Activity context;
-    Bitmap bitmap;
+    Context ctx;
+    List<Local> listaLocal;
 
-    public AdapterLocalPersonalizado(Activity context,String[] nome,String[] endereco,String[] imagepath) {
-        super(context, R.layout.activity_tela_lista_local_personalizada,nome);
-        this.context=context;
-        this.nome=nome;
-        this.endereco=endereco;
-        this.imagepath=imagepath;
+    connection con = new connection();
+
+    public class MeuViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+
+        TextView nome,categoria,endereco,valor;
+
+
+        @SuppressLint("WrongViewCast")
+        public MeuViewHolder(@NonNull View view) {
+            super(view);
+
+            nome = (TextView) view.findViewById(R.id.namec);
+            categoria = (TextView) view.findViewById(R.id.categoria);
+            valor = (TextView) view.findViewById(R.id.valor);
+            endereco = (TextView) view.findViewById(R.id.ende);
+
+            view.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            int position = getAdapterPosition();
+
+            Local objSelecionado = listaLocal.get(position);
+
+            if(position != RecyclerView.NO_POSITION){
+
+
+                Intent intent = new Intent(ctx.getApplicationContext(), tela_lista_local.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                Bundle bundle = new Bundle();
+                bundle.putInt("ID",objSelecionado.getId());
+
+                ctx.startActivity(intent);
+
+
+
+            }
+        }
+    }
+
+    public AdapterLocalPersonalizado(List<Local> lista1,Context ctx1) {
+        this.ctx = ctx1;
+        this.listaLocal = lista1;
     }
 
     @NonNull
     @Override
+    public MeuViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent){
-        View r=convertView;
-        ViewHolder viewHolder=null;
-        if(r==null){
-            LayoutInflater layoutInflater=context.getLayoutInflater();
-            r=layoutInflater.inflate(R.layout.activity_tela_lista_local_personalizada,null,true);
-            viewHolder=new ViewHolder(r);
-            r.setTag(viewHolder);
-        }
-        else {
-            viewHolder=(ViewHolder)r.getTag();
+        Context context = viewGroup.getContext();
+        LayoutInflater inflater = LayoutInflater.from(context);
 
-        }
+        View linhaView = inflater.inflate(R.layout.activity_tela_lista_local_personalizada, viewGroup, false);
 
-        viewHolder.tvw1.setText(nome[position]);
-        viewHolder.tvw2.setText(endereco[position]);
-        new GetImageFromURL(viewHolder.ivw).execute(imagepath[position]);
+        MeuViewHolder viewHolder = new MeuViewHolder(linhaView);
 
-        return r;
+        return viewHolder;
     }
 
-    class ViewHolder{
+    @Override
+    public void onBindViewHolder(@NonNull MeuViewHolder meuViewHolder, int i) {
 
-        TextView tvw1;
-        TextView tvw2;
-        ImageView ivw;
 
-        ViewHolder(View v){
-            tvw1=(TextView)v.findViewById(R.id.tvprofilename);
-            tvw2=(TextView)v.findViewById(R.id.tvemail);
-            ivw=(ImageView)v.findViewById(R.id.imageView);
+        final Local local = listaLocal.get(i);
+      for (i = 0; i < listaLocal.size(); i++){
+            meuViewHolder.nome.setText(local.getNome());
         }
 
     }
 
-    public class GetImageFromURL extends AsyncTask<String,Void,Bitmap>
-    {
-
-        ImageView imgView;
-        public GetImageFromURL(ImageView imgv)
-        {
-            this.imgView=imgv;
-        }
-        @Override
-        protected Bitmap doInBackground(String... url) {
-            String urldisplay=url[0];
-            bitmap=null;
-
-            try{
-
-                InputStream ist=new java.net.URL(urldisplay).openStream();
-                bitmap= BitmapFactory.decodeStream(ist);
-            }
-            catch (Exception ex)
-            {
-                ex.printStackTrace();
-            }
-
-            return bitmap;
-        }
-
-        @Override
-        protected void onPostExecute(Bitmap bitmap){
-
-            super.onPostExecute(bitmap);
-            imgView.setImageBitmap(bitmap);
-        }
-
+    @Override
+    public int getItemCount() {
+        return listaLocal.size();
     }
 
 }
