@@ -36,11 +36,14 @@ public class AdapterLocalPersonalizado extends RecyclerView.Adapter<AdapterLocal
 
     connection con = new connection();
 
+    public AdapterLocalPersonalizado(List<Local> locais,Context ctx1) {
+        this.ctx = ctx1;
+        this.listaLocal = locais;
+    }
+
     public class MeuViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         TextView nome,categoria,endereco,valor;
-
-
         @SuppressLint("WrongViewCast")
         public MeuViewHolder(@NonNull View view) {
             super(view);
@@ -69,21 +72,14 @@ public class AdapterLocalPersonalizado extends RecyclerView.Adapter<AdapterLocal
                 bundle.putInt("ID",objSelecionado.getId());
 
                 ctx.startActivity(intent);
-
-
-
             }
         }
-    }
-
-    public AdapterLocalPersonalizado(List<Local> lista1,Context ctx1) {
-        this.ctx = ctx1;
-        this.listaLocal = lista1;
     }
 
     @NonNull
     @Override
     public MeuViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        Local local = listaLocal.get(i);
 
         Context context = viewGroup.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
@@ -92,19 +88,18 @@ public class AdapterLocalPersonalizado extends RecyclerView.Adapter<AdapterLocal
 
         MeuViewHolder viewHolder = new MeuViewHolder(linhaView);
 
+
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MeuViewHolder meuViewHolder, int i) {
-
-
-        final Local local = listaLocal.get(i);
-      for (i = 0; i < listaLocal.size(); i++){
-            meuViewHolder.nome.setText(local.getNome());
+    public void onBindViewHolder(@NonNull AdapterLocalPersonalizado.MeuViewHolder meuViewHolder, int i) {
+        Local local = listaLocal.get(i);
+            TextView nome = meuViewHolder.nome;
+       nome.setText(local.getNome());
         }
 
-    }
+
 
     @Override
     public int getItemCount() {

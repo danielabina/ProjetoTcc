@@ -51,6 +51,7 @@ public class tela_lista_local extends AppCompatActivity {
 
     connection con = new connection();
     ListarLocalAsyncTask listarLocaisAsyncTask;
+    RecyclerView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,17 +61,14 @@ public class tela_lista_local extends AppCompatActivity {
         Intent it = getIntent();
          categoria = it.getStringExtra("categoria");
          endereco = it.getStringExtra("endereco");
+        listView = findViewById(R.id.recyclerViewLocal);
 
-        listarLocaisAsyncTask = new ListarLocalAsyncTask(token);
+        listarLocaisAsyncTask = new ListarLocalAsyncTask();
         listarLocaisAsyncTask.execute();
 
-        RecyclerView listView = findViewById(R.id.recyclerViewLocal);
-        adapterLocalPersonalizado = new AdapterLocalPersonalizado(localList, getApplicationContext());
-
-        listView.setAdapter(adapterLocalPersonalizado);
-        listView.setLayoutManager(new LinearLayoutManager(this));
-
     }
+
+
 
     public class ListarLocalAsyncTask extends AsyncTask<String, String, String> {
 
@@ -80,7 +78,7 @@ public class tela_lista_local extends AppCompatActivity {
         URL url = null;
         Uri.Builder builder;
 
-        final String URL_WEB_SERVICES = "http://192.168.0.104/Controller/APIListarLocal.php";
+        final String URL_WEB_SERVICES = "http://192.168.0.110/Controller/APIListarLocal.php";
 
         final int READ_TIMEOUT = 10000; // MILISSEGUNDOS
         final int CONNECTION_TIMEOUT = 30000;
@@ -88,11 +86,10 @@ public class tela_lista_local extends AppCompatActivity {
         int response_code;
 
 
-        public ListarLocalAsyncTask(String token) {
+        public ListarLocalAsyncTask( ){
 
-            this.api_token = token;
+
             this.builder = new Uri.Builder();
-            builder.appendQueryParameter("api_token", api_token);
             builder.appendQueryParameter("api_categoria", categoria);
 
         }
@@ -257,6 +254,9 @@ public class tela_lista_local extends AppCompatActivity {
 
                     Toast.makeText(tela_lista_local.this, localList.size() + " local Listados no LogCat", Toast.LENGTH_LONG)
                             .show();
+
+                    initial();
+
                 }
 
             } catch (Exception e) {
@@ -268,6 +268,12 @@ public class tela_lista_local extends AppCompatActivity {
             }
 
 
+        }
+
+        public void initial(){
+            adapterLocalPersonalizado = new AdapterLocalPersonalizado(localList, getApplicationContext());
+            listView.setAdapter(adapterLocalPersonalizado);
+            listView.setLayoutManager(new LinearLayoutManager(tela_lista_local.this));
         }
     }
 }

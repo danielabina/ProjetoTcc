@@ -13,29 +13,29 @@
 //import java.util.List;
 //
 //public class AdapterEventosProximosPersonalizado extends BaseAdapter {
-//    private final List<Evento> eventos;
-//    private final Activity act;
-//
-//    public AdapterEventosProximosPersonalizado(List<Evento> evento, List<Evento> eventos, tela_meus_proximos_eventos act) {
-//        this.eventos = eventos;
-//        this.act = act;
-//    }
-//
-//
-//    @Override
-//    public int getCount() {
-//        return eventos.size();
-//    }
-//
-//    @Override
-//    public Object getItem(int position) {
-//        return eventos.get(position);
-//    }
-//
-//    @Override
-//    public long getItemId(int position) {
-//        return 0;
-//    }
+//   private final List<Evento> eventos;
+////    private final Activity act;
+////
+//   public AdapterEventosProximosPersonalizado(List<Evento> evento, List<Evento> eventos, tela_meus_proximos_eventos act) {
+////        this.eventos = eventos;
+////        this.act = act;
+////    }
+////
+////
+////    @Override
+////    public int getCount() {
+////        return eventos.size();
+////    }
+////
+////    @Override
+////    public Object getItem(int position) {
+//       return eventos.get(position);
+////    }
+////
+////    @Override
+////    public long getItemId(int position) {
+////        return 0;
+////    }
 //
 //    @Override
 //    public View getView(int position, View convertView, ViewGroup parent) {
