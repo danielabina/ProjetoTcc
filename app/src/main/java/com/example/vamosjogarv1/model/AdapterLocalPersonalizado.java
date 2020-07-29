@@ -97,6 +97,12 @@ public class AdapterLocalPersonalizado extends RecyclerView.Adapter<AdapterLocal
         Local local = listaLocal.get(i);
             TextView nome = meuViewHolder.nome;
        nome.setText(local.getNome());
+        TextView categoria = meuViewHolder.categoria;
+        categoria.setText(local.getCategoria());
+        TextView valor = meuViewHolder.valor;
+        valor.setText(local.getValor());
+        TextView endereco = meuViewHolder.endereco;
+        endereco.setText(local.getEndereco());
         }
 
 
