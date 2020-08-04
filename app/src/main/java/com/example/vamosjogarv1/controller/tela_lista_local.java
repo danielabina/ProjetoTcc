@@ -46,7 +46,7 @@ public class tela_lista_local extends AppCompatActivity {
     AdapterLocalPersonalizado adapterLocalPersonalizado;
     List<Local> localList;
     Local local;
-    String endereco,categoria,token;
+    String endereco,categoria,token,dataHora;
 
 
     connection con = new connection();
@@ -61,6 +61,8 @@ public class tela_lista_local extends AppCompatActivity {
         Intent it = getIntent();
          categoria = it.getStringExtra("categoria");
          endereco = it.getStringExtra("endereco");
+        dataHora = it.getStringExtra("dataHora");
+
         listView = findViewById(R.id.recyclerViewLocal);
 
         listarLocaisAsyncTask = new ListarLocalAsyncTask();
@@ -78,7 +80,7 @@ public class tela_lista_local extends AppCompatActivity {
         URL url = null;
         Uri.Builder builder;
 
-        final String URL_WEB_SERVICES = "http://192.168.0.110/Controller/APIListarLocal.php";
+        final String URL_WEB_SERVICES = con.getBuscaLocal();
 
         final int READ_TIMEOUT = 10000; // MILISSEGUNDOS
         final int CONNECTION_TIMEOUT = 30000;
@@ -88,9 +90,11 @@ public class tela_lista_local extends AppCompatActivity {
 
         public ListarLocalAsyncTask( ){
 
-
             this.builder = new Uri.Builder();
+
             builder.appendQueryParameter("api_categoria", categoria);
+                builder.appendQueryParameter("api_endereco", endereco);
+            builder.appendQueryParameter("api_dataHora", dataHora);
 
         }
 

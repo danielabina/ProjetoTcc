@@ -25,10 +25,17 @@ import java.util.Calendar;
 
 public class tela_cadastrar_evento extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
     TextView data;
-DatePickerDialog.OnDateSetListener  setListener;
-    String categoria;
+    DatePickerDialog.OnDateSetListener  setListener;
+    String categoria,dataHora,endereco;
     Button btnProximo;
     EditText nomeRua;
+
+
+    Calendar calendar = Calendar.getInstance();
+    final int year = calendar.get(Calendar.YEAR);
+    final int month = calendar.get(Calendar.MONTH);
+    final int day = calendar.get(Calendar.DAY_OF_MONTH);
+    final int hour = calendar.get(Calendar.HOUR);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,14 +44,25 @@ DatePickerDialog.OnDateSetListener  setListener;
 
 
         nomeRua = findViewById(R.id.nomeRua);
+
+        data = findViewById(R.id.data);
         btnProximo = findViewById(R.id.btnProximo);
         btnProximo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent it = new Intent(tela_cadastrar_evento.this, tela_lista_local.class);
-                it.putExtra("categoria",categoria);
-                startActivity(it);
-                finish();
+                if (dataHora.isEmpty()) {
+                    Toast.makeText(tela_cadastrar_evento.this, "O campo data-hora deve ser preenchido" , Toast.LENGTH_LONG).show();
+                } else {
+                    Intent it = new Intent(tela_cadastrar_evento.this, tela_lista_local.class);
+                    endereco = nomeRua.getText().toString();
+                    dataHora = String.valueOf(calendar.get(Calendar.DATE)) + "/" + String.valueOf(calendar.get(Calendar.MONTH) + 1) + "/" + String.valueOf(calendar.get(Calendar.YEAR)) + " "
+                            + String.valueOf(calendar.get(Calendar.HOUR)) + ":" + String.valueOf(calendar.get(Calendar.MINUTE));
+                    it.putExtra("categoria", categoria);
+                    it.putExtra("dataHora", dataHora);
+                    it.putExtra("endereco", endereco);
+                    startActivity(it);
+                    finish();
+                }
             }
         });
         //---------------------------
@@ -58,20 +76,17 @@ DatePickerDialog.OnDateSetListener  setListener;
 
         //---------------------------------------------------
 
-//        data = findViewById(R.id.data);
-//        Calendar calendar = Calendar.getInstance();
-//        final int year = calendar.get(Calendar.YEAR);
-//        final int month = calendar.get(Calendar.MONTH);
-//        final int day = calendar.get(Calendar.DAY_OF_MONTH);
-//        final int hour = calendar.get(Calendar.HOUR);
 
 
-//        data.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                showDateTimeDialog(data);
-//            }
-//        });
+
+
+                data.setOnClickListener(new View.OnClickListener() {
+            @Override
+           public void onClick(View v) {
+               showDateTimeDialog(data);
+                dataHora= String.valueOf(day) + String.valueOf(month) + String.valueOf(year) + String.valueOf(hour);
+           }
+           });
     }
 
     @Override
@@ -86,7 +101,6 @@ DatePickerDialog.OnDateSetListener  setListener;
     }
 //-----------------------------------------------------
     private void showDateTimeDialog(final TextView data) {
-        final Calendar calendar = Calendar.getInstance();
         final DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, final int year, int month, int dayOfMonth) {
@@ -107,6 +121,7 @@ DatePickerDialog.OnDateSetListener  setListener;
                 new TimePickerDialog(tela_cadastrar_evento.this,timeSetListener,calendar.get(Calendar.HOUR_OF_DAY),calendar.get(Calendar.MINUTE),false).show();
         }
     };
+
         new DatePickerDialog(tela_cadastrar_evento.this,dateSetListener,calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH)).show();
     }
 

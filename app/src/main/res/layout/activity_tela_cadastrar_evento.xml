@@ -29,12 +29,24 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textSize="18sp">
     </TextView>
-
+    <EditText
+        android:id="@+id/data"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="20dp"
+        android:background="#E8E3E3"
+        android:textSize="17sp"
+        android:hint="  SELECIONE A DATA DO EVENTO "
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="606dp"
+        />
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="20dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textSize="25sp"
         android:background="#E8E3E3"
@@ -44,6 +56,8 @@
         tools:layout_editor_absoluteY="24dp">
         >
 </Spinner>
+
+
 
 
     <EditText

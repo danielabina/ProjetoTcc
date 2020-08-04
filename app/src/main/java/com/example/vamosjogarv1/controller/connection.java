@@ -3,23 +3,19 @@ package com.example.vamosjogarv1.controller;
 public class connection {
 
     String Login;
-    String Busca;
+    String BuscaLocal;
 
     public String getLogin() {
-        return Login = "http://192.168.0.109/Login/logar.php";
+        return Login = "http://192.168.1.109/Login/logar.php";
+    }
+    public String getBuscaLocal() {
+        return BuscaLocal = "http://192.168.1.109/Controller/APIListarLocal.php";
     }
 
     public void setLogin(String login) {
         Login = login;
     }
-
-    public String getBusca() {
-        return Busca = "http://192.168.0.109/Controller/BuscarLocal.php";
-    }
-
-
-
-    public void setBusca(String busca) {
-        Busca = busca;
+    public void setBuscaLocal(String busca) {
+        BuscaLocal = busca;
     }
 }
