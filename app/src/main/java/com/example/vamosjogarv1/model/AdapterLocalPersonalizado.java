@@ -24,6 +24,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.vamosjogarv1.R;
 
 import com.example.vamosjogarv1.controller.connection;
+import com.example.vamosjogarv1.controller.tela_detalhe_local;
 import com.example.vamosjogarv1.controller.tela_lista_local;
 
 import java.io.InputStream;
@@ -65,11 +66,12 @@ public class AdapterLocalPersonalizado extends RecyclerView.Adapter<AdapterLocal
             if(position != RecyclerView.NO_POSITION){
 
 
-                Intent intent = new Intent(ctx.getApplicationContext(), tela_lista_local.class);
+                Intent intent = new Intent(ctx.getApplicationContext(), tela_detalhe_local.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
                 Bundle bundle = new Bundle();
                 bundle.putInt("ID",objSelecionado.getId());
+                intent.putExtra("idLocal", objSelecionado.getId());
 
                 ctx.startActivity(intent);
             }

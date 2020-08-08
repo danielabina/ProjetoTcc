@@ -50,8 +50,8 @@ public class tela_cadastrar_evento extends AppCompatActivity implements View.OnC
         btnProximo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (dataHora.isEmpty()) {
-                    Toast.makeText(tela_cadastrar_evento.this, "O campo data-hora deve ser preenchido" , Toast.LENGTH_LONG).show();
+                if (dataHora.isEmpty() && endereco.isEmpty()) {
+                    Toast.makeText(tela_cadastrar_evento.this, "O campo data-hora e endereco devem ser preenchidos" , Toast.LENGTH_LONG).show();
                 } else {
                     Intent it = new Intent(tela_cadastrar_evento.this, tela_lista_local.class);
                     endereco = nomeRua.getText().toString();

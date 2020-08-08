@@ -187,11 +187,7 @@ public class tela_lista_local extends AppCompatActivity {
 
 
                     InputStream input = conn.getInputStream();
-                    BufferedReader reader = new BufferedReader(
-
-                            new InputStreamReader(input)
-
-                    );
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(input));
 
                     StringBuilder result = new StringBuilder();
 

@@ -32,10 +32,9 @@
             android:layout_weight="1.2">
 
             <TextView
-                android:id="@+id/card_number"
+                android:id="@+id/nomeLocal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="CANCHA PINHEIRINHO"
                 android:textSize="30sp" />
         </com.google.android.material.textfield.TextInputLayout>
 

@@ -4,18 +4,16 @@ public class connection {
 
     String Login;
     String BuscaLocal;
+    String BuscaLocalDetalhe;
+    String IP = "192.168.1.110";
 
     public String getLogin() {
-        return Login = "http://192.168.1.109/Login/logar.php";
+
+        return Login = "http://"+IP+"/Login/logar.php";
     }
-    public String getBuscaLocal() {
-        return BuscaLocal = "http://192.168.1.109/Controller/APIListarLocal.php";
+    public String getBuscaLocal() { return BuscaLocal = "http://"+IP+"/Controller/APIListarLocalDisp.php";
+    }
+    public String getBuscaLocalDetalhe() { return BuscaLocal = "http://"+IP+"/Controller/APIListarLocalDetalhe.php";
     }
 
-    public void setLogin(String login) {
-        Login = login;
-    }
-    public void setBuscaLocal(String busca) {
-        BuscaLocal = busca;
-    }
 }
