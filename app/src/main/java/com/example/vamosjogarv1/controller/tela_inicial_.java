@@ -116,7 +116,7 @@ public class tela_inicial_ extends AppCompatActivity  implements NavigationView.
     }
 
     public void CadastrarEvento(View view) {
-        Intent it = new Intent(tela_inicial_.this, tela_cadastrar_evento.class);
+        Intent it = new Intent(tela_inicial_.this, tela_inicial_a.class);
         startActivity(it);
     }
 }
