@@ -16,9 +16,18 @@
         <ImageView
             android:id="@+id/idlogo"
             android:layout_width="match_parent"
-            android:layout_height="248dp"
+            android:layout_height="230dp"
             android:src="@drawable/logo"
             tools:visibility="visible" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vamos Jogar?"
+            android:layout_marginLeft="148dp"
+            android:textColor="#ffff"
+            android:textSize="17dp">
+
+        </TextView>
 
     </LinearLayout>
 
@@ -32,10 +41,10 @@
             android:id="@+id/idEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
+            android:background="@drawable/edit_customizado"
             android:textColorHint="#ffff"
             android:ems="10"
-            android:hint="insira seu email"
+            android:hint="   insira seu e-mail"
             android:textColor="#ffff"
             android:inputType="textEmailAddress"></EditText>
 
@@ -45,9 +54,10 @@
             android:layout_height="wrap_content"
             android:clickable="true"
             android:textColor="#ffff"
-            android:hint="insira sua senha"
+            android:background="@drawable/edit_customizado"
+            android:layout_marginTop="10dp"
+            android:hint="   insira sua senha"
             android:textColorHint="#ffff"
-            android:paddingBottom=""
             android:inputType="textPassword" />
 
     </LinearLayout>
@@ -63,7 +73,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#A4673AB7"
-            android:onClick="Login"
             android:textColor="#ffff"
             android:text="ENTRAR" />
 
@@ -74,17 +83,16 @@
             android:layout_marginTop="10dp"
             android:textColor="#ffff"
             android:background="@drawable/button_customizado"
-            android:onClick="Cadastrar"
             android:text="CRIAR UMA CONTA" />
 
-        <TextView
+        <Button
             android:id="@+id/btnRedefinir"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="47dp"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
             android:textColor="#ffff"
-            android:textSize="18sp"
+            android:textSize="16sp"
+            android:background="#1b1464"
             android:onClick="Redefinir"
             android:text="Esqueceu sua senha ? CLIQUE AQUI!" />
 
