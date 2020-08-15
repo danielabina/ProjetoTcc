@@ -2,27 +2,18 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android" 
     android:shape="rectangle"  android:layout_height="match_parent" android:layout_width="match_parent">
     <corners
-        android:radius="14dp"
-        />
-    <gradient
-        android:angle="45"
-        android:centerX="35%"
-        android:centerColor="#A7433FB5"
-        android:endColor="#A7433FB5"
-        android:type="linear"
-        />
-    <padding
-        android:left="0dp"
-        android:top="0dp"
-        android:right="0dp"
-        android:bottom="0dp"
+        android:radius="1dp"
         />
     <size
         android:width="270dp"
         android:height="60dp"
+        android:textColor="#ffff"
         />
     <stroke
         android:width="3dp"
-        android:color="#A7433FB5"
+        android:color="#C0673AB7"
         />
+    <stroke
+        android:background="#C0673AB7"
+    />
 </shape>

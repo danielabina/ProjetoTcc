@@ -8,18 +8,67 @@
     android:orientation="vertical">
 
 
-
     <ImageButton
         android:layout_width="match_parent"
+        android:layout_height="146dp"
+        android:background="@drawable/fundo"></ImageButton>
+
+    <ImageButton
+        android:id="@+id/EventosProximos"
+        android:layout_width="390dp"
+        android:layout_height="127dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/eventosProximos"
+        android:onClick="BuscarEvento"></ImageButton>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/fundo">
+        android:layout_marginTop="30dp">
+    <ImageButton
+        android:id="@+id/CriarEvento"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_alignParentLeft="true"
+        android:onClick="CadastrarEvento"
+        android:background="@drawable/criarEventos">
     </ImageButton>
 
     <ImageButton
-        android:layout_width="match_parent"
+        android:id="@+id/MeusEventos"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/fundo"
-        android:layout_marginTop="50dp">
-    </ImageButton>
+        android:background="@drawable/meusEventos"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentRight="true"
+        android:onClick="MeusEvento">
+        </ImageButton>
+</RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp">
+        <ImageButton
+            android:id="@+id/Avaliacoes"
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/avaliacoes">
+        </ImageButton>
+
+        <ImageButton
+            android:id="@+id/Ajustes"
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ajustes"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true"
+            android:="@+id/CriarEvento"
+            ></ImageButton>
+    </RelativeLayout>
 
 </LinearLayout>

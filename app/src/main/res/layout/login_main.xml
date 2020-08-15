@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#EDEBEF"
+    android:background="#1b1464"
     android:orientation="vertical">
 
     <LinearLayout
@@ -16,8 +16,8 @@
         <ImageView
             android:id="@+id/idlogo"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/esportes_png_7"
+            android:layout_height="248dp"
+            android:src="@drawable/logo"
             tools:visibility="visible" />
 
     </LinearLayout>
@@ -32,22 +32,22 @@
             android:id="@+id/idEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="EMAIL"
-            android:inputType="textEmailAddress"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="135dp"
-            >
 
-        </EditText>
+            android:textColorHint="#ffff"
+            android:ems="10"
+            android:hint="insira seu email"
+            android:textColor="#ffff"
+            android:inputType="textEmailAddress"></EditText>
 
         <EditText
             android:id="@+id/idSenha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clickable="true"
-            android:ems="10"
-            android:hint="SENHA"
+            android:textColor="#ffff"
+            android:hint="insira sua senha"
+            android:textColorHint="#ffff"
+            android:paddingBottom=""
             android:inputType="textPassword" />
 
     </LinearLayout>
@@ -62,28 +62,31 @@
             android:id="@+id/btnEntrar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/button_customizado"
+            android:background="#A4673AB7"
             android:onClick="Login"
-            android:text="Entrar" />
+            android:textColor="#ffff"
+            android:text="ENTRAR" />
 
         <Button
             android:id="@+id/btnCadastrar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
+            android:layout_height="47dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#ffff"
             android:background="@drawable/button_customizado"
             android:onClick="Cadastrar"
-            android:text="CADASTRE-SE" />
+            android:text="CRIAR UMA CONTA" />
 
-        <Button
+        <TextView
             android:id="@+id/btnRedefinir"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/button_customizado"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="#ffff"
+            android:textSize="18sp"
             android:onClick="Redefinir"
-            android:padding="10dp"
-            android:text="Redefinir Senha" />
+            android:text="Esqueceu sua senha ? CLIQUE AQUI!" />
 
     </LinearLayout>
 
