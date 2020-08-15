@@ -16,10 +16,10 @@
     <ImageButton
         android:id="@+id/EventosProximos"
         android:layout_width="390dp"
-        android:layout_height="127dp"
+        android:layout_height="140dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="30dp"
-        android:background="@drawable/eventosProximos"
+        android:background="@drawable/eventosp"
         android:onClick="BuscarEvento"></ImageButton>
 
     <RelativeLayout
@@ -29,18 +29,18 @@
     <ImageButton
         android:id="@+id/CriarEvento"
         android:layout_width="190dp"
-        android:layout_height="wrap_content"
+        android:layout_height="140dp"
         android:layout_marginLeft="10dp"
         android:layout_alignParentLeft="true"
         android:onClick="CadastrarEvento"
-        android:background="@drawable/criarEventos">
+        android:background="@drawable/criar_eventos">
     </ImageButton>
 
     <ImageButton
         android:id="@+id/MeusEventos"
         android:layout_width="190dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/meusEventos"
+        android:layout_height="130dp"
+        android:background="@drawable/meus_eventos"
         android:layout_marginRight="10dp"
         android:layout_alignParentRight="true"
         android:onClick="MeusEvento">
@@ -54,7 +54,7 @@
         <ImageButton
             android:id="@+id/Avaliacoes"
             android:layout_width="190dp"
-            android:layout_height="wrap_content"
+            android:layout_height="130dp"
             android:layout_marginLeft="10dp"
             android:layout_alignParentLeft="true"
             android:background="@drawable/avaliacoes">
@@ -63,12 +63,10 @@
         <ImageButton
             android:id="@+id/Ajustes"
             android:layout_width="190dp"
-            android:layout_height="wrap_content"
+            android:layout_height="130dp"
             android:background="@drawable/ajustes"
             android:layout_marginRight="10dp"
             android:layout_alignParentRight="true"
-            android:="@+id/CriarEvento"
             ></ImageButton>
     </RelativeLayout>
-
 </LinearLayout>

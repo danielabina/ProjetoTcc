@@ -4,38 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#EDEBEF"
     android:orientation="vertical">
 
-    <LinearLayout
+    <ImageButton
         android:layout_width="match_parent"
-        android:layout_height="114dp"
-        android:layout_marginTop="25dp"
-        android:orientation="vertical">
+        android:layout_height="125dp"
+        android:background="@drawable/fundo"></ImageButton>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="91dp"
-            android:background="#E6DADA"
-            android:ems="30"
-            android:padding="35dp"
-            android:text="CADASTRE-SE"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textSize="18sp">
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="94dp"
+        android:background="@drawable/cadastro_topo"></ImageButton>
 
-        </TextView>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="91dp"
-            android:background="#E6DADA"
-            android:ems="30"
-            android:text="***Todos os campos são obrigatorios"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textSize="18sp">
-        </TextView>
-
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -48,34 +28,37 @@
             android:id="@+id/idNome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="20"
-            android:hint="DIGITE SEU NOME"
+            android:hint="Digite seu nome"
             android:importantForAutofill="no"
             android:padding="15dp"
+            android:background="@drawable/bg_form_field_top"
             android:visibility="visible"
             tools:visibility="visible">
 
         </EditText>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_form_field_top"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#E8E3E3"
             android:importantForAutofill="no"
             android:padding="10dp"
             android:ems="20"
-            android:text="   GÊNERO"
+            android:text="Selecione seu gênero"
             android:textSize="18sp">
-
         </TextView>
-
         <RadioGroup
             android:id="@+id/radio_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal">
             <RadioButton android:id="@+id/radio_feminino"
-                android:layout_width="wrap_content"
+                android:layout_width="190dp"
                 android:layout_height="wrap_content"
                 android:text="Feminino"
                 android:onClick="onRadioButtonClicked"/>
@@ -87,13 +70,16 @@
                 android:onClick="onRadioButtonClicked"
                 android:text="Masculino" />
         </RadioGroup>
+    </LinearLayout>
 
         <EditText
             android:id="@+id/idHabilidade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint=" HABILIDADE"
+            android:hint="Digite sua maior habilidade"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_form_field_top"
             android:importantForAutofill="no"
             android:padding="15dp"
             android:visibility="visible"
@@ -104,10 +90,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="20"
-            android:hint=" DIGITE SEU EMAIL"
-            android:importantForAutofill="no"
+            android:hint=" Digite seu e-mail"
             android:inputType="textEmailAddress"
             android:padding="15dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_form_field_top"
             android:visibility="visible"
             tools:visibility="visible">
 
@@ -116,8 +103,10 @@
             android:id="@+id/idSenha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/bg_form_field_top"
             android:ems="10"
-            android:hint="SENHA"
+            android:layout_marginTop="10dp"
+            android:hint="Digite sua senha"
             android:importantForAutofill="no"
             android:inputType="textPassword"
             android:padding="15dp"
@@ -129,11 +118,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
-            android:background="@drawable/button_customizado"
-            android:onClick="Login"
+            android:background="@drawable/bg_form_field_sqr"
             android:text="CADASTRAR" />
-
-
     </LinearLayout>
 
 

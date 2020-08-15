@@ -72,7 +72,7 @@ public class tela_cadastrar extends AppCompatActivity {
                                             }else if(RETORNO.equals("SUCESSO")){
                                                 Toast.makeText(tela_cadastrar.this, "Cadastrado com sucesso,aguarde voce esta logando", Toast.LENGTH_LONG).show();
                                                 Thread.sleep(1000);
-                                                Intent it = new Intent(tela_cadastrar.this, tela_inicial_.class);
+                                                Intent it = new Intent(tela_cadastrar.this, tela_inicial_a.class);
                                                 startActivity(it);
                                             }else {
                                                 Toast.makeText(tela_cadastrar.this, "Ops! Ocorreu o erro," , Toast.LENGTH_LONG).show();
