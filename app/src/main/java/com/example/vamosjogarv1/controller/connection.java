@@ -5,6 +5,7 @@ public class connection {
     String Login;
     String BuscaLocal;
     String BuscaLocalDetalhe;
+    String Cadastrar;
     String IP = "192.168.1.110";
 
     public String getLogin() {
@@ -14,6 +15,8 @@ public class connection {
     public String getBuscaLocal() { return BuscaLocal = "http://"+IP+"/Controller/APIListarLocalDisp.php";
     }
     public String getBuscaLocalDetalhe() { return BuscaLocal = "http://"+IP+"/Controller/APIListarLocalDetalhe.php";
+    }
+    public String getCadastrar() { return Cadastrar = "http://"+IP+"/Login/cadastrar.php";
     }
 
 }

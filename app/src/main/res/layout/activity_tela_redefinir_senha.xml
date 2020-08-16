@@ -4,69 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#EDEBEF"
     android:orientation="vertical">
-    <TextView
-        android:layout_marginTop="50dp"
-        android:id="@+id/textView4"
+
+    <ImageButton
         android:layout_width="match_parent"
-        android:layout_height="58dp"
-        android:background="#E6DADA"
-        android:ems="30"
-        android:padding="15dp"
-        android:text=" Redefinir "
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textSize="25sp"></TextView>
-    <LinearLayout
+        android:layout_height="125dp"
+        android:background="@drawable/fundo"></ImageButton>
+
+    <ImageButton
         android:layout_width="match_parent"
-        android:layout_height="273dp"
-        android:layout_marginTop="25dp"
-        android:orientation="vertical">
+        android:layout_height="125dp"
+        android:background="@drawable/esqueceu"
+        ></ImageButton>
 
-        <ImageView
-            android:id="@+id/idlogo"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:src="@drawable/esportes_png_7"
-            tools:visibility="visible" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="78dp"
-        android:orientation="vertical"
-        android:padding="10dp">
-
-        <EditText
-            android:id="@+id/idEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="DIGITE O EMAIL PARA REDEFINIR "
-            android:importantForAutofill="no"
-            android:inputType="textEmailAddress"
-            android:visibility="visible"
-            tools:visibility="visible"></EditText>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="234dp"
-        android:orientation="vertical"
-        android:padding="35dp">
+    <EditText
+        android:id="@+id/idEmailRe"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:background="@drawable/bg_form_field_top"
+        android:ems="10"
+        android:hint="  Digite seu e-mail"
+        android:inputType="textEmailAddress"
+        android:textColor="#ffff"
+        android:layout_marginTop="10dp"></EditText>
 
         <Button
             android:id="@+id/btnEnviar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/button_customizado"
-            android:layout_marginTop="2dp"
-            android:onClick="Redefinir"
-            android:padding="10dp"
+            android:background="@drawable/bg_form_field_sqr"
+            android:layout_marginTop="10dp"
             android:text="Enviar" />
 
     </LinearLayout>
-
-</LinearLayout>

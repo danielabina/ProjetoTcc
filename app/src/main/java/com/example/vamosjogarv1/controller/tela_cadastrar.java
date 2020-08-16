@@ -21,6 +21,7 @@ import com.koushikdutta.ion.Ion;
 @SuppressLint("Registered")
 public class tela_cadastrar extends AppCompatActivity {
     Pessoa pessoa = new Pessoa();
+    connection con = new connection();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,13 +31,13 @@ public class tela_cadastrar extends AppCompatActivity {
         Button btnCadastrar;
         final EditText editNome,editSenha,editEmail,editHabilidade;
         RadioButton editSexoF,editSexoM;
-        btnCadastrar = (Button) findViewById(R.id.btnEntrar);
+        btnCadastrar = (Button) findViewById(R.id.btnCadastrar_user);
         editEmail= (EditText)  findViewById(R.id.idEmail);
         editSenha = (EditText) findViewById(R.id.idSenha);
         editNome = (EditText) findViewById(R.id.idNome);
         editHabilidade = (EditText) findViewById(R.id.idHabilidade);
 
-        final String HOST = "http://192.168.0.108//Login/";
+        final String HOST = con.getCadastrar();
 
 
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
@@ -48,7 +49,7 @@ public class tela_cadastrar extends AppCompatActivity {
                     String habilidade = editHabilidade.getText().toString();
                     String sexo = pessoa.getSexo();
 
-                    String URL = HOST + "/cadastrar.php";
+                    String URL = HOST;
 
                     if (nome.isEmpty() || email.isEmpty() || senha.isEmpty()) {
                         Toast.makeText(tela_cadastrar.this, "Todos os campos(OBRIGATORIOS) devem ser preenchidos" , Toast.LENGTH_LONG).show();
@@ -95,21 +96,20 @@ public class tela_cadastrar extends AppCompatActivity {
     public void onRadioButtonClicked(View view) {
 
         RadioGroup rb = (RadioGroup) findViewById(R.id.radio_group);
-        rb.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId) {
-                    case R.id.radio_feminino:
-                        pessoa.setSexo("Feminino");
-                        break;
-                    case R.id.radio_masculino:
-                        pessoa.setSexo("Masculino");
-                        break;
-                }
-            }
 
-        });
+        switch (rb.getCheckedRadioButtonId()) {
+            case R.id.radio_feminino:
+                pessoa.setSexo("Feminino");
+                break;
+            case R.id.radio_masculino:
+                pessoa.setSexo("Masculino");
+                break;
+        }
+
 
     }
+
+
 
     @Override
     protected void onPause() {

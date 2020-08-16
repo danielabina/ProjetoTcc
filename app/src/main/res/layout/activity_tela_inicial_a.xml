@@ -10,22 +10,22 @@
 
     <ImageButton
         android:layout_width="match_parent"
-        android:layout_height="146dp"
-        android:background="@drawable/fundo"></ImageButton>
+        android:layout_height="121dp"
+        android:background="@drawable/fundo_2"></ImageButton>
 
     <ImageButton
         android:id="@+id/EventosProximos"
         android:layout_width="390dp"
         android:layout_height="140dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/eventosp"
         android:onClick="BuscarEvento"></ImageButton>
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="20dp">
     <ImageButton
         android:id="@+id/CriarEvento"
         android:layout_width="190dp"
@@ -39,7 +39,7 @@
     <ImageButton
         android:id="@+id/MeusEventos"
         android:layout_width="190dp"
-        android:layout_height="130dp"
+        android:layout_height="140dp"
         android:background="@drawable/meus_eventos"
         android:layout_marginRight="10dp"
         android:layout_alignParentRight="true"
