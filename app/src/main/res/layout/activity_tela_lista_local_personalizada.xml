@@ -14,7 +14,7 @@
             android:id="@+id/foto"
             android:layout_width="70dp"
             android:layout_height="86dp"
-            android:background="@drawable/esportes_png_7"
+            android:background="@drawable/logo"
             android:layout_weight="1" />
 
         <TextView

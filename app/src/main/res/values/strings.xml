@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="numbers">
-        <item>SELECIONE A MODALIDADE</item>
+        <item>Selecione a modalidade</item>
         <item>Handebol</item>
         <item>Basquete</item>
         <item>Voleibol</item>

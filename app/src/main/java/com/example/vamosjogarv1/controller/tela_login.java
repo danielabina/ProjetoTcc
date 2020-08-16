@@ -44,7 +44,7 @@ public class tela_login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_main);
 
-        //verificaDados();
+        verificaDados();
 
 
         btnEntrar = (Button) findViewById(R.id.btnEntrar);

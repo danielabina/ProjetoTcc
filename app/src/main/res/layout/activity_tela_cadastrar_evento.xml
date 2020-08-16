@@ -1,55 +1,58 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#EDEBEF"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_marginTop="30dp"
-        android:id="@+id/textView4"
+    <ImageButton
         android:layout_width="match_parent"
-        android:layout_height="58dp"
-        android:background="#E6DADA"
-        android:ems="30"
-        android:padding="15dp"
-        android:text=" CADASTRAR EVENTO  "
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textSize="25sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="5dp"
-        tools:layout_editor_absoluteY="24dp"></TextView>
+        android:layout_height="119dp"
+        android:background="@drawable/fundo_2"></ImageButton>
+
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="88dp"
+        android:background="@drawable/evento_0_"></ImageButton>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#E6DADA"
-        android:text="***Todos os campos são obrigatorios"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textSize="18sp">
+        android:text="Vamos jogar?"
+        android:textColor="#000000"
+        android:textSize="25dp"
+        android:layout_marginLeft="20dp">
     </TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Precisamos de algumas infromações para criar
+seu evento . Vamos la?"
+        android:textColor="#000000"
+        android:textSize="18dp"
+        android:layout_marginLeft="20dp">
+    </TextView>
+
     <EditText
         android:id="@+id/data"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_width="387dp"
+        android:layout_height="60dp"
         android:layout_gravity="center_vertical"
         android:layout_marginTop="20dp"
-        android:background="#E8E3E3"
-        android:textSize="17sp"
-        android:hint="  SELECIONE A DATA DO EVENTO "
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="606dp"
-        />
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/bg_form_field_top"
+        android:hint="  Selecione a data do evento"
+        android:textSize="17sp" />
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_width="387dp"
+        android:layout_height="60dp"
         android:layout_marginTop="20dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textSize="25sp"
-        android:background="#E8E3E3"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/bg_form_field_top"
         android:ems="30"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="5dp"
@@ -57,17 +60,15 @@
         >
 </Spinner>
 
-
-
-
     <EditText
         android:id="@+id/nomeRua"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_width="387dp"
+        android:layout_height="60dp"
         android:layout_marginTop="30dp"
-        android:background="#E8E3E3"
+        android:background="@drawable/bg_form_field_top"
         android:ems="10"
-        android:hint="  DIGITE O CEP, RUA OU BAIRRO "
+        android:layout_marginLeft="10dp"
+        android:hint="  Digite,rua ou bairro "
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="30dp"
         tools:layout_editor_absoluteY="606dp">
@@ -78,10 +79,8 @@
         android:id="@+id/btnProximo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/button_customizado"
-
-        android:onClick="proximo"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/bg_form_field_sqr"
         android:padding="10dp"
         android:text="Próximo"></Button>
 

@@ -53,7 +53,7 @@ public class tela_cadastrar_evento extends AppCompatActivity implements View.OnC
                 if (dataHora.isEmpty() && endereco.isEmpty()) {
                     Toast.makeText(tela_cadastrar_evento.this, "O campo data-hora e endereco devem ser preenchidos" , Toast.LENGTH_LONG).show();
                 } else {
-                    Intent it = new Intent(tela_cadastrar_evento.this, tela_lista_local.class);
+                    Intent it = new Intent(tela_cadastrar_evento.this, tela_detalhe_local.class);
                     endereco = nomeRua.getText().toString();
                     dataHora = String.valueOf(calendar.get(Calendar.DATE)) + "/" + String.valueOf(calendar.get(Calendar.MONTH) + 1) + "/" + String.valueOf(calendar.get(Calendar.YEAR)) + " "
                             + String.valueOf(calendar.get(Calendar.HOUR)) + ":" + String.valueOf(calendar.get(Calendar.MINUTE));

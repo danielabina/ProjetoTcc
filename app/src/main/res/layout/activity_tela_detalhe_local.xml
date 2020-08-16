@@ -1,121 +1,87 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginTop="0dp">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="114dp"
+        android:background="@drawable/fundo_2"></ImageButton>
+
+    <ImageButton
+        android:layout_width="388dp"
+        android:layout_height="76dp"
+        android:background="@drawable/evento_1"></ImageButton>
+
     <TextView
-
-        android:layout_marginTop="20dp"
-        android:id="@+id/textView4"
         android:layout_width="match_parent"
-        android:layout_height="58dp"
-        android:background="#E6DADA"
-        android:ems="30"
-        android:padding="15dp"
-        android:text="DETALHES DO LOCAL "
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textSize="25sp"
-        />
+        android:layout_height="62dp"
+        android:layout_marginLeft="18dp"
+        android:text="Quase lá! Aqui voce pode visualizar detalhes do local escolhido!"
+        android:textColor="#000000"
+        android:textSize="18dp"></TextView>
 
-    <LinearLayout
+    <ImageButton
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="80dp">
+        android:layout_height="135dp"
+        android:background="@drawable/rrr"></ImageButton>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/til_card_number"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.2">
+    <TextView
+        android:id="@+id/nomeLocal"
+        android:layout_width="374dp"
+        android:layout_height="62dp"
+        android:layout_marginLeft="18dp"
+        android:textSize="30sp"></TextView>
 
-            <TextView
-                android:id="@+id/nomeLocal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textSize="30sp" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-    </LinearLayout>
-    <ImageView
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/ola"
-        android:layout_marginTop="130dp"
-        tools:ignore="Suspicious0dp" />
-    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginLeft="18dp"
+        android:text="Descrição"
+        android:textColor="#000000"
+        android:textSize="22dp"></TextView>
+
+    <TextView
+        android:id="@+id/descricaolocal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
-        android:padding="10dp">
+        android:layout_height="56dp"
+        android:layout_marginLeft="18dp"
+        android:text=""
+        android:textColor="#000000"
+        android:textSize="18dp"></TextView>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:id="@+id/CriarEvento"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="18dp"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/criar_eventos">
+        </ImageButton>
 
         <TextView
+            android:id="@+id/enderecolocal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="28sp"
-            android:text="DETALHES :">
-
-        </TextView>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="25sp"
-            android:layout_marginTop="10dp"
-            android:text="Rua da conceição 1000">
-
-        </TextView>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="25sp"
-            android:text="com cobertura,">
-        </TextView>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="25sp"
-            android:text="Estaciomento Incluso">
-        </TextView>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="28sp"
-            android:layout_marginTop="10dp"
-            android:text="OPCIONAIS :">
-
-        </TextView>
-
-        <CheckBox
-            android:layout_width="113dp"
-            android:layout_height="match_parent"
-            android:layout_marginTop="0dp"
-            android:text="BOLA">
-
-        </CheckBox>
-
-        <CheckBox
-            android:layout_width="169dp"
-            android:layout_height="match_parent"
-            android:layout_marginTop="0dp"
-            android:text="COLETE"></CheckBox>
-
-    </com.google.android.material.textfield.TextInputLayout>
-
+            android:layout_height="40dp"
+            android:layout_marginLeft="90dp"
+            android:text="ssss"
+            android:textColor="#000000"
+            android:textSize="18dp"></TextView>
+    </RelativeLayout>
 
     <Button
         android:id="@+id/btnproximook"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="580dp"
-        android:background="@drawable/button_customizado"
-        android:padding="10dp"
+        android:background="@drawable/bg_form_field_sqr"
+        android:layout_marginTop="15dp"
         android:text="Escolher">
 
     </Button>
 
-</RelativeLayout>
+</LinearLayout>

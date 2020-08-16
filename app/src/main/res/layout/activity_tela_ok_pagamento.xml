@@ -1,0 +1,39 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#1b1464"
+    android:orientation="vertical">
+
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="129dp"
+        android:background="@drawable/fundo_2"></ImageButton>
+
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="351dp"
+        android:background="@drawable/pagamento_ok"></ImageButton>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="35dp">
+
+
+        <Button
+            android:id="@+id/voltar"
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#ffff"
+            android:textSize="16sp"
+            android:background="#1b1464"
+            android:text="VOLTAR À PAGINA PRINCIPAL" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

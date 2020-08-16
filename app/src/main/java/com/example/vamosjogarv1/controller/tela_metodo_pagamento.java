@@ -41,7 +41,7 @@ Button btnProximoListar;
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(tela_metodo_pagamento.this,"Pagamento confirmado com sucesso!",Toast.LENGTH_SHORT).show();
-                Intent it = new Intent(tela_metodo_pagamento.this, tela_inicial_.class);
+                Intent it = new Intent(tela_metodo_pagamento.this, tela_ok_pagamento.class);
                 startActivity(it);
                 finish();
             }
