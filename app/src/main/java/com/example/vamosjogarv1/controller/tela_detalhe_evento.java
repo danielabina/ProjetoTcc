@@ -37,7 +37,7 @@ public class tela_detalhe_evento extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(tela_detalhe_evento.this,"Muito bem! estamos ansiosos pelo dia!",Toast.LENGTH_SHORT).show();
-                Intent it = new Intent(tela_detalhe_evento.this, tela_inicial_.class);
+                Intent it = new Intent(tela_detalhe_evento.this, tela_inicial_a.class);
                 startActivity(it);
                 finish();
             }

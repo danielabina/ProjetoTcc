@@ -36,7 +36,7 @@ public class tela_detalhe_meus_proximos_eventos extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(tela_detalhe_meus_proximos_eventos.this,"Voce confirmou o cancelamento",Toast.LENGTH_SHORT).show();
-                Intent it = new Intent(tela_detalhe_meus_proximos_eventos.this, tela_inicial_.class);
+                Intent it = new Intent(tela_detalhe_meus_proximos_eventos.this, tela_inicial_a.class);
                 startActivity(it);
             }
         });

@@ -20,8 +20,7 @@ Button btnProximoListar;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_metodo_pagamento);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
 
        btnProximoListar = (Button) findViewById(R.id.btnProximoLista);
 

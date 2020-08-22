@@ -26,7 +26,7 @@ public class tela_fale_conosco extends AppCompatActivity {
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent it = new Intent(tela_fale_conosco.this, tela_inicial_.class);
+                Intent it = new Intent(tela_fale_conosco.this, tela_inicial_a.class);
                 startActivity(it);
             }
         });

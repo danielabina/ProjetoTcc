@@ -12,7 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".controller.tela_ok_pagamento"></activity>
+        <activity
+            android:name=".controller.tela_termo_de_uso_"
+            android:label="@string/title_activity_tela_termo_de_uso_"
+            android:theme="@style/NoActionBar"></activity>
+        <activity android:name=".controller.tela_menu_ajustes" />
+        <activity android:name=".controller.tela_ok_pagamento" />
         <activity android:name=".controller.tela_inicial_a" />
         <activity android:name=".controller.tela_detalhe_meus_proximos_eventos" />
         <activity android:name=".controller.tela_meus_proximos_eventos" />
@@ -34,16 +39,8 @@
             android:theme="@style/NoActionBar" />
         <activity android:name=".controller.tela_perfil" />
         <activity
-            android:name=".controller.tela_termo_de_uso"
-            android:label="@string/title_activity_termo_de_uso"
-            android:theme="@style/NoActionBar" />
-        <activity
             android:name=".controller.tela_fale_conosco"
             android:label="@string/title_activity_tela_fale_conosco"
-            android:theme="@style/NoActionBar" />
-        <activity
-            android:name=".controller.tela_inicial_"
-            android:label="@string/title_activity_tela_inicial_"
             android:theme="@style/NoActionBar" />
         <activity android:name=".controller.tela_cadastrar" />
         <activity android:name=".controller.tela_login">

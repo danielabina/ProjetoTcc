@@ -2,32 +2,34 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="#EDEBEF"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".controller.tela_inicial_a"
     android:orientation="vertical">
-    <TextView
-        android:layout_marginTop="0dp"
-        android:id="@+id/textView4"
+
+
+    <ImageButton
         android:layout_width="match_parent"
-        android:layout_height="58dp"
-        android:background="#E6DADA"
-        android:ems="30"
-        android:padding="15dp"
-        android:text=" PERFIL "
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textSize="25sp"></TextView>
+        android:layout_height="114dp"
+        android:background="@drawable/fundo_2"></ImageButton>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="57dp"
+        android:layout_marginLeft="20dp"
+        android:text="Cadastrou algo errado ? Não tem problema ,voce editar!!"
+        android:textColor="#000000"
+        android:textSize="18dp"></TextView>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="212dp"
-        android:layout_marginTop="25dp"
+        android:layout_height="157dp"
         android:orientation="vertical">
 
         <ImageView
             android:id="@+id/idlogo"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="135dp"
             android:src="@drawable/user"
             tools:visibility="visible" />
 
@@ -35,7 +37,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="199dp"
+        android:layout_height="256dp"
         android:orientation="vertical"
         android:padding="10dp">
 
@@ -44,9 +46,10 @@
             android:id="@+id/idNome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/bg_form_field_top"
             android:clickable="true"
             android:ems="500"
-            android:hint="Paula da Silva">
+            android:hint=" Paula da Silva">
 
         </EditText>
 
@@ -54,9 +57,9 @@
             android:id="@+id/idEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#E8E3E3"
+            android:background="@drawable/bg_form_field_top"
             android:ems="10"
-            android:hint="paulasilva@gmail.com"
+            android:hint=" paulasilva@gmail.com"
             android:importantForAutofill="no"
             android:inputType="textEmailAddress"
             android:visibility="visible"
@@ -66,44 +69,36 @@
             android:id="@+id/idSenha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/bg_form_field_top"
             android:clickable="true"
             android:ems="500"
-            android:hint="******"
+            android:hint=" ******"
             android:inputType="textPassword" />
 
         <EditText
             android:id="@+id/idHabilidade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/bg_form_field_top"
             android:clickable="true"
             android:ems="500"
-            android:hint="Lateral" />
+            android:hint=" Lateral" />
 
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="234dp"
-        android:orientation="vertical"
-        android:padding="35dp">
-        <Button
-            android:id="@+id/btnavaliacaogg"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:background="#B03F51B5"
-            android:onClick="Cadastrar"
-            android:text="SUAS AVALIAÇÕES" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
         <Button
             android:id="@+id/btnEditar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#A7433FB5"
+            android:background="#A4673AB7"
+            android:textColor="#ffff"
             android:layout_marginTop="2dp"
-            android:onClick="Redefinir"
-            android:padding="10dp"
-            android:text="EDITAR" />
+            android:text="Salvar" />
 
     </LinearLayout>
 

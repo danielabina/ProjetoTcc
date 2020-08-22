@@ -8,8 +8,6 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.vamosjogarv1.R;
-import com.example.vamosjogarv1.controller.ui.avaliacao.AvaliacaoFragment;
-import com.example.vamosjogarv1.controller.ui.perfil.PerfilFragment;
 
 public class tela_perfil extends AppCompatActivity {
 Button btnAvaliacoes;

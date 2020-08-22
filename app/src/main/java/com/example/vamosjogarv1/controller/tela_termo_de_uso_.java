@@ -12,12 +12,12 @@ import android.view.View;
 
 import com.example.vamosjogarv1.R;
 
-public class tela_termo_de_uso extends AppCompatActivity {
+public class tela_termo_de_uso_ extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_termo_de_uso);
+        setContentView(R.layout.activity_tela_termo_de_uso_);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

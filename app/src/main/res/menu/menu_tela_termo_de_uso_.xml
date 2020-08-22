@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.vamosjogarv1.controller.tela_termo_de_uso">
+    tools:context="com.example.vamosjogarv1.controller.tela_termo_de_uso_">
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"

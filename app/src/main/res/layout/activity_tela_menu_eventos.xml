@@ -6,29 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".controller.tela_menu_eventos"
     android:orientation="vertical">
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="131dp"
+        android:background="@drawable/fundo_2"></ImageButton>
 
 
-
-    <Button
-        android:layout_marginTop="250dp"
+    <ImageButton
         android:id="@+id/btnproximoeventos"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/button_customizado"
-        android:textSize="25sp"
-        android:text="PRÓXIMOS EVENTOS"
+        android:layout_height="144dp"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/proximomenu"
         android:onClick="ProximosEventos"
-        ></Button>
-
-    <Button
-        android:id="@+id/btnanterior"
+        android:textSize="25sp"></ImageButton>
+    <ImageButton
+        android:id="@+id/btnAnterioreventos"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/button_customizado"
-        android:textSize="25sp"
-        android:text="EVENTOS ANTERIORES"
-        ></Button>
+        android:layout_height="144dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/anteriromenu"
+        android:onClick="EventosAnteriores"
+        android:textSize="25sp"></ImageButton>
 
 
 </LinearLayout>

@@ -16,21 +16,13 @@ public class tela_menu_eventos extends AppCompatActivity {
         setContentView(R.layout.activity_tela_menu_eventos);
 
 
-        Button btnanterior;
-        btnanterior = findViewById(R.id.btnanterior);
-        btnanterior.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent it = new Intent(tela_menu_eventos.this, tela_lista_eventos_anteriores.class);
-                startActivity(it);
-            }
-        });
+
     }
 
-//    public void EventosAnteriores(View view) {
-//        Intent it = new Intent(tela_menu_eventos.this, tela_lista_eventos_anteriores.class);
-//        startActivity(it);
-//    }
+    public void EventosAnteriores(View view) {
+        Intent it = new Intent(tela_menu_eventos.this, tela_lista_eventos_anteriores.class);
+       startActivity(it);
+   }
     public void ProximosEventos(View view) {
         Intent it = new Intent(tela_menu_eventos.this, tela_meus_proximos_eventos.class);
         startActivity(it);
