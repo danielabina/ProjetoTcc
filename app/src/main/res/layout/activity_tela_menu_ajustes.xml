@@ -1,0 +1,42 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".controller.tela_menu_ajustes"
+    android:orientation="vertical">
+
+
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="131dp"
+        android:background="@drawable/fundo_2"></ImageButton>
+
+
+    <ImageButton
+        android:id="@+id/menuPerfil"
+        android:layout_width="410dp"
+        android:layout_height="110dp"
+        android:onClick="MenuPerfil"
+        android:src="@drawable/perfilmenu"></ImageButton>
+    <ImageButton
+        android:id="@+id/menuAvaliacoes"
+        android:layout_width="410dp"
+        android:layout_height="110dp"
+        android:onClick="MenuAvaliacoes"
+        android:src="@drawable/minhasavamenu"></ImageButton>
+    <ImageButton
+        android:id="@+id/faleConoscoMenu"
+        android:layout_width="410dp"
+        android:layout_height="110dp"
+        android:onClick="FaleConoscoMenu"
+        android:src="@drawable/faleconoscomenu"></ImageButton>
+    <ImageButton
+        android:id="@+id/temordeusoMenu"
+        android:layout_width="410dp"
+        android:layout_height="110dp"
+        android:onClick="TemordeUsoMenu"
+        android:src="@drawable/termomenu"></ImageButton>
+
+
+</LinearLayout>
