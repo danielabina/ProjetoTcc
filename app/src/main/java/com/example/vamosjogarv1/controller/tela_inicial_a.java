@@ -28,4 +28,17 @@ public class tela_inicial_a extends AppCompatActivity {
         Intent it = new Intent(tela_inicial_a.this, tela_cadastrar_evento.class);
         startActivity(it);
     }
+
+    public void MeusAjustes(View view) {
+        Intent it = new Intent(tela_inicial_a.this, tela_menu_ajustes.class);
+        startActivity(it);
+    }
+
+    public void Avaliacoes(View view) {
+        Intent it = new Intent(tela_inicial_a.this, tela_avaliacao.class);
+        startActivity(it);
+    }
+
+
+
 }

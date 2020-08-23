@@ -1,5 +1,6 @@
 package com.example.vamosjogarv1.controller;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -25,8 +26,8 @@ public class tela_termo_de_uso_ extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent it = new Intent(tela_termo_de_uso_.this, tela_fale_conosco.class);
+                startActivity(it);
             }
         });
     }

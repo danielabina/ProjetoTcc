@@ -24,7 +24,7 @@
         android:id="@+id/btnAnterioreventos"
         android:layout_width="match_parent"
         android:layout_height="144dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/anteriromenu"
         android:onClick="EventosAnteriores"
         android:textSize="25sp"></ImageButton>

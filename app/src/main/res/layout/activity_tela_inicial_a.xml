@@ -57,6 +57,7 @@
             android:layout_height="130dp"
             android:layout_marginLeft="10dp"
             android:layout_alignParentLeft="true"
+            android:onClick="Avaliacoes"
             android:background="@drawable/avaliacoes">
         </ImageButton>
 
@@ -66,6 +67,7 @@
             android:layout_height="130dp"
             android:background="@drawable/ajustes"
             android:layout_marginRight="10dp"
+            android:onClick="MeusAjustes"
             android:layout_alignParentRight="true"
             ></ImageButton>
     </RelativeLayout>

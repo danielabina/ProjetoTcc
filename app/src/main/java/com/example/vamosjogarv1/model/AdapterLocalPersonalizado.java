@@ -86,8 +86,9 @@ public class AdapterLocalPersonalizado extends RecyclerView.Adapter<AdapterLocal
         Context context = viewGroup.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
-        View linhaView = inflater.inflate(R.layout.activity_tela_lista_local_personalizada, viewGroup, false);
 
+        View linhaView = LayoutInflater.from(inflater.getContext())
+                .inflate(R.layout.activity_tela_lista_local_personalizada, viewGroup, false);
         MeuViewHolder viewHolder = new MeuViewHolder(linhaView);
 
 

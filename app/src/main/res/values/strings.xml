@@ -27,7 +27,7 @@
     <string name="menu_slideshow">Slideshow</string>
 
     <string name="home_second">Home Second</string>
-    <string name="title_activity_tela_fale_conosco">tela_fale_conosco</string>
+    <string name="title_activity_tela_fale_conosco">Fale Conosco</string>
     <string name="large_text_fale">
         "AQUI IRA O FALE CONOSCO.\n\n"
 
@@ -117,7 +117,7 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
-    <string name="title_activity_termo_de_uso">termo_de_uso</string>
+    <string name="title_activity_termo_de_uso">Termo de uso</string>
     <string name="large_text_termo">
         "AQUI IRA O TERMO DE USO\n\n"
 
@@ -297,94 +297,136 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
-    <string name="title_activity_tela_termo_de_uso_">tela_termo_de_uso_</string>
+    <string name="title_activity_tela_termo_de_uso_">Termo de uso</string>
     <string name="large_text">
-        "Material is the metaphor.\n\n"
+            "TERMOS E CONDIÇÕES – MOVIMENTE-SE, VAMOS JOGAR.\n\n"
 
-        "A material metaphor is the unifying theory of a rationalized space and a system of motion."
-        "The material is grounded in tactile reality, inspired by the study of paper and ink, yet "
-        "technologically advanced and open to imagination and magic.\n"
-        "Surfaces and edges of the material provide visual cues that are grounded in reality. The "
-        "use of familiar tactile attributes helps users quickly understand affordances. Yet the "
-        "flexibility of the material creates new affordances that supercede those in the physical "
-        "world, without breaking the rules of physics.\n"
-        "The fundamentals of light, surface, and movement are key to conveying how objects move, "
-        "interact, and exist in space and in relation to each other. Realistic lighting shows "
-        "seams, divides space, and indicates moving parts.\n\n"
+        "Ao utilizar o serviço você confirma que leu todos os tópicos envolvidos neste termo.\n\n"
+        "Geral\n\n"
 
-        "Bold, graphic, intentional.\n\n"
+        "1.  Contratante” quando citado em qualquer item desde termo, refere-se a pessoa que faz"
+			"o download do aplicativo, se cadastra no sistema e faz o agendamento de seu jogo em"
+			"qualquer centro poliesportivo parceiro. “Contratado” refere-se ao centro poliesportivo"
+			"onde o contratante realizou seu agendamento\n"
+		"2. Movimente-se, vamos jogar” disponibiliza a possibilidade de realizar a reserva de"
+			"centros poliesportivos parceiros, uma vez que está associado diretamente a agenda"
+			"online destes locais\n"
+		"3. “Movimente-se, vamos jogar” não se responsabiliza por quaisquer danos causados, por"
+			"parte do contratante, a quadras poliesportivas e seus equipamentos locados."
+		"4.  Movimente-se, vamos jogar” apresenta uma sessão dentro do aplicativo indicando que"
+			"sua reserva foi realizada com sucesso, podendo o contratante cancela-la num período"
+			"de até 48 horas antes da data agendada\n"
+		"5.  Movimente-se, vamos jogar” não se responsabiliza pelas condições das quadras"
+			"ofertadas pelos centros poliesportivos parceiros.\n"
+		"6.  Movimente-se, vamos jogar” atua única e exclusiva.\n"
 
-        "The foundational elements of print based design typography, grids, space, scale, color, "
-        "and use of imagery guide visual treatments. These elements do far more than please the "
-        "eye. They create hierarchy, meaning, and focus. Deliberate color choices, edge to edge "
-        "imagery, large scale typography, and intentional white space create a bold and graphic "
-        "interface that immerse the user in the experience.\n"
-        "An emphasis on user actions makes core functionality immediately apparent and provides "
-        "waypoints for the user.\n\n"
 
-        "Motion provides meaning.\n\n"
 
-        "Motion respects and reinforces the user as the prime mover. Primary user actions are "
-        "inflection points that initiate motion, transforming the whole design.\n"
-        "All action takes place in a single environment. Objects are presented to the user without "
-        "breaking the continuity of experience even as they transform and reorganize.\n"
-        "Motion is meaningful and appropriate, serving to focus attention and maintain continuity. "
-        "Feedback is subtle yet clear. Transitions are efﬁcient yet coherent.\n\n"
+        "Pagamento.\n\n"
 
-        "3D world.\n\n"
+        "1. O contratante da locação da quadra poliesportiva deverá realizar o pagamento"
+		   "antecipado de 10% sobre o valor total da reserva agendada, para garantir o"
+		   "agendamento.\n"
+		"2. O contratante deverá realizar o pagamento dos 90% restantes de forma presencial no"
+		   "local agendado.\n"
+		"3. O contratante fica ciente que não haverá qualquer tipo de reembolso, mesmo em caso"
+		   "de desistência ou não comparecimento, sobre a taxa de 10% recolhida por “Movimentese, vamos jogar” uma vez que ela serve para garantir o" "agendamento do horário no centro poliesportivo indicado.\n"
+		"4. Movimente-se, vamos jogar” não se responsabiliza por eventuais cobranças extras dos"
+			"centros poliesportivos, seja por uso de itens opcionais oferecidos presencialmente ou"
+			"quaisquer outros motivos.\n\n"
 
-        "The material environment is a 3D space, which means all objects have x, y, and z "
-        "dimensions. The z-axis is perpendicularly aligned to the plane of the display, with the "
-        "positive z-axis extending towards the viewer. Every sheet of material occupies a single "
-        "position along the z-axis and has a standard 1dp thickness.\n"
-        "On the web, the z-axis is used for layering and not for perspective. The 3D world is "
-        "emulated by manipulating the y-axis.\n\n"
 
-        "Light and shadow.\n\n"
 
-        "Within the material environment, virtual lights illuminate the scene. Key lights create "
-        "directional shadows, while ambient light creates soft shadows from all angles.\n"
-        "Shadows in the material environment are cast by these two light sources. In Android "
-        "development, shadows occur when light sources are blocked by sheets of material at "
-        "various positions along the z-axis. On the web, shadows are depicted by manipulating the "
-        "y-axis only. The following example shows the card with a height of 6dp.\n\n"
+        "Reserva.\n\n"
 
-        "Resting elevation.\n\n"
+        "1. "Movimente-se, vamos jogar” não se responsabiliza por eventual cancelamento do horário"
+			"agendado por parte do centro poliesportivo, mesmo que isso contrarie a cobertura de"
+			"agendamento (Item 1, cláusula de Pagamento) e se reserva no direito de manter o valor"
+			"de cobrança recolhido.\n\n"
 
-        "All material objects, regardless of size, have a resting elevation, or default elevation "
-        "that does not change. If an object changes elevation, it should return to its resting "
-        "elevation as soon as possible.\n\n"
 
-        "Component elevations.\n\n"
+        "Identificação.\n\n"
 
-        "The resting elevation for a component type is consistent across apps (e.g., FAB elevation "
-        "does not vary from 6dp in one app to 16dp in another app).\n"
-        "Components may have different resting elevations across platforms, depending on the depth "
-        "of the environment (e.g., TV has a greater depth than mobile or desktop).\n\n"
+        "1. O contratante deverá apresentar a confirmação da reserva realizada no aplicativo"
+		"Movimente-se, vamos jogar” caso o representante do centro poliesportivo julgue"
+		necessário.\n\n"
 
-        "Responsive elevation and dynamic elevation offsets.\n\n"
+        "Alterações de horário.\n\n"
 
-        "Some component types have responsive elevation, meaning they change elevation in response "
-        "to user input (e.g., normal, focused, and pressed) or system events. These elevation "
-        "changes are consistently implemented using dynamic elevation offsets.\n"
-        "Dynamic elevation offsets are the goal elevation that a component moves towards, relative "
-        "to the component’s resting state. They ensure that elevation changes are consistent "
-        "across actions and component types. For example, all components that lift on press have "
-        "the same elevation change relative to their resting elevation.\n"
-        "Once the input event is completed or cancelled, the component will return to its resting "
-        "elevation.\n\n"
+        "1. Caso o contratante queira realizar uma alteração no horário agendado deve entrar em"
+		"contato diretamente com o representante do centro poliesportivo via telefone, e-mail ou"
+		"presencialmente. O contratante fica ciente que essas alterações de horários estão"
+		"sujeitas a disponibilidade por parte dos centros poliesportivos.\n\n"
 
-        "Avoiding elevation interference.\n\n"
+        "Cancelamentos.\n\n"
 
-        "Components with responsive elevations may encounter other components as they move between "
-        "their resting elevations and dynamic elevation offsets. Because material cannot pass "
-        "through other material, components avoid interfering with one another any number of ways, "
-        "whether on a per component basis or using the entire app layout.\n"
-        "On a component level, components can move or be removed before they cause interference. "
-        "For example, a floating action button (FAB) can disappear or move off screen before a "
-        "user picks up a card, or it can move if a snackbar appears.\n"
-        "On the layout level, design your app layout to minimize opportunities for interference. "
-        "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
-        "when a user tries to pick up one of cards.\n\n"
+        "1. O contratante pode realizar o cancelamento do horário agendado, num período máximo"
+		"de 04 horas antecedentes, utilizando a aba de reservas realizadas no aplicativo"
+		"“Movimente-se, vamos jogar” ou entrando em contato diretamente com o representante"
+		"do centro poliesportivo."
+		"2. O contratante fica ciente que não haverá qualquer tipo de reembolso, mesmo em caso"
+		"de desistência ou não comparecimento, sobre a taxa de 10% recolhida por “Movimentese, vamos jogar” uma vez que ela serve para garantir o agendamento" do horário no centro poliesportivo indicado.\n\n"
+
+        "Atrasos.\n\n"
+
+        "1. O contratante fica ciente que deverá chegar no centro poliesportivo locado com pelo"
+		"menos 05 minutos de antecedência em relação horário agendado."
+		"2. O centro poliesportivo se reversa no direito de cancelar a sua reserva em caso de atraso pré-estabelecido.n\n"
+
+        "Não comparecimento.\n\n"
+
+        "1. O contratante fica ciente que o não comparecimento ao centro poliesportivo no horário"
+		"agendado poderá ocasionar o corte de acesso ao serviço “Movimente-se, vamos jogar”"
+		"temporariamente, banimento da plataforma e/ou ser registrado como “Não"
+		"comparecente” no banco de dados."
+		"2. O contratante fica ciente que não haverá nenhuma forma de reembolso sobre a taxa de"
+		"10% recolhida por “Movimente-se, vamos jogar” no momento da confirmação de"
+		"agendamento. \n\n"
+
+        "Informações pessoais.\n\n"
+
+        "1. Para realizar o agendamento o contratante precisa estar com estas informações"
+		"atualizadas: nome, e-mail e telefone. Estas informações necessitam ser corretas e"
+		"verdadeiras. "
+		"2. As informações fornecidas pelo contratante serão utilizadas para atividades descritas na"
+		"política de privacidade de “Movimente-se, vamos jogar”, bem como no agendamento do"
+		"horário. n\n"
+
+		"Política de privacidade.\n\n"
+
+        "1. Ao usar os serviços de “Movimente-se, vamos jogar” o contratante fica ciente que
+		"poderemos utilizar suas informações pessoais para envio de e-mails de campanhas de
+		"marketing vigentes ou futuras."
+		"2. O contratante poderá receber e-mails com a atualização deste termo de uso, bem como
+		"atualizações de funcionalidades ou indisponibilidade programada. "
+
+
+        "Propriedade Intelectual.\n\n"
+
+        "1. O contratante não possui nenhum direito de propriedade intelectual ou direitos"
+        "exclusivos, incluindo patentes, desenhos, marcas, direitos autorais, acesso a"
+        "informações confidenciais ou segredos de negócio. Também não adquire direito a itens"
+        "encontrados, não se limitando a eles, no site e no software como textos, gráficos,"
+        "imagens, logotipos, ícones, fotografias, notificações ou qualquer outro material."
+
+        "Uso do software.\n\n"
+
+        "1. É disponibilizada todas as funcionalidades descritas na documentação no ato da"
+        "contratação (agendamento), com exceção de funcionalidades em manutenção"
+        "programada avisadas com antecedência ao contratante."
+        "2. Não está autorizado por parte do contratante emprestar, vender, ou fazer cópia do"
+        "“Movimente-se, vamos jogar”. Caso queira, o contratante pode indicar o “Movimente-se,"
+        "vamos jogar” para seus amigos e/ou familiares."
+        "3. Não está autorizada a realização de engenharia reversa, descompilação ou separação"
+        "do software.\n\n"
+
+        "Alteração de oferta e Termo de uso.\n\n"
+
+        "1. “Movimente-se, vamos jogar” se reserva ao direito de alterar este termo, DE FORMA"
+        "IRRESTRITA, a qualquer momento, caso julgue necessário."
+        "Encerramento do serviço"
+        "1. “Movimente-se, vamos jogar” se reserva ao direito de restringir e/ou suspender o uso dos"
+        "serviços ofertados caso julgue que haja mau uso ou descumprimento dos termos de uso"
+        "do serviço aqui apresentados.\n\n"
     </string>
 </resources>
