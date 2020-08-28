@@ -6,7 +6,7 @@ public class connection {
     String BuscaLocal;
     String BuscaLocalDetalhe;
     String Cadastrar;
-    String IP = "192.168.15.4";
+    String IP = "192.168.0.114";
 
     public String getLogin() {
 

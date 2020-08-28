@@ -34,15 +34,16 @@ seu evento . Vamos la?"
         android:layout_marginLeft="20dp">
     </TextView>
 
-    <EditText
+    <TextView
         android:id="@+id/data"
         android:layout_width="387dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/bg_form_field_top"
+        android:clickable="false"
         android:hint="  Selecione a data do evento"
+        android:textAlignment="inherit"
         android:textSize="17sp" />
     <Spinner
         android:id="@+id/spinner"
