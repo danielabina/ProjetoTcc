@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -36,7 +37,7 @@ import java.util.List;
 
 public class tela_detalhe_local extends AppCompatActivity {
     Button btnproximook;
-    TextView txtNomeLocal;
+    TextView txtNomeLocal,txtEnderecoLocal,txtDescricaoLocal;
     int idLocal;
     private Bundle extra;
     connection con = new connection();
@@ -52,6 +53,8 @@ public class tela_detalhe_local extends AppCompatActivity {
         setContentView(R.layout.activity_tela_detalhe_local);
         btnproximook = (Button) findViewById(R.id.btnproximook);
         txtNomeLocal = (TextView) findViewById(R.id.nomeLocal);
+        txtEnderecoLocal = (TextView)  findViewById(R.id.enderecolocal);
+        txtDescricaoLocal = (TextView) findViewById(R.id.descricaolocal);
 
 
 
@@ -237,13 +240,14 @@ public class tela_detalhe_local extends AppCompatActivity {
 
                         local = new Local(jsonObject.getInt("id"),
                                 jsonObject.getString("nome"),
+                                jsonObject.getString("descricao"),
                                 jsonObject.getString("endereco"),
                                 jsonObject.getString("categoria"),
                                 jsonObject.getString("valor"));
 
                         localList.add(local);
 
-                        Log.i("APIListar", "Estado: -> " + local.getId() + " - " +local.getNome());
+                        Log.i("APIListar", "detalhe: -> " + local.getId() + " - " +local.getNome());
 
 
                     }
@@ -268,6 +272,8 @@ public class tela_detalhe_local extends AppCompatActivity {
 
   public void initial(Local local){
            txtNomeLocal.setText(local.getNome());
+           txtDescricaoLocal.setText(local.getDescricao());
+           txtEnderecoLocal.setText(local.getEndereco());
        }
     }
 

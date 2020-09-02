@@ -241,6 +241,7 @@ public class tela_lista_local extends AppCompatActivity {
 
                         local = new Local(jsonObject.getInt("id"),
                                 jsonObject.getString("nome"),
+                                jsonObject.getString("descricao"),
                                 jsonObject.getString("endereco"),
                                 jsonObject.getString("categoria"),
                                 jsonObject.getString("valor"));

@@ -48,7 +48,6 @@
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_marginLeft="18dp"
-        android:text=""
         android:textColor="#000000"
         android:textSize="18dp"></TextView>
 
@@ -57,11 +56,11 @@
         android:layout_height="wrap_content">
         <ImageButton
             android:id="@+id/CriarEvento"
-            android:layout_width="50dp"
+            android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_marginLeft="18dp"
             android:layout_alignParentLeft="true"
-            android:background="@drawable/criar_eventos">
+            android:background="@drawable/mapa">
         </ImageButton>
 
         <TextView
@@ -69,7 +68,6 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginLeft="90dp"
-            android:text="ssss"
             android:textColor="#000000"
             android:textSize="18dp"></TextView>
     </RelativeLayout>

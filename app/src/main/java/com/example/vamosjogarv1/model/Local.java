@@ -7,15 +7,19 @@ public class Local {
     private String categoria;
     private String endereco;
     private String valor;
+    private String descricao;
 
 
-    public Local(int id, String nome, String categoria,String endereco,String valor){
+    public Local(int id, String nome, String descricao,String endereco,String categoria,String valor){
 
         this.setId(id);
-        this.setEndereco(endereco);
         this.setNome(nome);
-        this.setValor(valor);
+        this.setDescricao(descricao);
+        this.setEndereco(endereco);
         this.setCategoria(categoria);
+        this.setValor(valor);
+
+
     }
 
     public String getEndereco() {
@@ -60,6 +64,14 @@ public class Local {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String id) {
+        this.descricao = descricao;
     }
 
 }
