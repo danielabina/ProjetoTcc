@@ -24,12 +24,13 @@
 
 
         <Button
-            android:id="@+id/voltar"
+            android:id="@+id/okvoltar"
             android:layout_width="match_parent"
             android:layout_height="47dp"
             android:layout_marginTop="10dp"
             android:textColor="#ffff"
             android:textSize="16sp"
+            android:onClick="voltarTelaInicial"
             android:background="#1b1464"
             android:text="VOLTAR À PAGINA PRINCIPAL" />
 

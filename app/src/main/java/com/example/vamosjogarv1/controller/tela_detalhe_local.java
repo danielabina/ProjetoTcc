@@ -37,7 +37,7 @@ import java.util.List;
 
 public class tela_detalhe_local extends AppCompatActivity {
     Button btnproximook;
-    TextView txtNomeLocal,txtEnderecoLocal,txtDescricaoLocal;
+    TextView txtNomeLocal,txtEnderecoLocal,txtDescricaoLocal,txtValor;
     int idLocal;
     private Bundle extra;
     connection con = new connection();
@@ -55,6 +55,7 @@ public class tela_detalhe_local extends AppCompatActivity {
         txtNomeLocal = (TextView) findViewById(R.id.nomeLocal);
         txtEnderecoLocal = (TextView)  findViewById(R.id.enderecolocal);
         txtDescricaoLocal = (TextView) findViewById(R.id.descricaolocal);
+        txtValor = (TextView) findViewById(R.id.valorLocal);
 
 
 
@@ -274,6 +275,7 @@ public class tela_detalhe_local extends AppCompatActivity {
            txtNomeLocal.setText(local.getNome());
            txtDescricaoLocal.setText(local.getDescricao());
            txtEnderecoLocal.setText(local.getEndereco());
+           txtValor.setText(local.getValor());
        }
     }
 

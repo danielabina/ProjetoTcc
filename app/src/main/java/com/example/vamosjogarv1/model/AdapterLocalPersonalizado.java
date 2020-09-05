@@ -44,7 +44,7 @@ public class AdapterLocalPersonalizado extends RecyclerView.Adapter<AdapterLocal
 
     public class MeuViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        TextView nome,categoria,endereco,valor,descricao;
+        TextView nome,categoria,endereco,valor;
         @SuppressLint("WrongViewCast")
         public MeuViewHolder(@NonNull View view) {
             super(view);
@@ -53,7 +53,6 @@ public class AdapterLocalPersonalizado extends RecyclerView.Adapter<AdapterLocal
             categoria = (TextView) view.findViewById(R.id.categoria);
             valor = (TextView) view.findViewById(R.id.valor);
             endereco = (TextView) view.findViewById(R.id.ende);
-            descricao = (TextView) view.findViewById(R.id.descricaoL);
 
             view.setOnClickListener(this);
         }
@@ -107,8 +106,7 @@ public class AdapterLocalPersonalizado extends RecyclerView.Adapter<AdapterLocal
         valor.setText(local.getValor());
         TextView endereco = meuViewHolder.endereco;
         endereco.setText(local.getEndereco());
-        TextView descricao = meuViewHolder.descricao;
-        descricao.setText(local.getDescricao());
+
         }
 
 
