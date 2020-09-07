@@ -34,11 +34,13 @@ public class AdapterLocalPersonalizado extends RecyclerView.Adapter<AdapterLocal
 
     Context ctx;
     List<Local> listaLocal;
+    String idPessoa;
 
     connection con = new connection();
 
-    public AdapterLocalPersonalizado(List<Local> locais,Context ctx1) {
+    public AdapterLocalPersonalizado(List<Local> locais,Context ctx1, String idPessoa) {
         this.ctx = ctx1;
+        this.idPessoa = idPessoa;
         this.listaLocal = locais;
     }
 
@@ -72,6 +74,7 @@ public class AdapterLocalPersonalizado extends RecyclerView.Adapter<AdapterLocal
                 Bundle bundle = new Bundle();
                 bundle.putInt("ID",objSelecionado.getId());
                 intent.putExtra("idLocal", objSelecionado.getId());
+                intent.putExtra("IDPESSOA", idPessoa);
 
                 ctx.startActivity(intent);
             }

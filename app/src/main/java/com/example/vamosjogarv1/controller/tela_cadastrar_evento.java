@@ -19,6 +19,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.example.vamosjogarv1.R;
+import com.example.vamosjogarv1.model.Pessoa;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -27,8 +28,11 @@ public class tela_cadastrar_evento extends AppCompatActivity implements View.OnC
     TextView data;
     DatePickerDialog.OnDateSetListener  setListener;
     String categoria,dataHora,endereco;
+    int idPessoa;
     Button btnProximo;
     EditText nomeRua;
+    Pessoa pessoa = new Pessoa();
+
 
 
     Calendar calendar = Calendar.getInstance();
@@ -42,8 +46,9 @@ public class tela_cadastrar_evento extends AppCompatActivity implements View.OnC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_cadastrar_evento);
 
-
         nomeRua = findViewById(R.id.nomeRua);
+        Bundle extras = getIntent().getExtras();
+        idPessoa = extras.getInt("IDPESSOA");
 
         data = findViewById(R.id.data);
         btnProximo = findViewById(R.id.btnProximo);
@@ -60,7 +65,11 @@ public class tela_cadastrar_evento extends AppCompatActivity implements View.OnC
                     it.putExtra("categoria", categoria);
                     it.putExtra("dataHora", dataHora);
                     it.putExtra("endereco", endereco);
+                    it.putExtra("IDPESSOA",Integer.toString(idPessoa));
+
+
                     startActivity(it);
+
                     finish();
                 }
             }

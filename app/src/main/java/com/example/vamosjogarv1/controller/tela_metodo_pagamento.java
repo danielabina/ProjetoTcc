@@ -16,11 +16,15 @@ import android.widget.Toast;
 
 public class tela_metodo_pagamento extends AppCompatActivity {
 Button btnProximoListar;
+String idPessoa;
+int idLocal,valor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_metodo_pagamento);
-
+        Bundle it = getIntent().getExtras();
+        idLocal= it.getInt("ID");
+        idPessoa = it.getString("IDPESSOA");
 
        btnProximoListar = (Button) findViewById(R.id.btnProximoLista);
 
@@ -57,5 +61,6 @@ Button btnProximoListar;
 
 
     }
+
 
 }

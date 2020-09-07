@@ -12,11 +12,24 @@ public class Pessoa {
     public int idPessoa;
     public String nome;
     public String email;
+    public String habilidade;
     public String senha;
     public String sexo;
     // incuir endereço e logo
 
+    public Pessoa(int idPessoa, String nome, String email,String senha,String habilidade,String sexo){
 
+        this.setIdPessoa(idPessoa);
+        this.setNome(nome);
+        this.setEmail(email);
+        this.setSenha(senha);
+        this.setHabilidade(habilidade);
+        this.setSexo(sexo);
+
+
+    }
+
+    public Pessoa(){ }
     public String getSexo() {
         return sexo;
     }
@@ -27,6 +40,9 @@ public class Pessoa {
     public String getSenha() {
         return senha;
     }
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
     public int getIdPessoa() {
         return idPessoa;
     }
@@ -35,12 +51,19 @@ public class Pessoa {
         this.idPessoa = idPessoa;
     }
 
-    public String getNome() {
-        return nome;
-    }
 
+    public String getHabilidade() {
+        return habilidade;
+    }
+    public void setHabilidade(String habilidade) {
+        this.habilidade = habilidade;
+    }
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getNome() {
+        return nome;
     }
 
     public String getEmail() {
@@ -50,14 +73,5 @@ public class Pessoa {
     public void setEmail(String email) {
         this.email = email;
     }
-
-
-    public void setEmail(EditText viewById) {
-    }
-
-    public void setSenha(EditText viewById) {
-    }
-
-
 }
 

@@ -35,6 +35,7 @@ public class tela_login extends AppCompatActivity {
         if(!email.isEmpty()) {
 
             Intent abrePrincipal = new Intent(tela_login.this, tela_inicial_a.class);
+            abrePrincipal.putExtra("EMAIL", email);
             startActivity(abrePrincipal);
         }
     }

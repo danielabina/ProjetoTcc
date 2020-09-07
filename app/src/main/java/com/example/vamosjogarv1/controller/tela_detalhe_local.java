@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.vamosjogarv1.R;
 import com.example.vamosjogarv1.model.AdapterLocalPersonalizado;
 import com.example.vamosjogarv1.model.Local;
+import com.example.vamosjogarv1.model.Pessoa;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -39,11 +40,13 @@ public class tela_detalhe_local extends AppCompatActivity {
     Button btnproximook;
     TextView txtNomeLocal,txtEnderecoLocal,txtDescricaoLocal,txtValor;
     int idLocal;
+    String idPessoa;
     private Bundle extra;
     connection con = new connection();
     ListarLocaisDetalheAsyncTask listarLocaisDetalheAsyncTask;
     List<Local> localList;
     Local local;
+    Pessoa pessoa;
 
 
 
@@ -61,6 +64,7 @@ public class tela_detalhe_local extends AppCompatActivity {
 
         Bundle it = getIntent().getExtras();
         idLocal= it.getInt("idLocal");
+        idPessoa = it.getString("IDPESSOA");
 
         listarLocaisDetalheAsyncTask = new ListarLocaisDetalheAsyncTask();
         listarLocaisDetalheAsyncTask.execute();
@@ -293,6 +297,14 @@ public class tela_detalhe_local extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(tela_detalhe_local.this,"Muito bem! estamos ansiosos pelo dia!",Toast.LENGTH_SHORT).show();
                 Intent it = new Intent(tela_detalhe_local.this, tela_metodo_pagamento.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("ID",idLocal);
+                it.putExtra("IDPESSOA",idPessoa);
+                it.putExtra("ID",idLocal);
+                bundle.putString("NOME",local.getNome());
+                bundle.putString("VALOR",local.getValor());
+                bundle.putString("IDPESSOA",idPessoa);
+
                 startActivity(it);
                 finish();
             }

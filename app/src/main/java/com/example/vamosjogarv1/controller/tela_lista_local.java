@@ -46,7 +46,8 @@ public class tela_lista_local extends AppCompatActivity {
     AdapterLocalPersonalizado adapterLocalPersonalizado;
     List<Local> localList;
     Local local;
-    String endereco,categoria,token,dataHora;
+    String endereco,categoria,token,dataHora,idpessoa;
+
 
 
     connection con = new connection();
@@ -62,6 +63,10 @@ public class tela_lista_local extends AppCompatActivity {
          categoria = it.getStringExtra("categoria");
          endereco = it.getStringExtra("endereco");
         dataHora = it.getStringExtra("dataHora");
+        idpessoa = it.getStringExtra("IDPESSOA");
+
+
+
 
         listView = findViewById(R.id.recyclerViewLocal);
 
@@ -272,7 +277,7 @@ public class tela_lista_local extends AppCompatActivity {
         }
 
         public void initial(){
-            adapterLocalPersonalizado = new AdapterLocalPersonalizado(localList, getApplicationContext());
+            adapterLocalPersonalizado = new AdapterLocalPersonalizado(localList,getApplicationContext(),idpessoa);
             listView.setAdapter(adapterLocalPersonalizado);
             listView.setLayoutManager(new LinearLayoutManager(tela_lista_local.this));
         }
