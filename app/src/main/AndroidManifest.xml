@@ -12,10 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true">
+        <activity android:name=".activity_main"></activity>
         <activity
             android:name=".controller.tela_termo_de_uso_"
             android:label="@string/title_activity_tela_termo_de_uso_"
-            android:theme="@style/NoActionBar"></activity>
+            android:theme="@style/NoActionBar" />
         <activity android:name=".controller.tela_menu_ajustes" />
         <activity android:name=".controller.tela_ok_pagamento" />
         <activity android:name=".controller.tela_inicial_a" />

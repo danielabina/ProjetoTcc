@@ -51,6 +51,7 @@
 
 
     <LinearLayout
+        android:id="@+id/ll_card_number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -92,9 +93,11 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
+        android:id="@+id/til_name"
         android:layout_height="wrap_content">
 
         <EditText
+            android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="28dp"
@@ -104,81 +107,100 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
+        android:id="@+id/ll_expiration"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/til_name"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="80dp"
-            android:layout_height="wrap_content">
+            android:id="@+id/til_month"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+
 
             <EditText
+                android:id="@+id/month"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Mês"
-                android:layout_marginLeft="28dp"
                 android:inputType="number"
-                android:text="01">
-
-            </EditText>
+                android:text="01" />
         </com.google.android.material.textfield.TextInputLayout>
-
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="90dp"
-            android:layout_height="match_parent">
+            android:id="@+id/til_year"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1">
 
             <EditText
+                android:id="@+id/year"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="ANO"
-                android:layout_marginLeft="28dp"
+                android:hint="Ano"
                 android:inputType="number"
-                android:text="2023">
-
-            </EditText>
+                android:text="2023" />
         </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_expiration"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="80dp"
-            android:layout_height="wrap_content">
+            android:id="@+id/til_parcels"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1">
 
             <EditText
+                android:id="@+id/parcels"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Parcelas"
                 android:inputType="number"
-                android:layout_marginLeft="28dp"
-                android:text="2">
-
-            </EditText>
+                android:text="2" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="80dp"
+            android:id="@+id/til_cvv"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            >
+            android:layout_weight="1">
 
             <EditText
+                android:id="@+id/cvv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="CCV"
-                android:layout_marginLeft="28dp"
+                android:hint="CVV"
                 android:inputType="number"
-                android:text="2">
-
-            </EditText>
+                android:text="253" />
         </com.google.android.material.textfield.TextInputLayout>
-
-
-
     </LinearLayout>
+
+
     <Button
         android:id="@+id/btnProximoLista"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        android:onClick="buy"
         android:hint="FINALIZAR"
         android:background="@drawable/bg_form_field_sqr">
 
     </Button>
+
+    <WebView
+        android:id="@+id/web_view"
+        android:layout_width="0.1dp"
+        android:layout_height="0.1dp"
+        android:layout_below="@+id/button_buy"></WebView>
 </LinearLayout>
