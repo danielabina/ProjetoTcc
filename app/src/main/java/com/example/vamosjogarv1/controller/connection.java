@@ -7,6 +7,7 @@ public class connection {
     String BuscaLocalDetalhe;
     String BuscaIdPessoa;
     String Cadastrar;
+    String UrlPagamento;
     String IP = "192.168.0.114";
 
     public String getLogin() {
@@ -19,7 +20,9 @@ public class connection {
     }
     public String getCadastrar() { return Cadastrar = "http://"+IP+"/Login/cadastrar.php";
     }
-    public String getBuscaIdPessoa() { return Cadastrar = "http://"+IP+"/Controller/APIBuscaIdPessoa.php";
-    }
+    public String getBuscaIdPessoa() { return Cadastrar = "http://"+IP+"/Controller/APIBuscaIdPessoa.php";}
+
+    public String getUrlPagamento() { return UrlPagamento = "http://"+IP+"/Controller/android-payment/"; }
+
 
 }
