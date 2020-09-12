@@ -40,7 +40,7 @@ public class tela_detalhe_local extends AppCompatActivity {
     Button btnproximook;
     TextView txtNomeLocal,txtEnderecoLocal,txtDescricaoLocal,txtValor;
     int idLocal;
-    String idPessoa;
+    String idPessoa,nomeEvento,dataHora;
     private Bundle extra;
     connection con = new connection();
     ListarLocaisDetalheAsyncTask listarLocaisDetalheAsyncTask;
@@ -65,6 +65,8 @@ public class tela_detalhe_local extends AppCompatActivity {
         Bundle it = getIntent().getExtras();
         idLocal= it.getInt("idLocal");
         idPessoa = it.getString("IDPESSOA");
+        nomeEvento = it.getString("nomeEvento");
+        dataHora = it.getString("dataHora");
 
         listarLocaisDetalheAsyncTask = new ListarLocaisDetalheAsyncTask();
         listarLocaisDetalheAsyncTask.execute();
@@ -300,10 +302,14 @@ public class tela_detalhe_local extends AppCompatActivity {
                 Bundle bundle = new Bundle();
                 bundle.putInt("ID",idLocal);
                 it.putExtra("IDPESSOA",idPessoa);
+                it.putExtra("nomeEvento",nomeEvento);
+                it.putExtra("dataHora",dataHora);
                 it.putExtra("ID",idLocal);
-                bundle.putString("NOME",local.getNome());
+
                 bundle.putString("VALOR",local.getValor());
                 bundle.putString("IDPESSOA",idPessoa);
+                bundle.putString("nomeEvento",nomeEvento);
+                bundle.putString("dataHora",dataHora);
 
                 startActivity(it);
                 finish();

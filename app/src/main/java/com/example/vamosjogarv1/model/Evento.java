@@ -11,32 +11,31 @@ import java.sql.Date;
 public class Evento {
 
     public int idEvento;
-    public Date diaHora;
-    private String nome;
-    private String descricao;
+    public String idCancha;
+    public String idPessoa;
+    public String dataHoraa;
+    private String nomeEvento;
+
+
+    public void setDataHoraa(String dataHoraa) {
+        this.dataHoraa = dataHoraa;
+    }
 
     public Evento(String nome, String descricao, Categoria categoria) {
-        this.nome = nome;
-        this.descricao = descricao;
-
+        this.nomeEvento = nomeEvento;
         this.categoria = categoria;
     }
 
-    public String getNome() {
-        return nome;
+    public Evento(String idCancha, String idPessoa, String dataHoraa, String nomeEvento) {
+        this.nomeEvento = nomeEvento;
+        this.idCancha = idCancha;
+        this.idPessoa = idPessoa;
+        this.dataHoraa = dataHoraa;
+        this.nomeEvento = nomeEvento;
+
+
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
 
     public Categoria getCategoria() {
         return categoria;
@@ -59,11 +58,27 @@ public class Evento {
         this.idEvento = idEvento;
     }
 
-    public Date getDiaHora() {
-        return diaHora;
+    public String getIdCancha() {
+        return idCancha;
     }
 
-    public void setDiaHora(Date diaHora) {
-        this.diaHora = diaHora;
+    public void setIdCancha(String idCancha) {
+        this.idCancha = idCancha;
+    }
+
+    public String getIdPessoa() {
+        return idPessoa;
+    }
+
+    public void setIdPessoa(String idPessoa) {
+        this.idPessoa = idPessoa;
+    }
+
+    public String getNomeEvento() {
+        return nomeEvento;
+    }
+
+    public void setNomeEvento(String nomeEvento) {
+        this.nomeEvento = nomeEvento;
     }
 }

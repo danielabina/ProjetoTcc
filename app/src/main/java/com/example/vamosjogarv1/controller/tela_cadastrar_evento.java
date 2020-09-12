@@ -6,7 +6,6 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -27,7 +26,11 @@ import java.util.Calendar;
 public class tela_cadastrar_evento extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
     TextView data;
     DatePickerDialog.OnDateSetListener  setListener;
-    String categoria,dataHora,endereco;
+    String categoria;
+    String dataHora;
+    String endereco;
+    String nomeEvento;
+    EditText nome;
     int idPessoa;
     Button btnProximo;
     EditText nomeRua;
@@ -51,6 +54,8 @@ public class tela_cadastrar_evento extends AppCompatActivity implements View.OnC
         idPessoa = extras.getInt("IDPESSOA");
 
         data = findViewById(R.id.data);
+        nome = (EditText) findViewById(R.id.nomeEvento);
+        nomeEvento = nome.getText().toString();
         btnProximo = findViewById(R.id.btnProximo);
         btnProximo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,11 +65,13 @@ public class tela_cadastrar_evento extends AppCompatActivity implements View.OnC
                 } else {
                     Intent it = new Intent(tela_cadastrar_evento.this, tela_lista_local.class);
                     endereco = nomeRua.getText().toString();
+                    nomeEvento = nome.getText().toString();
                     dataHora = String.valueOf(calendar.get(Calendar.DATE)) + "/" + String.valueOf(calendar.get(Calendar.MONTH) + 1) + "/" + String.valueOf(calendar.get(Calendar.YEAR)) + " "
                             + String.valueOf(calendar.get(Calendar.HOUR)) + ":" + String.valueOf(calendar.get(Calendar.MINUTE));
                     it.putExtra("categoria", categoria);
                     it.putExtra("dataHora", dataHora);
                     it.putExtra("endereco", endereco);
+                    it.putExtra("nomeEvento", nomeEvento);
                     it.putExtra("IDPESSOA",Integer.toString(idPessoa));
 
 

@@ -2,14 +2,23 @@ package com.example.vamosjogarv1.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.vamosjogarv1.R;
+import com.example.vamosjogarv1.model.AdapterLocalPersonalizado;
 import com.example.vamosjogarv1.model.CreditCard;
+import com.example.vamosjogarv1.model.Evento;
+import com.example.vamosjogarv1.model.Local;
 import com.example.vamosjogarv1.model.PaymentConnection;
+import com.google.gson.JsonObject;
+import com.koushikdutta.async.future.FutureCallback;
+import com.koushikdutta.ion.Ion;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,7 +29,21 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -34,22 +57,32 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class tela_metodo_pagamento extends AppCompatActivity implements Observer {
 Button btnProximoListar;
-String idPessoa;
 EditText numeroCartao,nome,mes,ano,cvv,parcelas;
-int idLocal,valor;
-connection con ;
+int idLocal;
+Integer dataHora;
+String idPessoa,nomeEvento;
+    connection con = new connection();
+    List<Evento> eventoList;
+    CadastrarEventoAsyncTask cadastrarEventoAsyncTask;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_metodo_pagamento);
         Bundle it = getIntent().getExtras();
         idLocal= it.getInt("ID");
+        idPessoa= it.getString("IDPESSOA");
+        dataHora= it.getInt("dataHora");
+        nomeEvento = it.getString("nomeEvento");
+
         numeroCartao = (EditText) findViewById(R.id.card_number );
         nome=(EditText) findViewById(R.id.name );
         mes=(EditText) findViewById(R.id.month);
         ano=(EditText) findViewById(R.id.year);
         cvv= (EditText) findViewById(R.id.cvv);
         parcelas= (EditText) findViewById(R.id.parcels);
+
+
 
 
 
@@ -62,7 +95,8 @@ connection con ;
         msgBox.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                buy();
+                //buy();
+                gerarEvento();
                 Toast.makeText(tela_metodo_pagamento.this,"Pagamento confirmado com sucesso!",Toast.LENGTH_SHORT).show();
 //                if(pagar()== true){
 //                    if(gerarEvento() == true){
@@ -182,7 +216,10 @@ connection con ;
         });
     }
 
-    private boolean gerarEvento() {
+    private boolean gerarEvento()
+    {
+        cadastrarEventoAsyncTask = new CadastrarEventoAsyncTask();
+        cadastrarEventoAsyncTask.execute();
         return true;
     }
 
@@ -190,5 +227,185 @@ connection con ;
         return true;
     }
 
+    public class CadastrarEventoAsyncTask extends AsyncTask<String, String, String> {
 
+        String api_token, query;
+
+        HttpURLConnection conn;
+        URL url = null;
+        Uri.Builder builder;
+
+        final String URL_WEB_SERVICES = con.getUrlCadastrarEvento();
+
+        final int READ_TIMEOUT = 10000; // MILISSEGUNDOS
+        final int CONNECTION_TIMEOUT = 30000;
+
+        int response_code;
+
+
+        public CadastrarEventoAsyncTask( ){
+
+            this.builder = new Uri.Builder();
+
+            builder.appendQueryParameter("idPessoa", idPessoa);
+            builder.appendQueryParameter("idCancha", String.valueOf(idLocal));
+            builder.appendQueryParameter("dataHora", String.valueOf(dataHora));
+            builder.appendQueryParameter("nomeEvento", nomeEvento);
+
+        }
+
+        @Override
+        protected void onPreExecute() {
+
+            Log.i("APIListar", "onPreExecute()");
+
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+
+            Log.i("APIListar", "doInBackground()");
+
+            // Gerar o conteúdo para a URL
+
+            try {
+
+                url = new URL(URL_WEB_SERVICES);
+
+            } catch (MalformedURLException e) {
+
+                Log.i("APIListar", "MalformedURLException --> " + e.getMessage());
+
+            } catch (Exception e) {
+
+                Log.i("APIListar", "doInBackground() --> " + e.getMessage());
+            }
+
+            // Gerar uma requisição HTTP - POST - Result será um ArrayJson
+
+            // conn
+
+            try {
+
+                conn = (HttpURLConnection) url.openConnection();
+                conn.setReadTimeout(READ_TIMEOUT);
+                conn.setConnectTimeout(CONNECTION_TIMEOUT);
+                conn.setRequestMethod("POST");
+                conn.setRequestProperty("charset", "utf-8");
+
+                conn.setDoInput(true);
+                conn.setDoOutput(true);
+
+                conn.connect();
+
+            } catch (Exception e) {
+
+                Log.i("APIListar", "HttpURLConnection --> " + e.getMessage());
+
+            }
+
+            // Adicionar o TOKEN e/ou outros parâmetros como por exemplo
+            // um objeto a ser incluido, deletado ou alterado.
+            // CRUD completo
+
+            try {
+
+                query = builder.build().getEncodedQuery();
+
+                OutputStream stream = conn.getOutputStream();
+
+                BufferedWriter writer = new BufferedWriter(
+                        new OutputStreamWriter(stream, "utf-8"));
+
+                writer.write(query);
+                writer.flush();
+                writer.close();
+                stream.close();
+
+                conn.connect();
+
+
+            } catch (Exception e) {
+
+                Log.i("APIListar", "BufferedWriter --> " + e.getMessage());
+
+
+            }
+
+            // receber o response - arrayJson
+            // http - código do response | 200 | 404 | 503
+
+            try {
+
+                response_code = conn.getResponseCode();
+
+                if (response_code == HttpURLConnection.HTTP_OK) {
+
+
+                    InputStream input = conn.getInputStream();
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+
+                    StringBuilder result = new StringBuilder();
+
+                    String linha = null;
+
+                    while ((linha = reader.readLine()) != null) {
+
+                        result.append(linha);
+                    }
+
+                    return result.toString();
+
+                } else {
+
+                    return "HTTP ERRO: " + response_code;
+                }
+
+
+            } catch (Exception e) {
+
+                Log.i("APIListar", "StringBuilder --> " + e.getMessage());
+
+                return "Exception Erro: " + e.getMessage();
+
+            } finally {
+
+                conn.disconnect();
+            }
+
+
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+
+            Log.i("APIListar", "onPostExecute()--> Result: " + result);
+
+            try {
+
+                Evento evento;
+
+                JSONArray jsonArray = new JSONArray(result);
+
+                eventoList = new ArrayList<>();
+
+                if (jsonArray.length() != 0) {
+
+                    for (int i = 0; i < jsonArray.length(); i++) {
+
+                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+
+                        evento = new Evento(jsonObject.getString("idCancha"),
+                                jsonObject.getString("idPessoa"),
+                                jsonObject.getString("dataHora"),
+                                jsonObject.getString("nomeEvento"));
+
+                        eventoList.add(evento);
+                    }
+                }
+            } catch (Exception e) {
+                Log.i("APIListar", "onPostExecute()--> " + e.getMessage());
+            }
+        }
+    }
 }

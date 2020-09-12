@@ -46,7 +46,7 @@ public class tela_lista_local extends AppCompatActivity {
     AdapterLocalPersonalizado adapterLocalPersonalizado;
     List<Local> localList;
     Local local;
-    String endereco,categoria,token,dataHora,idpessoa;
+    String endereco,categoria,token,dataHora,idpessoa,nomeEvento;
 
 
 
@@ -64,6 +64,8 @@ public class tela_lista_local extends AppCompatActivity {
          endereco = it.getStringExtra("endereco");
         dataHora = it.getStringExtra("dataHora");
         idpessoa = it.getStringExtra("IDPESSOA");
+        nomeEvento = it.getStringExtra("nomeEvento");
+
 
 
 
@@ -277,7 +279,7 @@ public class tela_lista_local extends AppCompatActivity {
         }
 
         public void initial(){
-            adapterLocalPersonalizado = new AdapterLocalPersonalizado(localList,getApplicationContext(),idpessoa);
+            adapterLocalPersonalizado = new AdapterLocalPersonalizado(localList,getApplicationContext(),idpessoa,dataHora,nomeEvento);
             listView.setAdapter(adapterLocalPersonalizado);
             listView.setLayoutManager(new LinearLayoutManager(tela_lista_local.this));
         }

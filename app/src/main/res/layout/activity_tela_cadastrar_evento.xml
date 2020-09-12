@@ -7,12 +7,12 @@
 
     <ImageButton
         android:layout_width="match_parent"
-        android:layout_height="119dp"
+        android:layout_height="112dp"
         android:background="@drawable/fundo_2"></ImageButton>
 
     <ImageButton
         android:layout_width="match_parent"
-        android:layout_height="88dp"
+        android:layout_height="76dp"
         android:background="@drawable/evento_0_"></ImageButton>
 
     <TextView
@@ -33,7 +33,16 @@ seu evento . Vamos la?"
         android:textSize="18dp"
         android:layout_marginLeft="20dp">
     </TextView>
-
+    <EditText
+        android:id="@+id/nomeEvento"
+        android:layout_width="387dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_form_field_top"
+        android:hint="  Digite o nome do evento"
+        android:textAlignment="inherit"
+        android:textSize="17sp" />
     <TextView
         android:id="@+id/data"
         android:layout_width="387dp"
