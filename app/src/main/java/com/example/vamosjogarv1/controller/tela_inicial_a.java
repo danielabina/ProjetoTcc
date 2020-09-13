@@ -41,7 +41,6 @@ String email;
 
         Intent it = getIntent();
         email = it.getStringExtra("EMAIL");
-
         buscaIdPessoaAsyncTask = new BuscaIdPessoaAsyncTask();
         buscaIdPessoaAsyncTask.execute();
     }
@@ -66,6 +65,8 @@ String email;
     }
 
     public void MeusAjustes(View view) {
+        buscaIdPessoaAsyncTask = new BuscaIdPessoaAsyncTask();
+        buscaIdPessoaAsyncTask.execute();
         Intent it = new Intent(tela_inicial_a.this, tela_menu_ajustes.class);
         it.putExtra("IDPESSOA", pessoa.getIdPessoa());
         it.putExtra("NOMEPESSOA", pessoa.getNome());

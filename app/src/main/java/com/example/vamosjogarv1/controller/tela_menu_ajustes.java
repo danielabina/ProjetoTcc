@@ -31,7 +31,6 @@ public class tela_menu_ajustes extends AppCompatActivity {
         it.putExtra("HABILIDADE", habilidade);
         it.putExtra("EMAIL", email);
         startActivity(it);
-        finish();
     }
     public void MenuAvaliacoes(View view) {
         Intent it = new Intent(tela_menu_ajustes.this, tela_avaliacao.class);
