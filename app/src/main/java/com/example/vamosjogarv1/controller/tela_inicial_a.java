@@ -67,6 +67,11 @@ String email;
 
     public void MeusAjustes(View view) {
         Intent it = new Intent(tela_inicial_a.this, tela_menu_ajustes.class);
+        it.putExtra("IDPESSOA", pessoa.getIdPessoa());
+        it.putExtra("NOMEPESSOA", pessoa.getNome());
+        it.putExtra("SENHA", pessoa.getSenha());
+        it.putExtra("HABILIDADE", pessoa.getHabilidade());
+        it.putExtra("EMAIL", pessoa.getEmail());
         startActivity(it);
     }
 
@@ -75,198 +80,106 @@ String email;
         startActivity(it);
     }
 
-    public void PopularCampos() {
-
-    }
-
     public class BuscaIdPessoaAsyncTask extends AsyncTask<String, String, String> {
 
-        String api_token, query;
-
+        String  query;
         HttpURLConnection conn;
         URL url = null;
         Uri.Builder builder;
-
         final String URL_WEB_SERVICES = con.getBuscaIdPessoa();
-
         final int READ_TIMEOUT = 10000; // MILISSEGUNDOS
         final int CONNECTION_TIMEOUT = 30000;
-
         int response_code;
 
-
         public BuscaIdPessoaAsyncTask( ){
-
             this.builder = new Uri.Builder();
-
             builder.appendQueryParameter("api_email", email);
-
         }
 
         @Override
         protected void onPreExecute() {
-
             Log.i("APIListar", "onPreExecute()");
-
         }
-
         @Override
         protected String doInBackground(String... strings) {
-
             Log.i("APIListar", "doInBackground()");
-
-            // Gerar o conteúdo para a URL
-
             try {
-
                 url = new URL(URL_WEB_SERVICES);
-
             } catch (MalformedURLException e) {
-
                 Log.i("APIListar", "MalformedURLException --> " + e.getMessage());
-
             } catch (Exception e) {
-
                 Log.i("APIListar", "doInBackground() --> " + e.getMessage());
             }
-
-            // Gerar uma requisição HTTP - POST - Result será um ArrayJson
-
-            // conn
-
             try {
-
                 conn = (HttpURLConnection) url.openConnection();
                 conn.setReadTimeout(READ_TIMEOUT);
                 conn.setConnectTimeout(CONNECTION_TIMEOUT);
                 conn.setRequestMethod("POST");
                 conn.setRequestProperty("charset", "utf-8");
-
                 conn.setDoInput(true);
                 conn.setDoOutput(true);
-
                 conn.connect();
-
             } catch (Exception e) {
-
                 Log.i("APIListar", "HttpURLConnection --> " + e.getMessage());
-
             }
-
-            // Adicionar o TOKEN e/ou outros parâmetros como por exemplo
-            // um objeto a ser incluido, deletado ou alterado.
-            // CRUD completo
-
             try {
-
                 query = builder.build().getEncodedQuery();
-
                 OutputStream stream = conn.getOutputStream();
-
                 BufferedWriter writer = new BufferedWriter(
                         new OutputStreamWriter(stream, "utf-8"));
-
                 writer.write(query);
                 writer.flush();
                 writer.close();
                 stream.close();
-
                 conn.connect();
-
-
             } catch (Exception e) {
-
                 Log.i("APIListar", "BufferedWriter --> " + e.getMessage());
-
-
             }
-
-            // receber o response - arrayJson
-            // http - código do response | 200 | 404 | 503
-
             try {
-
                 response_code = conn.getResponseCode();
-
                 if (response_code == HttpURLConnection.HTTP_OK) {
-
-
                     InputStream input = conn.getInputStream();
                     BufferedReader reader = new BufferedReader(new InputStreamReader(input));
-
                     StringBuilder result = new StringBuilder();
-
                     String linha = null;
-
                     while ((linha = reader.readLine()) != null) {
-
                         result.append(linha);
                     }
-
                     return result.toString();
-
                 } else {
-
                     return "HTTP ERRO: " + response_code;
                 }
-
-
             } catch (Exception e) {
-
                 Log.i("APIListar", "StringBuilder --> " + e.getMessage());
-
                 return "Exception Erro: " + e.getMessage();
-
             } finally {
-
                 conn.disconnect();
             }
-
-
         }
 
         @Override
         protected void onPostExecute(String result) {
-
             Log.i("APIListar", "onPostExecute()--> Result: " + result);
-
             try {
-
-
-
                 JSONArray jsonArray = new JSONArray(result);
-
                 pessoaList = new ArrayList<>();
-
                 if (jsonArray.length() != 0) {
-
                     for (int i = 0; i < jsonArray.length(); i++) {
-
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
-
                         pessoa = new Pessoa(jsonObject.getInt("idPessoa"),
                                 jsonObject.getString("nome"),
                                 jsonObject.getString("email"),
                                 jsonObject.getString("senha"),
                                 jsonObject.getString("habilidade"),
                                 jsonObject.getString("sexo"));
-
                         pessoaList.add(pessoa);
-
                         Log.i("APIListar", "detalhe: -> " + pessoa.getIdPessoa() + " - " +pessoa.getNome());
-
-                        PopularCampos();
                     }
-
                     Toast.makeText(tela_inicial_a.this, pessoaList.size() + " local Listados no LogCat", Toast.LENGTH_LONG)
                             .show();
                 }
-
             } catch (Exception e) {
-
                 Log.i("APIListar", "onPostExecute()--> " + e.getMessage());
-
-
             }
         }
     }

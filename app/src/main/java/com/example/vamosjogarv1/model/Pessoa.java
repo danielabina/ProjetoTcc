@@ -29,6 +29,18 @@ public class Pessoa {
 
     }
 
+    public Pessoa(int idPessoa, String nome,String senha,String habilidade,String sexo){
+
+        this.setIdPessoa(idPessoa);
+        this.setNome(nome);
+        this.setEmail(email);
+        this.setSenha(senha);
+        this.setHabilidade(habilidade);
+        this.setSexo(sexo);
+
+
+    }
+
     public Pessoa(){ }
     public String getSexo() {
         return sexo;

@@ -59,8 +59,7 @@ public class tela_metodo_pagamento extends AppCompatActivity implements Observer
 Button btnProximoListar;
 EditText numeroCartao,nome,mes,ano,cvv,parcelas;
 int idLocal;
-Integer dataHora;
-String idPessoa,nomeEvento;
+String idPessoa,nomeEvento,dataHora;
     connection con = new connection();
     List<Evento> eventoList;
     CadastrarEventoAsyncTask cadastrarEventoAsyncTask;
@@ -72,7 +71,7 @@ String idPessoa,nomeEvento;
         Bundle it = getIntent().getExtras();
         idLocal= it.getInt("ID");
         idPessoa= it.getString("IDPESSOA");
-        dataHora= it.getInt("dataHora");
+        dataHora= it.getString("dataHora");
         nomeEvento = it.getString("nomeEvento");
 
         numeroCartao = (EditText) findViewById(R.id.card_number );
@@ -96,21 +95,19 @@ String idPessoa,nomeEvento;
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 //buy();
-                gerarEvento();
-                Toast.makeText(tela_metodo_pagamento.this,"Pagamento confirmado com sucesso!",Toast.LENGTH_SHORT).show();
-//                if(pagar()== true){
-//                    if(gerarEvento() == true){
-//                        Intent it = new Intent(tela_metodo_pagamento.this, tela_ok_pagamento.class);
-//                        startActivity(it);
-//                        finish();
-//                    }else{
-//                        Toast.makeText(tela_metodo_pagamento.this,"OPS! algo deu errado no para cadstrar evento,tente novamente ",Toast.LENGTH_SHORT).show();
-//
-//                    }
-//                }else{
-//                    Toast.makeText(tela_metodo_pagamento.this,"OPS! algo deu errado no pagamento,tente novamente ",Toast.LENGTH_SHORT).show();
-//
-//                }
+                if(pagar()== true){
+                    Toast.makeText(tela_metodo_pagamento.this,"Pagamento confirmado com sucesso!",Toast.LENGTH_SHORT).show();
+                    if(gerarEvento() == true){
+                        Toast.makeText(tela_metodo_pagamento.this,"Cadastro de evento confirmado com sucesso!",Toast.LENGTH_SHORT).show();
+                        Intent it = new Intent(tela_metodo_pagamento.this, tela_ok_pagamento.class);
+                        startActivity(it);
+                        finish();
+                      }else{
+                           Toast.makeText(tela_metodo_pagamento.this,"OPS! algo deu errado no para cadstrar evento,tente novamente ",Toast.LENGTH_SHORT).show();
+                     }
+                        }else{
+                     Toast.makeText(tela_metodo_pagamento.this,"OPS! algo deu errado no pagamento,tente novamente ",Toast.LENGTH_SHORT).show();
+                }
 
             }
         });

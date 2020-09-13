@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.tela_inicial_a"
+    tools:context=".controller.tela_perfil"
     android:orientation="vertical">
 
 
@@ -48,22 +48,18 @@
             android:layout_height="wrap_content"
             android:background="@drawable/bg_form_field_top"
             android:clickable="true"
-            android:ems="500"
-            android:hint=" Paula da Silva">
+            android:ems="500">
 
         </EditText>
 
-        <EditText
+        <TextView
             android:id="@+id/idEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_form_field_top"
             android:ems="10"
-            android:hint=" paulasilva@gmail.com"
-            android:importantForAutofill="no"
             android:inputType="textEmailAddress"
-            android:visibility="visible"
-            tools:visibility="visible"></EditText>
+            android:clickable="false"></TextView>
 
         <EditText
             android:id="@+id/idSenha"
@@ -72,7 +68,6 @@
             android:background="@drawable/bg_form_field_top"
             android:clickable="true"
             android:ems="500"
-            android:hint=" ******"
             android:inputType="textPassword" />
 
         <EditText
@@ -81,8 +76,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/bg_form_field_top"
             android:clickable="true"
-            android:ems="500"
-            android:hint=" Lateral" />
+            android:ems="500" />
 
 
     </LinearLayout>
@@ -98,6 +92,7 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/bg_form_field_sqr"
             android:padding="10dp"
+            android:onClick="editar"
             android:text="Salvar" ></Button>
 
     </LinearLayout>
