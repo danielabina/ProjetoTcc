@@ -47,20 +47,18 @@ String email;
 
     public void MeusEvento(View view) {
         Intent it = new Intent(tela_inicial_a.this, tela_menu_eventos.class);
+        it.putExtra("IDPESSOA", pessoa.getIdPessoa());
         startActivity(it);
     }
     public void BuscarEvento(View view) {
         Intent it = new Intent(tela_inicial_a.this, tela_buscar_evento.class);
+        it.putExtra("IDPESSOA", pessoa.getIdPessoa());
         startActivity(it);
     }
 
     public void CadastrarEvento(View view) {
         Intent it = new Intent(tela_inicial_a.this, tela_cadastrar_evento.class);
         it.putExtra("IDPESSOA", pessoa.getIdPessoa());
-//        it.putExtra("NOMEPESSOA", pessoa.getNome());
-//        it.putExtra("SENHA", pessoa.getSenha());
-//        it.putExtra("HABILIDADE", pessoa.getHabilidade());
-//        it.putExtra("SEXO", pessoa.getSexo());
         startActivity(it);
     }
 

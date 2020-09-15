@@ -24,7 +24,6 @@ public class tela_meus_proximos_eventos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_meus_proximos_eventos);
         ListView lista = (ListView) findViewById(R.id.lista3);
-        List<Evento> eventos = todosOsEventos();
 //        AdapterEventosProximosPersonalizado adapter = new AdapterEventosProximosPersonalizado(eventos, eventos, this);
 //        lista.setAdapter(adapter);
 
@@ -39,17 +38,5 @@ public class tela_meus_proximos_eventos extends AppCompatActivity {
         });
     }
 
-    /**
-     * Exemplo qualquer de devolução de uma lista de cursos.
-     * Para esse exemplo será considerado um hard coded.
-     *
-     * @return lista com todos os cursos
-     */
-    private List<Evento> todosOsEventos() {
-        return new ArrayList<>(Arrays.asList(
-                new Evento("Jogo de Feriado", "Cancha Pinheirinho", Categoria.Voleibol),
-                new Evento("Meninas", "Jogue mais", Categoria.Futebol),
-                new Evento("Campeonato", "Trieste",Categoria.Handebol)));
-    }
 
 }

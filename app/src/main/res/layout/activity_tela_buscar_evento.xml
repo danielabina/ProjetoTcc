@@ -44,7 +44,7 @@ eventos . Vamos la?"
     </Spinner>
 
     <EditText
-        android:id="@+id/nomeRua"
+        android:id="@+id/nomeRuaT"
         android:layout_width="387dp"
         android:layout_height="60dp"
         android:layout_marginTop="30dp"

@@ -9,23 +9,45 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.util.Calendar;
+
 public class tela_buscar_evento extends AppCompatActivity  implements AdapterView.OnItemSelectedListener{
 Button btnbuscar;
+    String categoria;
+    String endereco;
+    EditText nomeRua;
+    int idPessoa;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_buscar_evento);
 
         btnbuscar= (Button) findViewById(R.id.btnBuscar);
+        nomeRua = findViewById(R.id.nomeRuaT);
+        Bundle extras = getIntent().getExtras();
+        idPessoa = extras.getInt("IDPESSOA");
 
         btnbuscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent it = new Intent(tela_buscar_evento.this, tela_lista_todos_eventos.class);
-                startActivity(it);
+                if (categoria.isEmpty() && endereco.isEmpty()) {
+                    Toast.makeText(tela_buscar_evento.this, "O campo data-hora e modalidade devem ser preenchidos" , Toast.LENGTH_LONG).show();
+                } else {
+                    Intent it = new Intent(tela_buscar_evento.this, tela_lista_todos_eventos.class);
+                    endereco = nomeRua.getText().toString();
+                    it.putExtra("categoria", categoria);
+                    it.putExtra("endereco", endereco);
+                    it.putExtra("IDPESSOA",Integer.toString(idPessoa));
+
+
+                    startActivity(it);
+
+                    finish();
+                }
             }
         });
 
@@ -41,8 +63,8 @@ Button btnbuscar;
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String text = parent.getItemAtPosition(position).toString();
-        Toast.makeText(parent.getContext(), text,Toast.LENGTH_SHORT).show();
+        categoria = parent.getItemAtPosition(position).toString();
+        Toast.makeText(parent.getContext(), categoria,Toast.LENGTH_SHORT).show();
     }
 
     @Override

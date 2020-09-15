@@ -392,8 +392,7 @@ String idPessoa,nomeEvento,dataHora;
 
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
 
-                        evento = new Evento(jsonObject.getString("idCancha"),
-                                jsonObject.getString("idPessoa"),
+                        evento = new Evento(jsonObject.getInt("idCancha"),
                                 jsonObject.getString("dataHora"),
                                 jsonObject.getString("nomeEvento"));
 

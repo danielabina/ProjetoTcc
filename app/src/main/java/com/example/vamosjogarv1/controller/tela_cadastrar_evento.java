@@ -89,13 +89,6 @@ public class tela_cadastrar_evento extends AppCompatActivity implements View.OnC
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
 
-
-        //---------------------------------------------------
-
-
-
-
-
                 data.setOnClickListener(new View.OnClickListener() {
             @Override
            public void onClick(View v) {

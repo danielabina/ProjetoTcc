@@ -1,7 +1,5 @@
 package com.example.vamosjogarv1.model;
 
-import java.sql.Date;
-
 
 /**
  * Classe de atributos EVENTO
@@ -11,25 +9,21 @@ import java.sql.Date;
 public class Evento {
 
     public int idEvento;
-    public String idCancha;
-    public String idPessoa;
+    public int idCancha;
     public String dataHoraa;
     private String nomeEvento;
+    public String endereco;
+
+
 
 
     public void setDataHoraa(String dataHoraa) {
         this.dataHoraa = dataHoraa;
     }
 
-    public Evento(String nome, String descricao, Categoria categoria) {
-        this.nomeEvento = nomeEvento;
-        this.categoria = categoria;
-    }
 
-    public Evento(String idCancha, String idPessoa, String dataHoraa, String nomeEvento) {
-        this.nomeEvento = nomeEvento;
+    public Evento(int idCancha, String dataHoraa, String nomeEvento) {
         this.idCancha = idCancha;
-        this.idPessoa = idPessoa;
         this.dataHoraa = dataHoraa;
         this.nomeEvento = nomeEvento;
 
@@ -58,20 +52,12 @@ public class Evento {
         this.idEvento = idEvento;
     }
 
-    public String getIdCancha() {
+    public int getIdCancha() {
         return idCancha;
     }
 
-    public void setIdCancha(String idCancha) {
+    public void setIdCancha(int idCancha) {
         this.idCancha = idCancha;
-    }
-
-    public String getIdPessoa() {
-        return idPessoa;
-    }
-
-    public void setIdPessoa(String idPessoa) {
-        this.idPessoa = idPessoa;
     }
 
     public String getNomeEvento() {
