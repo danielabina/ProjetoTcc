@@ -13,35 +13,48 @@ public class Evento {
     public String dataHoraa;
     private String nomeEvento;
     public String endereco;
+    public String categoria;
 
+    public String getDataHoraa() {
+        return dataHoraa;
+    }
 
+    public String getEndereco() {
+        return endereco;
+    }
 
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
 
     public void setDataHoraa(String dataHoraa) {
         this.dataHoraa = dataHoraa;
     }
 
-
     public Evento(int idCancha, String dataHoraa, String nomeEvento) {
         this.idCancha = idCancha;
         this.dataHoraa = dataHoraa;
         this.nomeEvento = nomeEvento;
-
-
     }
 
-
-    public Categoria getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(Categoria categoria) {
+    public Evento(int idCancha, String dataHoraa, String nomeEvento,String endereco,String categoria) {
+        this.idCancha = idCancha;
+        this.dataHoraa = dataHoraa;
+        this.nomeEvento = nomeEvento;
+        this.endereco = endereco;
+        this.dataHoraa = dataHoraa;
         this.categoria = categoria;
+
+
     }
-
-    private Categoria categoria;
-
-    //verificarRelacaoOutras classes
 
 
     public int getIdEvento() {

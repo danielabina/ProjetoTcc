@@ -1,137 +1,146 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginTop="30dp">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    tools:context=".controller.tela_detalhe_evento">
+
     <ImageButton
         android:layout_width="match_parent"
-        android:layout_height="119dp"
+        android:layout_height="114dp"
         android:background="@drawable/fundo_2"></ImageButton>
 
-    <LinearLayout
+    <ImageButton
+        android:layout_width="388dp"
+        android:layout_height="76dp"
+        android:background="@drawable/evento_1"></ImageButton>
+
+    <ImageButton
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="60dp">
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/til_card_number"
-            android:layout_width="0dp"
-            android:padding="5dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.2">
-
-            <TextView
-                android:id="@+id/card_number"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="JOGO DAS MENINAS"
-                android:textSize="30sp" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-    </LinearLayout>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/rrr"
-        android:layout_marginTop="110dp"
-        tools:ignore="Suspicious0dp" />
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="270dp"
-        android:padding="10dp">
+        android:layout_height="140dp"
+        android:background="@drawable/rrr"></ImageButton>
+    <RelativeLayout
+        android:layout_width="373dp"
+        android:layout_height="46dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/bg_form_field_top"
+        android:layout_marginTop="10dp">
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="18dp"
+            android:background="@drawable/desc"></ImageButton>
 
         <TextView
+            android:id="@+id/dataHoraEvento"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="28sp"
-            android:text="DETALHES :">
+            android:layout_height="40dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginLeft="200dp"
+            android:textColor="#000000"
+            android:textSize="18dp"></TextView>
+    </RelativeLayout>
 
-        </TextView>
+
+    <RelativeLayout
+        android:layout_width="373dp"
+        android:layout_height="46dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bg_form_field_top">
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="18dp"
+            android:background="@drawable/bola"></ImageButton>
 
         <TextView
+            android:id="@+id/modalidade"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="25sp"
-            android:layout_marginTop="0dp"
-            android:text="Rua da conceição 1000">
+            android:layout_height="40dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginLeft="200dp"
+            android:textColor="#000000"
+            android:textSize="18dp"></TextView>
 
-        </TextView>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="25sp"
-            android:layout_marginTop="0dp"
-            android:text="Data/hora : 24/08/2020 19:00hrs">
-        </TextView>
+    </RelativeLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="25sp"
-            android:text="Estaciomento Incluso">
-        </TextView>
-    </com.google.android.material.textfield.TextInputLayout>
+    <RelativeLayout
+        android:layout_width="373dp"
+        android:layout_height="46dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bg_form_field_top">
+        <ImageButton
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="430dp"
-        android:padding="5dp">
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="18dp"
+            android:background="@drawable/local"></ImageButton>
 
         <TextView
+            android:id="@+id/enderecoEvento"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="29sp"
-            android:text="PARTICIPANTES">
-        </TextView>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="40dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginLeft="200dp"
+            android:textColor="#000000"
+            android:textSize="18dp"></TextView>
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="480dp">
+    </RelativeLayout>
 
-    <ImageView
-        android:layout_width="0dp"
-        android:layout_height="70dp"
-        android:layout_marginRight="5dp"
-        android:layout_weight="0.8"
-        android:src="@drawable/user" />
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_card_number4"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_weight="1.2">
+    <RelativeLayout
+        android:layout_width="373dp"
+        android:layout_height="46dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bg_form_field_top">
+
+        <ImageButton
+
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="18dp"
+            android:background="@drawable/valor"></ImageButton>
 
         <TextView
-            android:id="@+id/nome"
+            android:id="@+id/nomeEventoo"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:textSize="20sp"
-            android:text="Maria Aparecida" />
-        <TextView
-            android:id="@+id/habilidae"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:textSize="20sp"
-            android:text="Lateral/Futebol" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="40dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginLeft="200dp"
+            android:textColor="#000000"
+            android:textSize="18dp"></TextView>
+    </RelativeLayout>
 
-</LinearLayout>
+
 
     <Button
         android:id="@+id/btnParticipar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="560dp"
-        android:background="@drawable/button_customizado"
-        android:padding="10dp"
-        android:text="Participar"></Button>
+        android:layout_height="47dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#ffff"
+        android:textSize="16sp"
+        android:background="#1c2345"
+        android:text="Participar">
 
-</RelativeLayout>
+    </Button>
+
+    <Button
+        android:id="@+id/btnParticipantes"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:layout_marginTop="5dp"
+        android:textColor="#ffff"
+        android:textSize="16sp"
+        android:background="#1b1464"
+        android:onClick="participantes"
+        android:text="Deseja visualizar os participantes?!" />
+
+</LinearLayout>

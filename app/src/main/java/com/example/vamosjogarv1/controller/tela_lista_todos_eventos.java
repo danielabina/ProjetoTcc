@@ -56,7 +56,7 @@ public class tela_lista_todos_eventos extends AppCompatActivity {
         categoria = it.getStringExtra("categoria");
         endereco = it.getStringExtra("endereco");
         idpessoa = it.getStringExtra("IDPESSOA");
-        listView = findViewById(R.id.recyclerViewLocal);
+        listView = findViewById(R.id.recyclerViewEvento);
         listarEventosAsyncTask = new ListarEventosAsyncTask();
         listarEventosAsyncTask.execute();
 
@@ -155,14 +155,13 @@ public class tela_lista_todos_eventos extends AppCompatActivity {
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
                         evento = new Evento(jsonObject.getInt("idCancha"),
+                                jsonObject.getString("nomeEvento"),
                                 jsonObject.getString("dataHora"),
-                                jsonObject.getString("nomeEvento"));
+                                jsonObject.getString("endereco"),
+                                jsonObject.getString("categoria"));
                         eventoList.add(evento);
                         Log.i("APIListar", "Estado: -> " + evento.getIdCancha() + " - " +evento.getNomeEvento());
                     }
-
-                    Toast.makeText(tela_lista_todos_eventos.this, eventoList.size() + " local Listados no LogCat", Toast.LENGTH_LONG)
-                            .show();
                     initial();
                 }
             } catch (Exception e) {

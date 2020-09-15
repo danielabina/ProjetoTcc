@@ -31,11 +31,14 @@ public class AdapterEventosPersonalizado extends RecyclerView.Adapter<AdapterEve
 
     public class MeuViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        TextView nome;
+        TextView nome,dataHoraEv,endereco,modalidade;
         @SuppressLint("WrongViewCast")
         public MeuViewHolder(@NonNull View view) {
             super(view);
             nome = (TextView) view.findViewById(R.id.nomeEvento);
+            dataHoraEv = (TextView) view.findViewById(R.id.dataHoraEv);
+            endereco = (TextView) view.findViewById(R.id.enderecoEv);
+            modalidade = (TextView) view.findViewById(R.id.modalidade);
             view.setOnClickListener(this);
         }
 
@@ -47,9 +50,12 @@ public class AdapterEventosPersonalizado extends RecyclerView.Adapter<AdapterEve
                 Intent intent = new Intent(ctx.getApplicationContext(), tela_detalhe_evento.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 Bundle bundle = new Bundle();
-                bundle.putInt("ID",objSelecionado.getIdEvento());
-                intent.putExtra("idLocal", objSelecionado.getIdCancha());
+                bundle.putInt("IDEVENTO",objSelecionado.getIdEvento());
                 intent.putExtra("IDPESSOA", idPessoa);
+                intent.putExtra("dataHoraEv", dataHoraEv.getText().toString());
+                intent.putExtra("categoria", modalidade.getText().toString());
+                intent.putExtra("endereco", endereco.getText().toString());
+                intent.putExtra("nomeEvento", nome.getText().toString());
                 ctx.startActivity(intent);
             }
         }
@@ -62,7 +68,7 @@ public class AdapterEventosPersonalizado extends RecyclerView.Adapter<AdapterEve
         Context context = viewGroup.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
         View linhaView = LayoutInflater.from(inflater.getContext())
-                .inflate(R.layout.activity_tela_lista_todos_eventos, viewGroup, false);
+                .inflate(R.layout.activity_tela_lista_evento_personalizada, viewGroup, false);
         AdapterEventosPersonalizado.MeuViewHolder viewHolder = new AdapterEventosPersonalizado.MeuViewHolder(linhaView);
         return viewHolder;
     }
@@ -72,6 +78,12 @@ public class AdapterEventosPersonalizado extends RecyclerView.Adapter<AdapterEve
         Evento evento = listaEvento.get(i);
         TextView nome = meuViewHolder.nome;
         nome.setText(evento.getNomeEvento());
+        TextView endereco = meuViewHolder.endereco;
+        endereco.setText(evento.getEndereco());
+        TextView dataHoraEv = meuViewHolder.dataHoraEv;
+        dataHoraEv.setText(evento.getDataHoraa());
+        TextView modalidade = meuViewHolder.modalidade;
+        modalidade.setText(evento.getCategoria());
     }
 
     @Override

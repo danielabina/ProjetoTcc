@@ -1,41 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".controller.tela_lista_todos_eventos">
 
-    <RelativeLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewEvento"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:background="#ffffff"
-        android:padding="15dp">
-
-        <ImageView
-            android:id="@+id/foto"
-            android:layout_width="100dp"
-            android:layout_height="120dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/rrr"
-            android:layout_weight="1" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="90dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="80dp"
-                android:layout_marginRight="5dp"
-                android:src="@drawable/desc" />
-
-            <TextView
-                android:id="@+id/nomeEvento"
-                android:layout_width="0dp"
-                android:textSize="20dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.4" />
-        </LinearLayout>
-    </RelativeLayout>
-</LinearLayout>
+        android:layout_height="match_parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
