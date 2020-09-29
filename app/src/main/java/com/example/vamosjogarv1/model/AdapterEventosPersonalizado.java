@@ -35,7 +35,7 @@ public class AdapterEventosPersonalizado extends RecyclerView.Adapter<AdapterEve
         @SuppressLint("WrongViewCast")
         public MeuViewHolder(@NonNull View view) {
             super(view);
-            nome = (TextView) view.findViewById(R.id.nomeEvento);
+            nome = (TextView) view.findViewById(R.id.nomeEventoT);
             dataHoraEv = (TextView) view.findViewById(R.id.dataHoraEv);
             endereco = (TextView) view.findViewById(R.id.enderecoEv);
             modalidade = (TextView) view.findViewById(R.id.modalidade);
@@ -49,9 +49,9 @@ public class AdapterEventosPersonalizado extends RecyclerView.Adapter<AdapterEve
             if(position != RecyclerView.NO_POSITION){
                 Intent intent = new Intent(ctx.getApplicationContext(), tela_detalhe_evento.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                Bundle bundle = new Bundle();
-                bundle.putInt("IDEVENTO",objSelecionado.getIdEvento());
                 intent.putExtra("IDPESSOA", idPessoa);
+                intent.putExtra("IDCANCHA",objSelecionado.getIdCancha());
+                intent.putExtra("IDEVENTO",objSelecionado.getIdEvento());
                 intent.putExtra("dataHoraEv", dataHoraEv.getText().toString());
                 intent.putExtra("categoria", modalidade.getText().toString());
                 intent.putExtra("endereco", endereco.getText().toString());

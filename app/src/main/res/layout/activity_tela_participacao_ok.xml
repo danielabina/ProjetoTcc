@@ -1,0 +1,40 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#1b1464"
+    android:orientation="vertical">
+
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="127dp"
+        android:background="@drawable/fundo_2"></ImageButton>
+
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="351dp"
+        android:background="@drawable/participacaook"></ImageButton>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="35dp">
+
+
+        <Button
+            android:id="@+id/okvoltar"
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#ffff"
+            android:textSize="16sp"
+            android:onClick="voltarTelaInicial2"
+            android:background="#1b1464"
+            android:text="VOLTAR À PAGINA PRINCIPAL" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

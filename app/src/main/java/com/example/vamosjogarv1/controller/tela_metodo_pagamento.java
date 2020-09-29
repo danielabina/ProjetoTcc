@@ -63,6 +63,8 @@ String idPessoa,nomeEvento,dataHora;
     connection con = new connection();
     List<Evento> eventoList;
     CadastrarEventoAsyncTask cadastrarEventoAsyncTask;
+    InsertParticipanteEvento insertParticipanteEvento;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -392,13 +394,114 @@ String idPessoa,nomeEvento,dataHora;
 
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
 
-                        evento = new Evento(jsonObject.getInt("idCancha"),
-                                jsonObject.getString("dataHora"),
-                                jsonObject.getString("nomeEvento"));
+                        evento = new Evento(jsonObject.getInt("idEvento"),
+                                jsonObject.getInt("idCancha"),
+                                jsonObject.getInt("idPessoa"));
 
                         eventoList.add(evento);
+                        adcListaEvento(evento);
                     }
                 }
+            } catch (Exception e) {
+                Log.i("APIListar", "onPostExecute()--> " + e.getMessage());
+            }
+        }
+    }
+
+    public void adcListaEvento(Evento evento){
+        insertParticipanteEvento = new InsertParticipanteEvento(evento);
+        insertParticipanteEvento.execute();
+    }
+
+    public class InsertParticipanteEvento extends AsyncTask<String, String, String> {
+        String api_token, query;
+        HttpURLConnection conn;
+        URL url = null;
+        Uri.Builder builder;
+
+        final String URL_WEB_SERVICES = con.getInserirParticipanteEvento();
+        final int READ_TIMEOUT = 10000; // MILISSEGUNDOS
+        final int CONNECTION_TIMEOUT = 30000;
+        int response_code;
+        public InsertParticipanteEvento(Evento evento){
+            this.builder = new Uri.Builder();
+            builder.appendQueryParameter("api_idEvento", String.valueOf(evento.getIdEvento()));
+            builder.appendQueryParameter("api_idPessoa", String.valueOf(evento.getIdPessoa()));
+            builder.appendQueryParameter("api_idCancha", String.valueOf(evento.getIdCancha()));
+        }
+
+        @Override
+        protected void onPreExecute() {
+            Log.i("APIListar", "onPreExecute()");
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+
+            try {
+                url = new URL(URL_WEB_SERVICES);
+            } catch (MalformedURLException e) {
+                Log.i("APIListar", "MalformedURLException --> " + e.getMessage());
+            } catch (Exception e) {
+                Log.i("APIListar", "doInBackground() --> " + e.getMessage());
+            }
+            try {
+
+                conn = (HttpURLConnection) url.openConnection();
+                conn.setReadTimeout(READ_TIMEOUT);
+                conn.setConnectTimeout(CONNECTION_TIMEOUT);
+                conn.setRequestMethod("POST");
+                conn.setRequestProperty("charset", "utf-8");
+                conn.setDoInput(true);
+                conn.setDoOutput(true);
+                conn.connect();
+            } catch (Exception e) {
+                Log.i("APIListar", "HttpURLConnection --> " + e.getMessage());
+            }
+
+            try {
+                query = builder.build().getEncodedQuery();
+                OutputStream stream = conn.getOutputStream();
+                BufferedWriter writer = new BufferedWriter(
+                        new OutputStreamWriter(stream, "utf-8"));
+
+                writer.write(query);
+                writer.flush();
+                writer.close();
+                stream.close();
+
+                conn.connect();
+
+
+            } catch (Exception e) {
+                Log.i("APIListar", "BufferedWriter --> " + e.getMessage());
+            }
+            try {
+                response_code = conn.getResponseCode();
+                if (response_code == HttpURLConnection.HTTP_OK) {
+                    InputStream input = conn.getInputStream();
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+                    StringBuilder result = new StringBuilder();
+                    String linha = null;
+                    while ((linha = reader.readLine()) != null) {
+                        result.append(linha);
+                    }
+                    return result.toString();
+                } else {
+                    return "HTTP ERRO: " + response_code;
+                }
+            } catch (Exception e) {
+                Log.i("APIListar", "StringBuilder --> " + e.getMessage());
+                return "Exception Erro: " + e.getMessage();
+            } finally {
+                conn.disconnect();
+            }
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            Log.i("APIListarEventoderalhe", "onPostExecute()--> Result: " + result);
+            try {
             } catch (Exception e) {
                 Log.i("APIListar", "onPostExecute()--> " + e.getMessage());
             }

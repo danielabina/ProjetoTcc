@@ -41,6 +41,12 @@ public class Pessoa {
 
     }
 
+    public Pessoa(String nome,String habilidade,String sexo){
+        this.setNome(nome);
+        this.setHabilidade(habilidade);
+        this.setSexo(sexo);
+    }
+
     public Pessoa(){ }
     public String getSexo() {
         return sexo;

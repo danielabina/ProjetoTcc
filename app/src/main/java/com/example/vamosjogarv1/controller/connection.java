@@ -11,7 +11,9 @@ public class connection {
     String UrlCadastrarEvento;
     String UrlEditarDados;
     String UrlBuscarEvento;
-    String IP = "192.168.0.114";
+    String UrlInserirParticipanteEvento;
+    String UrlBuscarParticipantesEvento;
+    String IP = "192.168.0.112";
 
     public String getLogin() { return Login = "http://"+IP+"/Login/logar.php"; }
     public String getBuscaLocal() { return BuscaLocal = "http://"+IP+"/Controller/APIListarLocalDisp.php";}
@@ -22,4 +24,8 @@ public class connection {
     public String getUrlCadastrarEvento() { return UrlCadastrarEvento = "http://"+IP+"/Controller/cadastrarEvento.php";}
     public String getUrlEditarDados() {return UrlEditarDados = "http://"+IP+"/Controller/editarDadosPerfil.php";}
     public String getBuscaEvento() {return UrlBuscarEvento = "http://"+IP+"/Controller/buscarEventos.php";}
+    public String getInserirParticipanteEvento(){return UrlInserirParticipanteEvento = "http://"+IP+"/Controller/inserirParticipanteEvento.php";}
+    public String getUrlBuscarParticipantesEvento(){return UrlBuscarParticipantesEvento = "http://"+IP+"/Controller/buscarParticipantesEvento.php";}
+
+
 }

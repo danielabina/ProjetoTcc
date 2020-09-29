@@ -36,7 +36,6 @@ public class AdapterLocalPersonalizado extends RecyclerView.Adapter<AdapterLocal
     List<Local> listaLocal;
     String idPessoa,dataHora,nomEvento;
 
-    connection con = new connection();
 
     public AdapterLocalPersonalizado(List<Local> locais,Context ctx1, String idPessoa,String dataHora,String nomEvento) {
         this.ctx = ctx1;

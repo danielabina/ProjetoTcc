@@ -10,6 +10,7 @@ public class Evento {
 
     public int idEvento;
     public int idCancha;
+    public int idPessoa;
     public String dataHoraa;
     private String nomeEvento;
     public String endereco;
@@ -27,6 +28,14 @@ public class Evento {
         this.endereco = endereco;
     }
 
+    public int getIdPessoa() {
+        return idPessoa;
+    }
+
+    public void setIdPessoa(int idPessoa) {
+        this.idPessoa = idPessoa;
+    }
+
     public String getCategoria() {
         return categoria;
     }
@@ -35,9 +44,7 @@ public class Evento {
         this.categoria = categoria;
     }
 
-    public void setDataHoraa(String dataHoraa) {
-        this.dataHoraa = dataHoraa;
-    }
+
 
     public Evento(int idCancha, String dataHoraa, String nomeEvento) {
         this.idCancha = idCancha;
@@ -45,13 +52,20 @@ public class Evento {
         this.nomeEvento = nomeEvento;
     }
 
-    public Evento(int idCancha, String dataHoraa, String nomeEvento,String endereco,String categoria) {
+    public Evento(int idEvento, int idCancha,int idPessoa){
+        this.idEvento = idEvento;
+        this.idCancha = idCancha;
+        this.idPessoa = idPessoa;
+    }
+
+    public Evento(int idCancha, String nomeEvento,String dataHoraa, String endereco,String categoria,int idEvento) {
         this.idCancha = idCancha;
         this.dataHoraa = dataHoraa;
         this.nomeEvento = nomeEvento;
         this.endereco = endereco;
         this.dataHoraa = dataHoraa;
         this.categoria = categoria;
+        this.idEvento = idEvento;
 
 
     }

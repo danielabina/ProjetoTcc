@@ -4,23 +4,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.vamosjogarv1.R;
-
-import com.example.vamosjogarv1.model.AdapterEventosPersonalizado;
-import com.example.vamosjogarv1.model.AdapterLocalPersonalizado;
-import com.example.vamosjogarv1.model.Categoria;
-import com.example.vamosjogarv1.model.Evento;
-import com.example.vamosjogarv1.model.Local;
-
-import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.Toast;
+
+import com.example.vamosjogarv1.R;
+import com.example.vamosjogarv1.controller.connection;
+import com.example.vamosjogarv1.controller.tela_lista_todos_eventos;
+import com.example.vamosjogarv1.model.AdapterEventosPersonalizado;
+import com.example.vamosjogarv1.model.AdapterParticipantesEventoPersonalizado;
+import com.example.vamosjogarv1.model.Evento;
+import com.example.vamosjogarv1.model.Pessoa;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -35,45 +30,37 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-public class tela_lista_todos_eventos extends AppCompatActivity {
-    AdapterEventosPersonalizado adapterEventosPersonalizado;
-    List<Evento> eventoList;
-    Evento evento;
-    String endereco,categoria,idpessoa;
-
+public class tela_listar_todos_participantes_evento extends AppCompatActivity {
+    BuscarParticipantesEventos buscarParticipantesEventos;
+    AdapterParticipantesEventoPersonalizado adapterParticipantesEventoPersonalizado;
     connection con = new connection();
-    ListarEventosAsyncTask listarEventosAsyncTask;
+    int idEvento;
+    List<Pessoa> pessoaList;
     RecyclerView listView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tela_lista_todos_eventos);
-
-        Intent it = getIntent();
-        categoria = it.getStringExtra("categoria");
-        endereco = it.getStringExtra("endereco");
-        idpessoa = it.getStringExtra("IDPESSOA");
-        listView = findViewById(R.id.recyclerViewEvento);
-        listarEventosAsyncTask = new ListarEventosAsyncTask();
-        listarEventosAsyncTask.execute();
-
+        setContentView(R.layout.activity_tela_listar_todos_participantes_evento);
+        listView = findViewById(R.id.recyclerViewEventoParticipante);
+        Bundle extras = getIntent().getExtras();
+        idEvento = extras.getInt("IDEVENTO");
+        buscarParticipantesEventos = new BuscarParticipantesEventos();
+        buscarParticipantesEventos.execute();
     }
-    public class ListarEventosAsyncTask extends AsyncTask<String, String, String> {
+    public class BuscarParticipantesEventos extends AsyncTask<String, String, String> {
         String api_token, query;
         HttpURLConnection conn;
         URL url = null;
         Uri.Builder builder;
-        final String URL_WEB_SERVICES = con.getBuscaEvento();
+        final String URL_WEB_SERVICES = con.getUrlBuscarParticipantesEvento();
         final int READ_TIMEOUT = 10000; // MILISSEGUNDOS
         final int CONNECTION_TIMEOUT = 30000;
         int response_code;
-        public ListarEventosAsyncTask( ){
+        public BuscarParticipantesEventos( ){
             this.builder = new Uri.Builder();
-            builder.appendQueryParameter("api_categoria", categoria);
-            builder.appendQueryParameter("api_endereco", endereco);
+            builder.appendQueryParameter("api_idEvento", Integer.toString(idEvento));
         }
 
         @Override
@@ -148,20 +135,18 @@ public class tela_lista_todos_eventos extends AppCompatActivity {
         protected void onPostExecute(String result) {
             Log.i("APIListar", "onPostExecute()--> Result: " + result);
             try {
-                Evento evento;
+                Pessoa pessoa;
                 JSONArray jsonArray = new JSONArray(result);
-                eventoList = new ArrayList<>();
+                pessoaList = new ArrayList<>();
                 if (jsonArray.length() != 0) {
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
-                        evento = new Evento(jsonObject.getInt("idCancha"),
-                                jsonObject.getString("nomeEvento"),
-                                jsonObject.getString("dataHora"),
-                                jsonObject.getString("endereco"),
-                                jsonObject.getString("categoria"),
-                                jsonObject.getInt("idEvento"));
-                        eventoList.add(evento);
-                        Log.i("APIListar", "Estado: -> " + evento.getIdCancha() + " - " +evento.getNomeEvento());
+                        pessoa = new Pessoa(
+                                jsonObject.getString("nome"),
+                                jsonObject.getString("habilidade"),
+                                jsonObject.getString("sexo"));
+                        pessoaList.add(pessoa);
+                        Log.i("APIListar", "Estado: -> " + pessoa.getIdPessoa());
                     }
                     initial();
                 }
@@ -171,11 +156,9 @@ public class tela_lista_todos_eventos extends AppCompatActivity {
         }
 
         public void initial(){
-            adapterEventosPersonalizado = new AdapterEventosPersonalizado(eventoList,getApplicationContext(),idpessoa);
-            listView.setAdapter(adapterEventosPersonalizado);
-            listView.setLayoutManager(new LinearLayoutManager(tela_lista_todos_eventos.this));
+            adapterParticipantesEventoPersonalizado = new AdapterParticipantesEventoPersonalizado(pessoaList,getApplicationContext());
+            listView.setAdapter(adapterParticipantesEventoPersonalizado);
+           listView.setLayoutManager(new LinearLayoutManager(tela_listar_todos_participantes_evento.this));
         }
     }
-
 }
-
