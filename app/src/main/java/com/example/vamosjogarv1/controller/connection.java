@@ -13,6 +13,8 @@ public class connection {
     String UrlBuscarEvento;
     String UrlInserirParticipanteEvento;
     String UrlBuscarParticipantesEvento;
+    String UrlMeusEventosAnteriores;
+    String UrlMeusEventosProximos;
     String IP = "192.168.0.112";
 
     public String getLogin() { return Login = "http://"+IP+"/Login/logar.php"; }
@@ -26,6 +28,7 @@ public class connection {
     public String getBuscaEvento() {return UrlBuscarEvento = "http://"+IP+"/Controller/buscarEventos.php";}
     public String getInserirParticipanteEvento(){return UrlInserirParticipanteEvento = "http://"+IP+"/Controller/inserirParticipanteEvento.php";}
     public String getUrlBuscarParticipantesEvento(){return UrlBuscarParticipantesEvento = "http://"+IP+"/Controller/buscarParticipantesEvento.php";}
-
+    public String getMeusEventosAnteriores(){return UrlMeusEventosAnteriores = "http://"+IP+"/Controller/buscarMeusEventosAnteriores.php";}
+    public String getMeusProximosEventos(){return UrlMeusEventosProximos = "http://"+IP+"/Controller/buscarMeusProximosEventos.php";}
 
 }

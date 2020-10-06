@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".controller.tela_participacao_ok"></activity>
+        <activity android:name=".controller.tela_detalhe_meus_eventos_anteriores"></activity>
+        <activity android:name=".controller.tela_participacao_ok" />
         <activity android:name=".controller.tela_listar_todos_participantes_evento" />
         <activity
             android:name=".controller.tela_termo_de_uso_"
@@ -22,7 +23,7 @@
         <activity android:name=".controller.tela_ok_pagamento" />
         <activity android:name=".controller.tela_inicial_a" />
         <activity android:name=".controller.tela_detalhe_meus_proximos_eventos" />
-        <activity android:name=".controller.tela_meus_proximos_eventos" />
+        <activity android:name=".controller.tela_lista_meus_proximos_eventos" />
         <activity android:name=".controller.tela_detalhe_evento_2" />
         <activity android:name=".controller.tela_menu_eventos" />
         <activity android:name=".controller.tela_redefinir_senha" />
@@ -31,7 +32,7 @@
         <activity android:name=".controller.tela_metodo_pagamento" />
         <activity android:name=".controller.tela_detalhe_local" />
         <activity android:name=".controller.tela_lista_todos_eventos" />
-        <activity android:name=".controller.tela_lista_eventos_anteriores" />
+        <activity android:name=".controller.tela_lista_meus_eventos_anteriores" />
         <activity android:name=".controller.tela_lista_local" />
         <activity android:name=".controller.tela_buscar_evento" />
         <activity android:name=".controller.tela_cadastrar_evento" />

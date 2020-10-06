@@ -9,7 +9,7 @@
         android:layout_height="114dp"
         android:background="@drawable/fundo_2"></ImageButton>
     <ListView
-        android:id="@+id/lista3"
+        android:id="@+id/listaProximos"
         android:layout_marginTop="130dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">

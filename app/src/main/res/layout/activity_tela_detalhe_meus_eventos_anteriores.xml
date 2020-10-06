@@ -4,11 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.tela_lista_meus_eventos_anteriores">
+    tools:context=".controller.tela_detalhe_meus_eventos_anteriores">
 
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listaAnterioresEventos"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
