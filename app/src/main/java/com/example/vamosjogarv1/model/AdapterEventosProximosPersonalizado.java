@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.vamosjogarv1.R;
 import com.example.vamosjogarv1.controller.tela_detalhe_evento;
+import com.example.vamosjogarv1.controller.tela_detalhe_meus_proximos_eventos;
 import com.example.vamosjogarv1.model.AdapterEventosAnterioresPersonalizado;
 import com.example.vamosjogarv1.model.Evento;
 
@@ -49,7 +50,7 @@ public class AdapterEventosProximosPersonalizado extends RecyclerView.Adapter<Ad
             int position = getAdapterPosition();
             Evento objSelecionado = listaEvento.get(position);
             if(position != RecyclerView.NO_POSITION){
-                Intent intent = new Intent(ctx.getApplicationContext(), tela_detalhe_evento.class);
+                Intent intent = new Intent(ctx.getApplicationContext(), tela_detalhe_meus_proximos_eventos.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("IDPESSOA", idPessoa);
                 intent.putExtra("IDCANCHA",objSelecionado.getIdCancha());

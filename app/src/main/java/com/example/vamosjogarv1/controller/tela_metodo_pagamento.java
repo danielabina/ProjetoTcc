@@ -1,18 +1,11 @@
 package com.example.vamosjogarv1.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.vamosjogarv1.R;
-import com.example.vamosjogarv1.model.AdapterLocalPersonalizado;
 import com.example.vamosjogarv1.model.CreditCard;
 import com.example.vamosjogarv1.model.Evento;
-import com.example.vamosjogarv1.model.Local;
 import com.example.vamosjogarv1.model.PaymentConnection;
-import com.google.gson.JsonObject;
-import com.koushikdutta.async.future.FutureCallback;
-import com.koushikdutta.ion.Ion;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -26,7 +19,6 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -41,13 +33,11 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
-import cn.carbs.android.library.MDDialog;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -101,7 +91,7 @@ String idPessoa,nomeEvento,dataHora;
                     Toast.makeText(tela_metodo_pagamento.this,"Pagamento confirmado com sucesso!",Toast.LENGTH_SHORT).show();
                     if(gerarEvento() == true){
                         Toast.makeText(tela_metodo_pagamento.this,"Cadastro de evento confirmado com sucesso!",Toast.LENGTH_SHORT).show();
-                        Intent it = new Intent(tela_metodo_pagamento.this, tela_ok_pagamento.class);
+                        Intent it = new Intent(tela_metodo_pagamento.this, tela_pagamento_ok.class);
                         startActivity(it);
                         finish();
                       }else{

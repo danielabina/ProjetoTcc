@@ -1,9 +1,130 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
     tools:context=".controller.tela_detalhe_meus_eventos_anteriores">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="133dp"
+        android:background="@drawable/fundo_2"></ImageButton>
+
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="168dp"
+        android:background="@drawable/rrr"></ImageButton>
+    <RelativeLayout
+        android:layout_width="373dp"
+        android:layout_height="46dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/bg_form_field_top"
+        android:layout_marginTop="10dp">
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="18dp"
+            android:background="@drawable/desc"></ImageButton>
+
+        <TextView
+            android:id="@+id/dataHoraEventoAnterior"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginLeft="200dp"
+            android:textColor="#000000"
+            android:textSize="18dp"></TextView>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="373dp"
+        android:layout_height="46dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bg_form_field_top">
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="18dp"
+            android:background="@drawable/bola"></ImageButton>
+
+        <TextView
+            android:id="@+id/modalidadeAnterior"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginLeft="200dp"
+            android:textColor="#000000"
+            android:textSize="18dp"></TextView>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="373dp"
+        android:layout_height="46dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bg_form_field_top">
+        <ImageButton
+
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="18dp"
+            android:background="@drawable/local"></ImageButton>
+
+        <TextView
+            android:id="@+id/enderecoEventoAnterior"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginLeft="200dp"
+            android:textColor="#000000"
+            android:textSize="18dp"></TextView>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="373dp"
+        android:layout_height="46dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bg_form_field_top">
+
+        <ImageButton
+
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="18dp"
+            android:background="@drawable/valor"></ImageButton>
+
+        <TextView
+            android:id="@+id/nomeEventooAnterior"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginLeft="200dp"
+            android:textColor="#000000"
+            android:textSize="18dp"></TextView>
+    </RelativeLayout>
+
+
+
+    <Button
+        android:id="@+id/btnParticipantesAnterior"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:textColor="#ffff"
+        android:textSize="16sp"
+        android:background="#1c2345"
+        android:text="Avaliar Jogadores">
+
+    </Button>
+
+</LinearLayout>

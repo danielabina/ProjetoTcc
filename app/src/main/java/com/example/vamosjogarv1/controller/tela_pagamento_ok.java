@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class tela_ok_pagamento extends AppCompatActivity {
+public class tela_pagamento_ok extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +16,7 @@ public class tela_ok_pagamento extends AppCompatActivity {
     }
 
     public void voltarTelaInicial(View view){
-        Intent it = new Intent(tela_ok_pagamento.this, tela_inicial_a.class);
+        Intent it = new Intent(tela_pagamento_ok.this, tela_inicial_a.class);
         startActivity(it);
         finish();
     }

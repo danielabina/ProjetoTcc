@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.vamosjogarv1.R;
 import com.example.vamosjogarv1.controller.tela_detalhe_evento;
+import com.example.vamosjogarv1.controller.tela_detalhe_meus_eventos_anteriores;
 
 import java.util.List;
 
