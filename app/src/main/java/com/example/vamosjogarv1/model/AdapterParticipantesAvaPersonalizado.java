@@ -31,6 +31,7 @@ public class AdapterParticipantesAvaPersonalizado extends RecyclerView.Adapter<A
             super(view);
             nome = (TextView) view.findViewById(R.id.nomeParticipanteAva);
             sexo = (TextView) view.findViewById(R.id.sexoParticipanteAva);
+            //deve subir
             habilidade = (TextView) view.findViewById(R.id.habilidadeParticipanteAva);
 
             view.setOnClickListener(this);
