@@ -42,13 +42,14 @@ public class tela_lista_meus_proximos_eventos extends AppCompatActivity {
     connection con = new connection();
     List<Evento> eventoList;
     AdapterEventosProximosPersonalizado adapterEventosProximosPersonalizado;
-    RecyclerView listView;
     int idPessoa;
+    RecyclerView listView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_tela_meus_proximos_eventos);
-        ListView listView = (ListView) findViewById(R.id.listaProximos);
+        listView = findViewById(R.id.listaProximos);
         Bundle extras = getIntent().getExtras();
         idPessoa = extras.getInt("IDPESSOA");
         listaEventosProximos = new ListaEventosProximos();
@@ -149,7 +150,9 @@ public class tela_lista_meus_proximos_eventos extends AppCompatActivity {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
                         evento = new Evento(jsonObject.getInt("idEvento"),
                                 jsonObject.getString("dataHora"),
-                                jsonObject.getString("nomeEvento"));
+                                jsonObject.getString("nomeEvento"),
+                                jsonObject.getString("modalidade"),
+                                jsonObject.getString("endereco"));
                         eventoList.add(evento);
                         Log.i("APIListar", "Estado: -> " + evento.getIdCancha() + " - " +evento.getNomeEvento());
                     }

@@ -146,9 +146,11 @@ public class tela_lista_meus_eventos_anteriores extends AppCompatActivity {
                 if (jsonArray.length() != 0) {
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
-                        evento = new Evento(jsonObject.getInt("idEvento"),
+                        evento = new  Evento(jsonObject.getString("idEvento"),
                                 jsonObject.getString("dataHora"),
-                                jsonObject.getString("nomeEvento"));
+                                jsonObject.getString("nomeEvento"),
+                                jsonObject.getString("categoria"),
+                                jsonObject.getString("endereco"));
                         eventoList.add(evento);
                         Log.i("APIListar", "Estado: -> " + evento.getIdCancha() + " - " +evento.getNomeEvento());
                     }

@@ -51,7 +51,7 @@ public class MeuViewHolder extends RecyclerView.ViewHolder implements View.OnCli
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.putExtra("IDPESSOA", idPessoa);
             intent.putExtra("IDCANCHA",objSelecionado.getIdCancha());
-            intent.putExtra("IDEVENTO",objSelecionado.getIdEvento());
+            intent.putExtra("IDEVENTO",objSelecionado.getIdEventoo());
             intent.putExtra("dataHoraEv", dataHoraEv.getText().toString());
             intent.putExtra("categoria", modalidade.getText().toString());
             intent.putExtra("endereco", endereco.getText().toString());

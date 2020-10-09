@@ -13,9 +13,9 @@ import com.example.vamosjogarv1.R;
 
 public class tela_detalhe_meus_eventos_anteriores extends AppCompatActivity {
 
-    String idPessoa, dataHoraEv, modalidade, endereco, nome;
+    String idPessoa, dataHoraEv,idEvento,  modalidade, endereco, nome;
     TextView dataHoraEvento, modalidadee, enderecoEvento, nomeEventoo;
-    int idEvento, idCancha;
+    int idCancha;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,14 +28,14 @@ public class tela_detalhe_meus_eventos_anteriores extends AppCompatActivity {
         modalidade = extras.getString("categoria");
         nome = extras.getString("nomeEvento");
         endereco = extras.getString("endereco");
-        idEvento = extras.getInt("IDEVENTO");
+        idEvento = extras.getString("IDEVENTO");
 
 
         nomeEventoo = (TextView) findViewById(R.id.nomeEventooAnterior);
         enderecoEvento = (TextView) findViewById(R.id.enderecoEventoAnterior);
         modalidadee = (TextView) findViewById(R.id.modalidadeAnterior);
         dataHoraEvento = (TextView) findViewById(R.id.dataHoraEventoAnterior);
-
+        initial();
         Button btnParticipantesAnterior;
         btnParticipantesAnterior = findViewById(R.id.btnParticipantesAnterior);
         btnParticipantesAnterior.setOnClickListener(new View.OnClickListener() {
@@ -43,8 +43,17 @@ public class tela_detalhe_meus_eventos_anteriores extends AppCompatActivity {
             public void onClick(View v) {
                 Intent it = new Intent(tela_detalhe_meus_eventos_anteriores.this, tela_lista_avaliacao.class);
                 it.putExtra("IDPESSOA", idPessoa);
+                it.putExtra("IDEVENTO",idEvento);
                 startActivity(it);
             }
         });
     }
+
+    public void initial() {
+        nomeEventoo.setText(nome);
+        modalidadee.setText(modalidade);
+        enderecoEvento.setText(endereco);
+        dataHoraEvento.setText(dataHoraEv);
+    }
 }
+

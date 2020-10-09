@@ -40,8 +40,8 @@ public class AdapterEventosProximosPersonalizado extends RecyclerView.Adapter<Ad
             super(view);
             nome = (TextView) view.findViewById(R.id.nomeEventoProximos);
             dataHoraEv = (TextView) view.findViewById(R.id.dataHoraEvProximos);
-            endereco = (TextView) view.findViewById(R.id.enderecoEvProximos);
             modalidade = (TextView) view.findViewById(R.id.modalidadeProximos);
+            endereco = (TextView) view.findViewById(R.id.enderecoEvProximos);
             view.setOnClickListener(this);
         }
 
