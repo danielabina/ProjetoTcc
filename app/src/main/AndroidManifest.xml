@@ -25,7 +25,6 @@
         <activity android:name=".controller.tela_inicial_a" />
         <activity android:name=".controller.tela_detalhe_meus_proximos_eventos" />
         <activity android:name=".controller.tela_lista_meus_proximos_eventos" />
-        <activity android:name=".controller.tela_detalhe_evento_2" />
         <activity android:name=".controller.tela_menu_eventos" />
         <activity android:name=".controller.tela_redefinir_senha" />
         <activity android:name=".controller.tela_detalhe_evento" />

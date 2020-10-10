@@ -43,7 +43,7 @@ public class tela_listar_todos_participantes_evento extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_listar_todos_participantes_evento);
-        listView = findViewById(R.id.recyclerViewEventoParticipanteAva);
+        listView = findViewById(R.id.recyclerViewEventoParticipante);
         Bundle extras = getIntent().getExtras();
         idEvento = extras.getInt("IDEVENTO");
         buscarParticipantesEventos = new BuscarParticipantesEventos();

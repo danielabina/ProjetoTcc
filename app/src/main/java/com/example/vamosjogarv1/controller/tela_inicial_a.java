@@ -72,6 +72,7 @@ String email;
         it.putExtra("HABILIDADE", pessoa.getHabilidade());
         it.putExtra("EMAIL", pessoa.getEmail());
         startActivity(it);
+
     }
 
     public void Avaliacoes(View view) {

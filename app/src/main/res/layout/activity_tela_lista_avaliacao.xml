@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.tela_listar_todos_participantes_evento">
+    tools:context=".controller.tela_lista_avaliacao">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewEventoParticipanteAva"

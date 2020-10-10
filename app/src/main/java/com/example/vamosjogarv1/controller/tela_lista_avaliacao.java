@@ -155,7 +155,7 @@ public class tela_lista_avaliacao extends AppCompatActivity {
         }
 
         public void initial(){
-            adapterParticipantesAvaPersonalizado = new AdapterParticipantesAvaPersonalizado(pessoaList,getApplicationContext());
+            adapterParticipantesAvaPersonalizado = new AdapterParticipantesAvaPersonalizado(pessoaList,getApplicationContext(),idPessoa);
             listView.setAdapter(adapterParticipantesAvaPersonalizado);
             listView.setLayoutManager(new LinearLayoutManager(tela_lista_avaliacao.this));
         }
