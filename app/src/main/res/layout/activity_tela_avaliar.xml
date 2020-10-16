@@ -1,41 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="115dp"
+        android:background="@drawable/fundo_2"></ImageButton>
 
     <TextView
-        android:id="@+id/lblAvalie"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Avaliar" />
+        android:layout_marginTop="40dp"
+        android:text="Aqui voce pode avaliar seu colega,classificando de 1 a 6. Tambem abaixo é possivel inserir um comentario."
+        android:textColor="#000000"
+        android:textSize="18dp"
+        android:layout_marginLeft="20dp">
+    </TextView>
+
+    <TextView
+        android:id="@+id/nomeavaliacao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:textSize="18dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp">
+    </TextView>
+    <TextView
+        android:id="@+id/habilidadeavaliacao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:textSize="18dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp">
+    </TextView>
 
     <RatingBar
         android:id="@+id/ratingBar"
-        android:layout_width="wrap_content"
+        android:layout_width="296dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
         android:numStars="4"
+        android:rating="2.0"
         android:stepSize="1.0"
-        android:rating="2.0" />
-
-    <Button
-        android:id="@+id/btnSubmit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Submit" />
+        android:layout_marginTop="20dp"/>
 
     <LinearLayout
         android:id="@+id/linearLayoutAux"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <!-- Adicionar as strings ao arquivo string.xml. Omitido aqui! -->
-        <TextView
-            android:id="@+id/lblResultado"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Resultado : "
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/txtValorAvaliacao"
@@ -43,4 +60,21 @@
             android:layout_height="wrap_content"
             android:text="" />
     </LinearLayout>
+
+    <EditText
+        android:id="@+id/txtdescricaoAvaliacao"
+        android:layout_width="363dp"
+        android:layout_height="85dp"
+        android:layout_marginLeft="20dp"
+        android:hint="Digite aqui seu comentario"
+        android:textColor="#000000"
+        android:textSize="18dp" />
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#A4673AB7"
+        android:textColor="#ffff"
+        android:layout_marginTop="50dp"
+        android:text="Enviar" />
 </LinearLayout>
