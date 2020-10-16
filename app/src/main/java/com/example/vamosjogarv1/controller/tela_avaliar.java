@@ -28,6 +28,7 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -79,9 +80,6 @@ public class tela_avaliar extends AppCompatActivity {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(tela_avaliar.this,
-                        String.valueOf(ratingBar.getRating()),
-                        Toast.LENGTH_SHORT).show();
                 comentarioAva = comentario.getText().toString();
                 valor = String.valueOf(ratingBar.getRating());
                 cadastrarAvaliacaoAsyncTask = new CadastrarAvaliacaoAsyncTask();
@@ -178,18 +176,24 @@ public class tela_avaliar extends AppCompatActivity {
 
                 if(result.equals("SUCESSO")){
                     controlador=1;
+                }else if(result.equals("JA EXISTE")){
+                    controlador=2;
                 }else{
                     controlador=0;
                 }
 
                 if(controlador == 1){
-                    Toast.makeText(tela_avaliar.this, "Avaliaçãp realizadas com sucesso", Toast.LENGTH_LONG).show();
-                    Intent it = new Intent(tela_avaliar.this, tela_menu_eventos.class);
+                    Toast.makeText(tela_avaliar.this, "Avaliação realizadas com sucesso", Toast.LENGTH_LONG).show();
+                    Intent it = new Intent(tela_avaliar.this, tela_lista_avaliacao.class);
                     it.putExtra("IDPESSOA", idPessoa);
+                    it.putExtra("IDEVENTO", idEvento);
                     startActivity(it);
-                }else{
-                    Toast.makeText(tela_avaliar.this, "Algo deu errado tente novamente", Toast.LENGTH_LONG).show();
-
+                }else if(controlador == 2){
+                    Toast.makeText(tela_avaliar.this, "Ja existe um comentario seu nesse evento para esse jogador/colega! " +
+                            "", Toast.LENGTH_LONG).show();
+                }else if(controlador == 0){
+                    Toast.makeText(tela_avaliar.this, "Algo deu errado tente novamente " +
+                            "", Toast.LENGTH_LONG).show();
                 }
             } catch (Exception e) {
                 Log.i("APIListar", "onPostExecute()--> " + e.getMessage());
