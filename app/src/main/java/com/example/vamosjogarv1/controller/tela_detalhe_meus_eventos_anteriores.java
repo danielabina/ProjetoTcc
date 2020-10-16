@@ -14,6 +14,7 @@ import com.example.vamosjogarv1.R;
 public class tela_detalhe_meus_eventos_anteriores extends AppCompatActivity {
 
     String idPessoa, dataHoraEv,idEvento,  modalidade, endereco, nome;
+    int idPessoaa,idEventoo;
     TextView dataHoraEvento, modalidadee, enderecoEvento, nomeEventoo;
     int idCancha;
     @Override

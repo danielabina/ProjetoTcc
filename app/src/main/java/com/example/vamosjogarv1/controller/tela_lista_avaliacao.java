@@ -141,6 +141,7 @@ public class tela_lista_avaliacao extends AppCompatActivity {
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
                         pessoa = new Pessoa(
+                                jsonObject.getInt("idPessoa"),
                                 jsonObject.getString("nome"),
                                 jsonObject.getString("habilidade"),
                                 jsonObject.getString("sexo"));
@@ -155,7 +156,7 @@ public class tela_lista_avaliacao extends AppCompatActivity {
         }
 
         public void initial(){
-            adapterParticipantesAvaPersonalizado = new AdapterParticipantesAvaPersonalizado(pessoaList,getApplicationContext(),idPessoa);
+            adapterParticipantesAvaPersonalizado = new AdapterParticipantesAvaPersonalizado(pessoaList,getApplicationContext(),idPessoa,idEvento);
             listView.setAdapter(adapterParticipantesAvaPersonalizado);
             listView.setLayoutManager(new LinearLayoutManager(tela_lista_avaliacao.this));
         }

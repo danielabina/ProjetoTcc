@@ -21,12 +21,13 @@ import java.util.List;
 public class AdapterParticipantesAvaPersonalizado extends RecyclerView.Adapter<AdapterParticipantesAvaPersonalizado.MeuViewHolder> {
     Context ctx;
     List<Pessoa> listaPessoa = new ArrayList();
-    String idPessoa;
+    String idPessoa,idEvento;
 
-    public AdapterParticipantesAvaPersonalizado(List<Pessoa> pessoas, Context ctx1,String idPessoa) {
+    public AdapterParticipantesAvaPersonalizado(List<Pessoa> pessoas, Context ctx1, String idPessoa,String idEvento) {
         this.ctx = ctx1;
         this.listaPessoa = pessoas;
         this.idPessoa = idPessoa;
+        this.idEvento = idEvento;
     }
 
     public class MeuViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
@@ -50,6 +51,8 @@ public class AdapterParticipantesAvaPersonalizado extends RecyclerView.Adapter<A
                 Intent intent = new Intent(ctx.getApplicationContext(), tela_avaliar.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("IDPESSOALOGIN", idPessoa);
+                intent.putExtra("IDPESSOAAVALIACAO", objSelecionado.getIdPessoa());
+                intent.putExtra("IDEVENTO", idEvento);
                 ctx.startActivity(intent);
             }
         }
