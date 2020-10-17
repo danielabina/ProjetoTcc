@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="115dp"
+        android:background="@drawable/fundo_2"></ImageButton>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SUAS CLASSIFICAÇÕES :"
+        android:textColor="#000000"
+        android:textSize="18dp"
+        android:layout_marginLeft="20dp">
+    </TextView>
+
+    <LinearLayout
+        android:layout_width="361dp"
+        android:layout_height="196dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_form_field_top"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="310dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="30dp"
+            android:text="Comentario :"
+            android:textColor="#000000"
+            android:textSize="18dp"></TextView>
+
+        <TextView
+            android:id="@+id/comentarioAva"
+            android:layout_width="310dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#000000"
+            android:textSize="18dp"></TextView>
+
+        <RatingBar
+            android:id="@+id/ratingBar2"
+            android:layout_width="296dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:isIndicator="true" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,67 +1,79 @@
 package com.example.vamosjogarv1.model;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.vamosjogarv1.R;
 import com.example.vamosjogarv1.controller.tela_avaliacao;
+import com.example.vamosjogarv1.controller.tela_detalhe_meus_eventos_anteriores;
 
 import java.util.List;
+public class AdapterAvaliacaoPersonalizado extends RecyclerView.Adapter<AdapterAvaliacaoPersonalizado.MeuViewHolder>  {
+    Context ctx;
+    List<Avaliacao> listaAvaliacao;
 
-//public class AdapterAvaliacaoPersonalizado extends BaseAdapter {
 
-//    public AdapterAvaliacaoPersonalizado(List<Evento> evento, List<Evento> eventos, tela_avaliacao act) {
-//        this.eventos = eventos;
-//        this.act = act;
-//    }
-//
-//
-//    @Override
-//  public int getCount() {
-//      //return eventos.size();
-//  }
-//
-//    @Override
-//    public Object getItem(int position) {
-//        return eventos.get(position);
-//    }
-//
-//    @Override
-//    public long getItemId(int position) {
-//        return 0;
-//    }
-//
-//    @Override
-//    public View getView(int position, View convertView, ViewGroup parent) {
-//        View view = act.getLayoutInflater().inflate(R.layout.activity_tela_lista_local_personalizada, parent, false);
-//
-//        Evento evento = eventos.get(position);
-//
-////        TextView nome = (TextView)
-////                view.findViewById(R.id.lista);
-////        TextView descricao = (TextView)
-////                view.findViewById(R.id.lista_local_personalizada_descricao);
-////        ImageView imagem = (ImageView)
-////                view.findViewById(R.id.lista_local_personalizada_imagem);
-//
-////        nome.setText(evento.getNome());
-////        descricao.setText(evento.getDescricao());
-////
-////        Categoria categoria = evento.getCategoria();
-////
-////        if (categoria.equals(Categoria.Futebol)) {
-////            imagem.setImageResource(R.drawable.ic_menu_camera);
-////        } else if (categoria.equals(Categoria.Voleibol)) {
-////            imagem.setImageResource(R.drawable.ic_menu_camera);
-////        } else if (categoria.equals(Categoria.Handebol)) {
-////            imagem.setImageResource(R.drawable.ic_menu_camera);
-////        }
-////
-////        return view;
-//
-//    }
-//}
+
+    public AdapterAvaliacaoPersonalizado(List<Avaliacao> avaliacaoList,Context ctx1) {
+        this.ctx = ctx1;
+        this.listaAvaliacao = avaliacaoList;
+    }
+
+    public class MeuViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+
+        TextView comentario;
+                RatingBar valorEstrela;
+        @SuppressLint("WrongViewCast")
+        public MeuViewHolder(@NonNull View view) {
+            super(view);
+            comentario = (TextView) view.findViewById(R.id.comentarioAva);
+            valorEstrela = (RatingBar) view.findViewById(R.id.ratingBar2);
+            view.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+
+            }
+
+    }
+
+    @NonNull
+    @Override
+    public AdapterAvaliacaoPersonalizado.MeuViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        Avaliacao avaliacao = listaAvaliacao.get(i);
+        Context context = viewGroup.getContext();
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View linhaView = LayoutInflater.from(inflater.getContext())
+                .inflate(R.layout.activity_tela_lista_avaliacao_personalizada, viewGroup, false);
+        AdapterAvaliacaoPersonalizado.MeuViewHolder viewHolder = new AdapterAvaliacaoPersonalizado.MeuViewHolder(linhaView);
+        return viewHolder;
+    }
+
+    @Override
+
+    public void onBindViewHolder(@NonNull AdapterAvaliacaoPersonalizado.MeuViewHolder meuViewHolder, int i) {
+        Avaliacao avaliacao = listaAvaliacao.get(i);
+        TextView nome = meuViewHolder.comentario;
+        nome.setText(avaliacao.getComentario());
+        RatingBar valor = meuViewHolder.valorEstrela;
+        valor.setRating(avaliacao.getValorEstrela());
+    }
+
+    @Override
+    public int getItemCount() {
+        return listaAvaliacao.size();
+    }
+}

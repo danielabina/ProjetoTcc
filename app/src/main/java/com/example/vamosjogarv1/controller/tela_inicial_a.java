@@ -77,6 +77,7 @@ String email;
 
     public void Avaliacoes(View view) {
         Intent it = new Intent(tela_inicial_a.this, tela_avaliacao.class);
+        it.putExtra("IDPESSOA", pessoa.getIdPessoa());
         startActivity(it);
     }
 
@@ -175,7 +176,7 @@ String email;
                         pessoaList.add(pessoa);
                         Log.i("APIListar", "detalhe: -> " + pessoa.getIdPessoa() + " - " +pessoa.getNome());
                     }
-                    Toast.makeText(tela_inicial_a.this, pessoaList.size() + " local Listados no LogCat", Toast.LENGTH_LONG)
+                    Toast.makeText(tela_inicial_a.this, " Seja Bem vindo(a)!!"+ pessoa.getNome(), Toast.LENGTH_LONG)
                             .show();
                 }
             } catch (Exception e) {
