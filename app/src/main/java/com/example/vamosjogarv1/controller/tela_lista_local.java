@@ -227,7 +227,7 @@ public class tela_lista_local extends AppCompatActivity {
             try {
 
                 Local local;
-
+                //TODO: condição quando não acha endereço informado
                 JSONArray jsonArray = new JSONArray(result);
 
                 localList = new ArrayList<>();

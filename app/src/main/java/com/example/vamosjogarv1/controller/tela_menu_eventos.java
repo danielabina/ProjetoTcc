@@ -21,7 +21,7 @@ public class tela_menu_eventos extends AppCompatActivity {
 
     public void EventosAnteriores(View view) {
         Intent it = new Intent(tela_menu_eventos.this, tela_lista_meus_eventos_anteriores.class);
-        it.putExtra("IDPESSOA", idPessoa);
+        it.putExtra("IDPESSOA", String.valueOf(idPessoa));
        startActivity(it);
    }
     public void ProximosEventos(View view) {

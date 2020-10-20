@@ -34,8 +34,12 @@ Button btnbuscar;
         btnbuscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (categoria.isEmpty() && endereco.isEmpty()) {
-                    Toast.makeText(tela_buscar_evento.this, "O campo data-hora e modalidade devem ser preenchidos" , Toast.LENGTH_LONG).show();
+                if(nomeRua != null){
+                    endereco = nomeRua.getText().toString();
+                }
+
+                if (endereco.isEmpty()) {
+                    Toast.makeText(tela_buscar_evento.this, "É necessário digitar rua ou bairro" , Toast.LENGTH_LONG).show();
                 } else {
                     Intent it = new Intent(tela_buscar_evento.this, tela_lista_todos_eventos.class);
                     endereco = nomeRua.getText().toString();

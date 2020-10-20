@@ -183,7 +183,7 @@ public class tela_avaliar extends AppCompatActivity {
                 }
 
                 if(controlador == 1){
-                    Toast.makeText(tela_avaliar.this, "Avaliação realizadas com sucesso", Toast.LENGTH_LONG).show();
+                    Toast.makeText(tela_avaliar.this, "Avaliação realizada com sucesso", Toast.LENGTH_LONG).show();
                     Intent it = new Intent(tela_avaliar.this, tela_lista_avaliacao.class);
                     it.putExtra("IDPESSOA", idPessoa);
                     it.putExtra("IDEVENTO", idEvento);

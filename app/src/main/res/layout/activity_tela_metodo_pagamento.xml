@@ -1,166 +1,27 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="#fff"
+    tools:context=".controller.tela_metodo_pagamento">
 
-    <ImageButton
-        android:layout_width="match_parent"
-        android:layout_height="114dp"
-        android:background="@drawable/fundo_2"></ImageButton>
-
-    <ImageButton
-        android:layout_width="396dp"
-        android:layout_height="87dp"
-        android:background="@drawable/evento_3"></ImageButton>
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="14dp"
-        android:layout_marginTop="20dp"
-        android:background="#838383">
-        <TextView
-            android:id="@+id/modalidadeescolhida"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="28dp"
-            android:text="FUTEBOL"
-            android:layout_alignParentLeft="true">
-        </TextView>
-
-        <TextView
-            android:id="@+id/valorLocal"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="110dp"
-            android:textColor="#000000"
-            android:text=" 13-08-2020 13:00"
-
-            android:textSize="18dp"></TextView>
-        <TextView
-            android:id="@+id/data"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="260dp"
-            android:textColor="#000000"
-            android:text=" Total : 1000"
-            android:textSize="18dp"></TextView>
-    </RelativeLayout>
-
-
-    <LinearLayout
-        android:id="@+id/ll_card_number"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="15dp">
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="44dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="5dp"
-            android:layout_weight="0.4"
-            android:contentDescription="Cartão VISA"
-            android:src="@drawable/user"
-            tools:ignore="Suspicious0dp" />
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="44dp"
-            android:layout_weight="0.4"
-            android:contentDescription="Cartão Master Card"
-            android:src="@drawable/user" />
-
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/til_card_number"
-            android:layout_width="199dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.2">
-
-            <EditText
-                android:id="@+id/card_number"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Número do cartão"
-                android:inputType="number"
-                android:text="4485203648101323" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-    </LinearLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:id="@+id/til_name"
-        android:layout_height="wrap_content">
-
-        <EditText
-            android:id="@+id/name"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Nome proprietario cartão">
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-        </EditText>
-    </com.google.android.material.textfield.TextInputLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
-    <LinearLayout
-        android:id="@+id/ll_expiration"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_below="@+id/til_name"
-        android:orientation="vertical">
+    <include layout="@layout/content_main" />
 
-
-        <EditText
-            android:id="@+id/month"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Mês"
-            android:inputType="number" />
-
-
-        <EditText
-            android:id="@+id/year"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="Ano"
-            android:inputType="number" />
-
-        <EditText
-            android:id="@+id/parcels"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Parcelas"
-            android:inputType="number" />
-
-    </LinearLayout>
-
-
-    <EditText
-        android:id="@+id/cvv"
-        android:layout_width="match_parent"
-        android:layout_height="47dp"
-        android:hint="CVV"
-        android:inputType="number" />
-
-
-    <Button
-        android:id="@+id/button_buy"
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="FINALIZAR"
-        android:onClick="pagamento"
-        android:background="@drawable/bg_form_field_sqr">
-
-    </Button>
-
-    <WebView
-        android:id="@+id/web_view"
-        android:layout_width="0.1dp"
-        android:layout_height="0.1dp"
-        android:layout_below="@+id/button_buy"></WebView>
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

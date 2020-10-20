@@ -429,4 +429,7 @@
         "serviços ofertados caso julgue que haja mau uso ou descumprimento dos termos de uso"
         "do serviço aqui apresentados.\n\n"
     </string>
+
+    <string name="button_buy">Comprar</string>
+    <string name="button_buying">"Processando pagamento..."</string>
 </resources>

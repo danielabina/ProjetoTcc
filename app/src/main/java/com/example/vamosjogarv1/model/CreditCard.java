@@ -1,9 +1,6 @@
 package com.example.vamosjogarv1.model;
-
 import android.util.Log;
 import android.webkit.JavascriptInterface;
-
-import com.example.vamosjogarv1.controller.tela_metodo_pagamento;
 
 import java.util.Observable;
 import java.util.Observer;
@@ -18,7 +15,6 @@ public class CreditCard extends Observable {
     private String error;
     private String token;
 
-    tela_metodo_pagamento tela_pag;
     public CreditCard(Observer observer){
         addObserver( observer );
     }

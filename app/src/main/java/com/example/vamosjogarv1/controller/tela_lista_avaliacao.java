@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.vamosjogarv1.R;
 import com.example.vamosjogarv1.model.AdapterParticipantesAvaPersonalizado;
@@ -135,7 +137,9 @@ public class tela_lista_avaliacao extends AppCompatActivity {
             Log.i("APIListar", "onPostExecute()--> Result: " + result);
             try {
                 Pessoa pessoa;
-                JSONArray jsonArray = new JSONArray(result);
+                String result2 = result;
+                if(!result2.equals("")){
+                    JSONArray jsonArray = new JSONArray(result);
                 pessoaList = new ArrayList<>();
                 if (jsonArray.length() != 0) {
                     for (int i = 0; i < jsonArray.length(); i++) {
@@ -150,6 +154,13 @@ public class tela_lista_avaliacao extends AppCompatActivity {
                     }
                     initial();
                 }
+            }else if (result2.equals("")){
+                Toast.makeText(tela_lista_avaliacao.this, "Não foi encontrado nenhum participante" +
+                        "", Toast.LENGTH_LONG).show();
+                Intent it = new Intent(tela_lista_avaliacao.this, tela_lista_meus_eventos_anteriores.class);
+                it.putExtra("IDPESSOA", idPessoa);
+                startActivity(it);
+            }
             } catch (Exception e) {
                 Log.i("APIListar", "onPostExecute()--> " + e.getMessage());
             }

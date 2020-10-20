@@ -34,6 +34,7 @@ public class tela_menu_ajustes extends AppCompatActivity {
     }
     public void MenuAvaliacoes(View view) {
         Intent it = new Intent(tela_menu_ajustes.this, tela_avaliacao.class);
+        it.putExtra("IDPESSOA", idPessoa);
         startActivity(it);
 
     }

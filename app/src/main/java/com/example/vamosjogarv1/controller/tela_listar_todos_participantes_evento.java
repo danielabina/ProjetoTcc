@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.vamosjogarv1.R;
 import com.example.vamosjogarv1.controller.connection;
@@ -37,6 +39,7 @@ public class tela_listar_todos_participantes_evento extends AppCompatActivity {
     AdapterParticipantesEventoPersonalizado adapterParticipantesEventoPersonalizado;
     connection con = new connection();
     int idEvento;
+    String idPessoa;
     List<Pessoa> pessoaList;
     RecyclerView listView;
     @Override
@@ -46,6 +49,7 @@ public class tela_listar_todos_participantes_evento extends AppCompatActivity {
         listView = findViewById(R.id.recyclerViewEventoParticipante);
         Bundle extras = getIntent().getExtras();
         idEvento = extras.getInt("IDEVENTO");
+        idPessoa = extras.getString("IDPESSOA");
         buscarParticipantesEventos = new BuscarParticipantesEventos();
         buscarParticipantesEventos.execute();
     }
@@ -135,8 +139,11 @@ public class tela_listar_todos_participantes_evento extends AppCompatActivity {
         protected void onPostExecute(String result) {
             Log.i("APIListar", "onPostExecute()--> Result: " + result);
             try {
+
                 Pessoa pessoa;
-                JSONArray jsonArray = new JSONArray(result);
+                String result2 = result;
+                if(!result2.equals("nenhum dado encontrado")){
+                    JSONArray jsonArray = new JSONArray(result);
                 pessoaList = new ArrayList<>();
                 if (jsonArray.length() != 0) {
                     for (int i = 0; i < jsonArray.length(); i++) {
@@ -149,6 +156,13 @@ public class tela_listar_todos_participantes_evento extends AppCompatActivity {
                         Log.i("APIListar", "Estado: -> " + pessoa.getIdPessoa());
                     }
                     initial();
+                }
+                }else if (result2.equals("nenhum dado encontrado")){
+                    Toast.makeText(tela_listar_todos_participantes_evento.this, "Não possui nenhum participante ainda" +
+                            "", Toast.LENGTH_LONG).show();
+                    Intent it = new Intent(tela_listar_todos_participantes_evento.this, tela_menu_eventos.class);
+                    it.putExtra("IDPESSOA", idPessoa);
+                    startActivity(it);
                 }
             } catch (Exception e) {
                 Log.i("APIListar", "onPostExecute()--> " + e.getMessage());

@@ -55,13 +55,16 @@ public class tela_cadastrar_evento extends AppCompatActivity implements View.OnC
 
         data = findViewById(R.id.data);
         nome = (EditText) findViewById(R.id.nomeEvento);
-        nomeEvento = nome.getText().toString();
+
         btnProximo = findViewById(R.id.btnProximo);
         btnProximo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (dataHora.isEmpty() && endereco.isEmpty()) {
-                    Toast.makeText(tela_cadastrar_evento.this, "O campo data-hora e endereco devem ser preenchidos" , Toast.LENGTH_LONG).show();
+                nomeEvento = nome.getText().toString();
+                endereco = nomeRua.getText().toString();
+                dataHora = data.getText().toString();
+                if (dataHora.isEmpty() && endereco.isEmpty() && nomeEvento.isEmpty()) {
+                    Toast.makeText(tela_cadastrar_evento.this, "O campo  nome evento,data-hora e endereco devem ser preenchidos" , Toast.LENGTH_LONG).show();
                 } else {
                     Intent it = new Intent(tela_cadastrar_evento.this, tela_lista_local.class);
                     endereco = nomeRua.getText().toString();

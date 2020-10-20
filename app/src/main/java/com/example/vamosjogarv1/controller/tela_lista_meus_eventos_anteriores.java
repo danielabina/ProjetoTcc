@@ -41,14 +41,14 @@ public class tela_lista_meus_eventos_anteriores extends AppCompatActivity {
     List<Evento> eventoList;
     RecyclerView listView;
     AdapterEventosAnterioresPersonalizado adapterEventosAnterioresPersonalizado;
-    int idPessoa;
+    String idPessoa;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_lista_eventos_anteriores);
         listView = findViewById(R.id.listaAnterioresEventos);
         Bundle extras = getIntent().getExtras();
-        idPessoa = extras.getInt("IDPESSOA");
+        idPessoa = extras.getString("IDPESSOA");
         listaEventosAnteriores = new ListaEventosAnteriores();
         listaEventosAnteriores.execute();
     }

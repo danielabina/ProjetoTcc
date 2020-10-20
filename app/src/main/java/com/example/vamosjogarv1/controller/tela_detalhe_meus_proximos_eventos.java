@@ -99,6 +99,7 @@ public class tela_detalhe_meus_proximos_eventos extends AppCompatActivity {
     public void participantes(View view) {
         Intent it = new Intent(tela_detalhe_meus_proximos_eventos.this, tela_listar_todos_participantes_evento.class);
         it.putExtra("IDEVENTO", idEvento);
+        it.putExtra("IDPESSOA", idPessoa);
         startActivity(it);
     }
 
