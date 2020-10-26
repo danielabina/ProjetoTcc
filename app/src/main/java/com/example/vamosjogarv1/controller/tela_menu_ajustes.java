@@ -9,7 +9,7 @@ import android.view.View;
 
 public class tela_menu_ajustes extends AppCompatActivity {
     int idPessoa;
-    String  nomePessoa,habilidade,senha,email;
+    String  nomePessoa,habilidade,senha,email,foto;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +21,7 @@ public class tela_menu_ajustes extends AppCompatActivity {
         habilidade = extras.getString("HABILIDADE");
         email = extras.getString("EMAIL");
         senha = extras.getString("SENHA");
+        foto = extras.getString("FOTO");
     }
 
     public void MenuPerfil(View view) {
@@ -30,6 +31,7 @@ public class tela_menu_ajustes extends AppCompatActivity {
         it.putExtra("SENHA", senha);
         it.putExtra("HABILIDADE", habilidade);
         it.putExtra("EMAIL", email);
+        it.putExtra("FOTO", foto);
         startActivity(it);
     }
     public void MenuAvaliacoes(View view) {

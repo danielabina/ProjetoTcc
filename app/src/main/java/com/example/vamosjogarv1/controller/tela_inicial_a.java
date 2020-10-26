@@ -71,6 +71,7 @@ String email;
         it.putExtra("SENHA", pessoa.getSenha());
         it.putExtra("HABILIDADE", pessoa.getHabilidade());
         it.putExtra("EMAIL", pessoa.getEmail());
+        it.putExtra("FOTO", pessoa.getPhoto());
         startActivity(it);
 
     }
@@ -172,7 +173,8 @@ String email;
                                 jsonObject.getString("email"),
                                 jsonObject.getString("senha"),
                                 jsonObject.getString("habilidade"),
-                                jsonObject.getString("sexo"));
+                                jsonObject.getString("sexo"),
+                                jsonObject.getString("photo"));
                         pessoaList.add(pessoa);
                         Log.i("APIListar", "detalhe: -> " + pessoa.getIdPessoa() + " - " +pessoa.getNome());
                     }

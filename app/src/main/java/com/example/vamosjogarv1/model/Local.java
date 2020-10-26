@@ -8,7 +8,17 @@ public class Local {
     private String endereco;
     private String valor;
     private String descricao;
+    private String photo;
 
+    public Local(int id, String nome, String descricao, String endereco, String categoria, String valor, String photo) {
+        this.setId(id);
+        this.setNome(nome);
+        this.setDescricao(descricao);
+        this.setEndereco(endereco);
+        this.setCategoria(categoria);
+        this.setValor(valor);
+        this.setPhoto(photo);
+    }
 
     public Local(int id, String nome, String descricao,String endereco,String categoria,String valor){
 
@@ -72,6 +82,13 @@ public class Local {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
 }

@@ -7,6 +7,7 @@ import com.example.vamosjogarv1.R;
 import com.example.vamosjogarv1.model.AdapterLocalPersonalizado;
 import com.example.vamosjogarv1.model.Local;
 import com.example.vamosjogarv1.model.Pessoa;
+import com.squareup.picasso.Picasso;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -17,6 +18,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,13 +42,14 @@ public class tela_detalhe_local extends AppCompatActivity {
     Button btnproximook;
     TextView txtNomeLocal,txtEnderecoLocal,txtDescricaoLocal,txtValor;
     int idLocal;
-    String idPessoa,nomeEvento,dataHora;
+    String idPessoa,nomeEvento,dataHora,foto;
     private Bundle extra;
     connection con = new connection();
     ListarLocaisDetalheAsyncTask listarLocaisDetalheAsyncTask;
     List<Local> localList;
     Local local;
     Pessoa pessoa;
+    ImageView imagemLocal;
 
 
 
@@ -59,6 +62,8 @@ public class tela_detalhe_local extends AppCompatActivity {
         txtEnderecoLocal = (TextView)  findViewById(R.id.enderecolocal);
         txtDescricaoLocal = (TextView) findViewById(R.id.descricaolocal);
         txtValor = (TextView) findViewById(R.id.valorLocal);
+        imagemLocal = (ImageView) findViewById(R.id.imagemLocal);
+
 
 
 
@@ -67,7 +72,8 @@ public class tela_detalhe_local extends AppCompatActivity {
         idPessoa = it.getString("IDPESSOA");
         nomeEvento = it.getString("nomeEvento");
         dataHora = it.getString("dataHora");
-
+        foto = it.getString("FOTO");
+        CarregarImagem();
         listarLocaisDetalheAsyncTask = new ListarLocaisDetalheAsyncTask();
         listarLocaisDetalheAsyncTask.execute();
 
@@ -78,6 +84,15 @@ public class tela_detalhe_local extends AppCompatActivity {
                 escolherEvento();
             }
         });
+    }
+
+    public void CarregarImagem() {
+
+        Picasso
+                .with(this)
+                .load(foto)
+                .placeholder(R.drawable.carregando_animacao)
+                .into(imagemLocal);
     }
 
     public class ListarLocaisDetalheAsyncTask extends AsyncTask<String, String, String> {

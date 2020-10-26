@@ -27,7 +27,7 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/idlogo"
+            android:id="@+id/idlogoP"
             android:layout_width="match_parent"
             android:layout_height="135dp"
             android:src="@drawable/user"

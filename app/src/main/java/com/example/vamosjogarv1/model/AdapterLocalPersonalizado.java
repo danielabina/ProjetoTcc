@@ -26,30 +26,63 @@ import com.example.vamosjogarv1.R;
 import com.example.vamosjogarv1.controller.connection;
 import com.example.vamosjogarv1.controller.tela_detalhe_local;
 import com.example.vamosjogarv1.controller.tela_lista_local;
+import com.squareup.picasso.Picasso;
 
 import java.io.InputStream;
 import java.util.List;
 
-public class AdapterLocalPersonalizado extends RecyclerView.Adapter<AdapterLocalPersonalizado.MeuViewHolder> {
+public class AdapterLocalPersonalizado extends RecyclerView.Adapter<AdapterLocalPersonalizado.ViewHolder> {
 
-    Context ctx;
-    List<Local> listaLocal;
-    String idPessoa,dataHora,nomEvento;
-
+    private Context context;
+    private List<Local> listaLocal;
+    String idPessoa,dataHora,nomEvento,photo;
 
     public AdapterLocalPersonalizado(List<Local> locais,Context ctx1, String idPessoa,String dataHora,String nomEvento) {
-        this.ctx = ctx1;
+        this.context = ctx1;
         this.idPessoa = idPessoa;
         this.dataHora = dataHora;
         this.nomEvento = nomEvento;
         this.listaLocal = locais;
     }
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-    public class MeuViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        TextView nome,categoria,endereco,valor;
+        Context context = parent.getContext();
+        LayoutInflater inflater = LayoutInflater.from(context);
+
+        View linhaView = inflater
+                .inflate(R.layout.activity_tela_lista_local_personalizada, parent, false);
+        ViewHolder viewHolder = new ViewHolder(linhaView);
+
+        return viewHolder;
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull AdapterLocalPersonalizado.ViewHolder holder, int position) {
+        Local local = listaLocal.get(position);
+        TextView nome = holder.nome;
+        nome.setText(local.getNome());
+        TextView categoria = holder.categoria;
+        categoria.setText(local.getCategoria());
+        TextView valor = holder.valor;
+        valor.setText(local.getValor());
+        TextView endereco = holder.endereco;
+        endereco.setText(local.getEndereco());
+    }
+
+    @Override
+    public int getItemCount() {
+        return listaLocal.size();
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+        TextView nome, categoria, endereco, valor;
+
         @SuppressLint("WrongViewCast")
-        public MeuViewHolder(@NonNull View view) {
+        public ViewHolder(@NonNull View view) {
             super(view);
 
             nome = (TextView) view.findViewById(R.id.namec);
@@ -66,60 +99,22 @@ public class AdapterLocalPersonalizado extends RecyclerView.Adapter<AdapterLocal
 
             Local objSelecionado = listaLocal.get(position);
 
-            if(position != RecyclerView.NO_POSITION){
+            if (position != RecyclerView.NO_POSITION) {
 
 
-                Intent intent = new Intent(ctx.getApplicationContext(), tela_detalhe_local.class);
+                Intent intent = new Intent(context.getApplicationContext(), tela_detalhe_local.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
                 Bundle bundle = new Bundle();
-                bundle.putInt("ID",objSelecionado.getId());
+                bundle.putInt("ID", objSelecionado.getId());
                 intent.putExtra("idLocal", objSelecionado.getId());
                 intent.putExtra("IDPESSOA", idPessoa);
                 intent.putExtra("nomeEvento", nomEvento);
                 intent.putExtra("dataHora", dataHora);
 
-                ctx.startActivity(intent);
+                context.startActivity(intent);
             }
-        }
-    }
-
-    @NonNull
-    @Override
-    public MeuViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        Local local = listaLocal.get(i);
-
-        Context context = viewGroup.getContext();
-        LayoutInflater inflater = LayoutInflater.from(context);
-
-
-        View linhaView = LayoutInflater.from(inflater.getContext())
-                .inflate(R.layout.activity_tela_lista_local_personalizada, viewGroup, false);
-        MeuViewHolder viewHolder = new MeuViewHolder(linhaView);
-
-
-        return viewHolder;
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull AdapterLocalPersonalizado.MeuViewHolder meuViewHolder, int i) {
-        Local local = listaLocal.get(i);
-            TextView nome = meuViewHolder.nome;
-       nome.setText(local.getNome());
-        TextView categoria = meuViewHolder.categoria;
-        categoria.setText(local.getCategoria());
-        TextView valor = meuViewHolder.valor;
-        valor.setText(local.getValor());
-        TextView endereco = meuViewHolder.endereco;
-        endereco.setText(local.getEndereco());
 
         }
-
-
-
-    @Override
-    public int getItemCount() {
-        return listaLocal.size();
     }
-
 }

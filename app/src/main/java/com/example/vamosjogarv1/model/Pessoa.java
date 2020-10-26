@@ -15,9 +15,10 @@ public class Pessoa {
     public String habilidade;
     public String senha;
     public String sexo;
-    // incuir endereço e logo
+    public String photo;
 
-    public Pessoa(int idPessoa, String nome, String email,String senha,String habilidade,String sexo){
+
+    public Pessoa(int idPessoa, String nome, String email,String senha,String habilidade,String sexo,String photo){
 
         this.setIdPessoa(idPessoa);
         this.setNome(nome);
@@ -25,6 +26,7 @@ public class Pessoa {
         this.setSenha(senha);
         this.setHabilidade(habilidade);
         this.setSexo(sexo);
+        this.setPhoto(photo);
 
 
     }
@@ -54,6 +56,13 @@ public class Pessoa {
     }
 
     public Pessoa(){ }
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
     public String getSexo() {
         return sexo;
     }

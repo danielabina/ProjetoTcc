@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Número do cartão"
                 android:inputType="number"
-                android:text="5260444422952352" />
+                android:text="5283920581743701" />
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
@@ -98,7 +98,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Ano"
                 android:inputType="number"
-                android:text="2022" />
+                android:text="2028" />
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
@@ -137,7 +137,7 @@
                 android:layout_height="wrap_content"
                 android:hint="CVV"
                 android:inputType="number"
-                android:text="818" />
+                android:text="790" />
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 </RelativeLayout>

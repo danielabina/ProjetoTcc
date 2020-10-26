@@ -2,6 +2,7 @@ package com.example.vamosjogarv1.model;
 import android.util.Log;
 import android.webkit.JavascriptInterface;
 
+
 import java.util.Observable;
 import java.util.Observer;
 

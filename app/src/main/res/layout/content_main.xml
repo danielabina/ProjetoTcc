@@ -82,10 +82,6 @@
             android:id="@+id/web_view"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             android:layout_below="@+id/button_buy"></WebView>
     </RelativeLayout>
 </ScrollView>

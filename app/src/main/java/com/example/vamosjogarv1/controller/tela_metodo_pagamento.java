@@ -105,10 +105,10 @@ public class tela_metodo_pagamento extends AppCompatActivity implements Observer
 
     private void getPaymentToken( CreditCard creditCard ){
         WebView webView = (WebView) findViewById(R.id.web_view);
+        webView.loadUrl("file:///android_asset/index.html");
         webView.getSettings().setJavaScriptEnabled( true );
         webView.addJavascriptInterface( creditCard, "Android" );
-        webView.setWebViewClient(new WebViewClient());
-        webView.loadUrl("file:///asset/index.html");
+
     }
 
     private void showMessage( final String message ){
@@ -129,7 +129,7 @@ public class tela_metodo_pagamento extends AppCompatActivity implements Observer
             return;
         }
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.80/android-payment/")
+                .baseUrl("http://192.168.0.107/android-payment/")
                 .addConverterFactory( GsonConverterFactory.create() )
                 .build();
         PaymentConnection paymentConnection = retrofit.create(PaymentConnection.class);

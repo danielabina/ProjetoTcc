@@ -2,6 +2,7 @@ package com.example.vamosjogarv1.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -10,12 +11,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.vamosjogarv1.R;
 import com.example.vamosjogarv1.model.Evento;
 import com.example.vamosjogarv1.model.Pessoa;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -37,12 +40,13 @@ Button btnAvaliacoes;
 String pessoaa;
 Pessoa pessoa = new Pessoa();
     int idPessoa;
-    String  nomePessoa,habilidade,senha,email;
+    String  nomePessoa,habilidade,senha,email,foto;
     EditText nome_,senha_,habilidade_;
    EditText editNome;
     EditText editSenha;
     EditText editHabilidade;
     TextView email_,editEmail;
+    ImageView photo;
     EditarDadosAsyncTask editarDadosAsyncTask;
     connection con = new connection();
     List<Pessoa> pessoaList;
@@ -58,16 +62,17 @@ Pessoa pessoa = new Pessoa();
         habilidade = extras.getString("HABILIDADE");
         senha = extras.getString("SENHA");
         email = extras.getString("EMAIL");
+        foto = extras.getString("FOTO");
 
         nome_ = (EditText) findViewById(R.id.idNome);
         email_ = (TextView) findViewById(R.id.idEmail);
         senha_ = (EditText) findViewById(R.id.idSenha);
         habilidade_ = (EditText) findViewById(R.id.idHabilidade);
+        photo = (ImageView) findViewById(R.id.idlogoP);
         popularEdit(nomePessoa,email,senha,habilidade);
-
-
-
+        CarregarImagem();
     }
+
 
 
     public void popularEdit(String nomePessoa, String email,String senha,String habilidade){
@@ -75,6 +80,16 @@ Pessoa pessoa = new Pessoa();
         email_.setText(email);
         senha_.setText(senha);
         habilidade_ .setText(habilidade);
+
+    }
+
+    public void CarregarImagem() {
+
+        Picasso
+                .with(this)
+                .load(foto)
+                .placeholder(R.drawable.carregando_animacao)
+                .into(photo);
     }
 
     public void limparEdit(String nomePessoa, String email,String senha,String habilidade){
@@ -83,6 +98,7 @@ Pessoa pessoa = new Pessoa();
         senha_.setText("");
         habilidade_ .setText("");
     }
+
 
 
 

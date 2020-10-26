@@ -24,10 +24,10 @@
         android:textSize="18dp"></TextView>
 
 
-    <ImageButton
+    <ImageView
+        android:id="@+id/imagemLocal"
         android:layout_width="match_parent"
-        android:layout_height="139dp"
-        android:background="@drawable/rrr"></ImageButton>
+        android:layout_height="139dp"></ImageView>
     <RelativeLayout
         android:layout_width="373dp"
         android:layout_height="46dp"
