@@ -17,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="57dp"
         android:layout_marginLeft="10dp"
-        android:text="Cadastrou algo errado ? Não tem problema ,voce editar!"
+        android:text="Cadastrou algo errado ? Não tem problema ,voce pode editar!"
         android:textColor="#000000"
         android:textSize="18dp"></TextView>
 
@@ -29,9 +29,16 @@
         <ImageView
             android:id="@+id/idlogoP"
             android:layout_width="match_parent"
-            android:layout_height="135dp"
+            android:layout_height="108dp"
             android:src="@drawable/user"
             tools:visibility="visible" />
+
+        <Button
+            android:id="@+id/buttonChoose"
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:onClick="alterarImagem"
+            android:text="Alterar Imagem" />
 
     </LinearLayout>
 
