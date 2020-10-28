@@ -19,7 +19,7 @@ public class connection {
     String UrlCadastrarAvaliacao;
     String UrlBuscarAvaliacao;
     String upload;
-    String IP = "192.168.1.80";
+    String IP = "192.168.25.11";
 
     public String getLogin() { return Login = "http://"+IP+"/Login/logar.php"; }
     public String getBuscaLocal() { return BuscaLocal = "http://"+IP+"/Controller/APIListarLocalDisp.php";}
@@ -37,6 +37,6 @@ public class connection {
     public String getCancelarParticipacao(){return UrlCancelarParticipacao = "http://"+IP+"/Controller/cancelarParticipacao.php";}
     public String getUrlCadastrarAvaliacao(){return UrlCadastrarAvaliacao = "http://"+IP+"/Controller/cadastrarAvaliacao.php";}
     public String getUrlBuscarAvaliacao() {return UrlBuscarAvaliacao = "http://"+IP+"/Controller/buscarAvaliacao.php";}
-    public String getUpdate() {return upload = "http://"+IP+"/Controller/upload.php";}
+    public String getUpdate() {return upload = "http://"+IP+"/Controller/uploadd2.php";}
 
 }

@@ -32,11 +32,9 @@ import java.io.InputStream;
 import java.util.List;
 
 public class AdapterLocalPersonalizado extends RecyclerView.Adapter<AdapterLocalPersonalizado.ViewHolder> {
-
     private Context context;
     private List<Local> listaLocal;
-    String idPessoa,dataHora,nomEvento,photo;
-
+    String idPessoa,dataHora,nomEvento;
     public AdapterLocalPersonalizado(List<Local> locais,Context ctx1, String idPessoa,String dataHora,String nomEvento) {
         this.context = ctx1;
         this.idPessoa = idPessoa;
@@ -47,15 +45,11 @@ public class AdapterLocalPersonalizado extends RecyclerView.Adapter<AdapterLocal
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
-
         View linhaView = inflater
                 .inflate(R.layout.activity_tela_lista_local_personalizada, parent, false);
         ViewHolder viewHolder = new ViewHolder(linhaView);
-
         return viewHolder;
     }
 
@@ -78,43 +72,32 @@ public class AdapterLocalPersonalizado extends RecyclerView.Adapter<AdapterLocal
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-
         TextView nome, categoria, endereco, valor;
-
         @SuppressLint("WrongViewCast")
         public ViewHolder(@NonNull View view) {
             super(view);
-
             nome = (TextView) view.findViewById(R.id.namec);
             categoria = (TextView) view.findViewById(R.id.categoria);
             valor = (TextView) view.findViewById(R.id.valor);
             endereco = (TextView) view.findViewById(R.id.ende);
-
             view.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
             int position = getAdapterPosition();
-
             Local objSelecionado = listaLocal.get(position);
-
             if (position != RecyclerView.NO_POSITION) {
-
-
                 Intent intent = new Intent(context.getApplicationContext(), tela_detalhe_local.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
                 Bundle bundle = new Bundle();
                 bundle.putInt("ID", objSelecionado.getId());
                 intent.putExtra("idLocal", objSelecionado.getId());
                 intent.putExtra("IDPESSOA", idPessoa);
                 intent.putExtra("nomeEvento", nomEvento);
                 intent.putExtra("dataHora", dataHora);
-
                 context.startActivity(intent);
             }
-
         }
     }
 }

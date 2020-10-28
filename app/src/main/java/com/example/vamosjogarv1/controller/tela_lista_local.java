@@ -221,23 +221,15 @@ public class tela_lista_local extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String result) {
-
             Log.i("APIListar", "onPostExecute()--> Result: " + result);
-
             try {
-
                 Local local;
                 //TODO: condição quando não acha endereço informado
                 JSONArray jsonArray = new JSONArray(result);
-
                 localList = new ArrayList<>();
-
                 if (jsonArray.length() != 0) {
-
                     for (int i = 0; i < jsonArray.length(); i++) {
-
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
-
                         local = new Local(jsonObject.getInt("id"),
                                 jsonObject.getString("nome"),
                                 jsonObject.getString("descricao"),
@@ -245,30 +237,15 @@ public class tela_lista_local extends AppCompatActivity {
                                 jsonObject.getString("categoria"),
                                 jsonObject.getString("valor"),
                                 jsonObject.getString("photo"));
-
                         localList.add(local);
-
-                        Log.i("APIListar", "Estado: -> " + local.getId() + " - " +local.getNome());
-
-
                     }
-
                     Toast.makeText(tela_lista_local.this, localList.size() + " local Listados no LogCat", Toast.LENGTH_LONG)
                             .show();
-
                     initial();
-
                 }
-
             } catch (Exception e) {
-
-
                 Log.i("APIListar", "onPostExecute()--> " + e.getMessage());
-
-
             }
-
-
         }
 
         public void initial(){

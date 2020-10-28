@@ -58,13 +58,13 @@ import java.util.List;
 
 public class tela_perfil extends AppCompatActivity {
 
-Button btnAvaliacoes;
-String pessoaa;
-Pessoa pessoa = new Pessoa();
+    Button btnAvaliacoes;
+    String pessoaa;
+    Pessoa pessoa = new Pessoa();
     int idPessoa;
     String  nomePessoa,habilidade,senha,email,foto;
     EditText nome_,senha_,habilidade_;
-   EditText editNome;
+    EditText editNome;
     EditText editSenha;
     EditText editHabilidade;
     TextView email_,editEmail;
@@ -129,15 +129,11 @@ Pessoa pessoa = new Pessoa();
         }
         @Override
         protected Void doInBackground(Void... voids) {
-            //Uploading code
             try {
-                String uploadId = UUID.randomUUID().toString();
-
-                //Creating a multi part request
                 new MultipartUploadRequest(tela_perfil.this, con.getUpdate())
                         .setMethod("POST")
                         .addFileToUpload(path, "image") //Adding file
-                        .addParameter("id_pessoa", String.valueOf(idPessoa)) //Adding text parameter to the request
+                        .addParameter("name", String.valueOf(idPessoa)) //Adding text parameter to the request
                         .setMaxRetries(2)
                         .startUpload(); //Starting the upload
 
@@ -152,10 +148,6 @@ Pessoa pessoa = new Pessoa();
             super.onPostExecute(aVoid);
             Toast.makeText(tela_perfil.this, "ok", Toast.LENGTH_SHORT).show();
         }
-
-
-
-
     }
 
 
@@ -236,8 +228,8 @@ Pessoa pessoa = new Pessoa();
     }
 
     public void alterarImagem(View v){
-            showFileChooser();
-        }
+        showFileChooser();
+    }
 
     public void popularEdit(String nomePessoa, String email,String senha,String habilidade){
         nome_.setText(nomePessoa);
