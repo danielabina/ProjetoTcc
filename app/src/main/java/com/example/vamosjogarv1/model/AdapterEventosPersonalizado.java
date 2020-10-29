@@ -30,7 +30,6 @@ public class AdapterEventosPersonalizado extends RecyclerView.Adapter<AdapterEve
     }
 
     public class MeuViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-
         TextView nome,dataHoraEv,endereco,modalidade;
         @SuppressLint("WrongViewCast")
         public MeuViewHolder(@NonNull View view) {
@@ -63,13 +62,12 @@ public class AdapterEventosPersonalizado extends RecyclerView.Adapter<AdapterEve
 
     @NonNull
     @Override
-    public AdapterEventosPersonalizado.MeuViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public MeuViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         Evento evento = listaEvento.get(i);
         Context context = viewGroup.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
-        View linhaView = LayoutInflater.from(inflater.getContext())
-                .inflate(R.layout.activity_tela_lista_evento_personalizada, viewGroup, false);
-        AdapterEventosPersonalizado.MeuViewHolder viewHolder = new AdapterEventosPersonalizado.MeuViewHolder(linhaView);
+        View linhaView = inflater.inflate(R.layout.activity_tela_lista_evento_personalizada, viewGroup, false);
+        MeuViewHolder viewHolder = new MeuViewHolder(linhaView);
         return viewHolder;
     }
 

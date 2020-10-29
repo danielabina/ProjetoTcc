@@ -37,7 +37,6 @@ Button btnbuscar;
                 if(nomeRua != null){
                     endereco = nomeRua.getText().toString();
                 }
-
                 if (endereco.isEmpty()) {
                     Toast.makeText(tela_buscar_evento.this, "É necessário digitar rua ou bairro" , Toast.LENGTH_LONG).show();
                 } else {
@@ -46,16 +45,10 @@ Button btnbuscar;
                     it.putExtra("categoria", categoria);
                     it.putExtra("endereco", endereco);
                     it.putExtra("IDPESSOA",Integer.toString(idPessoa));
-
-
                     startActivity(it);
-
-                    finish();
                 }
             }
         });
-
-
 
         Spinner spinner = findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapter;

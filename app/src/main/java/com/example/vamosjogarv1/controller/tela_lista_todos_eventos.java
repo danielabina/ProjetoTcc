@@ -161,7 +161,7 @@ public class tela_lista_todos_eventos extends AppCompatActivity {
                                 jsonObject.getString("categoria"),
                                 jsonObject.getInt("idEvento"));
                         eventoList.add(evento);
-                        Log.i("APIListar", "Estado: -> " + evento.getIdCancha() + " - " +evento.getNomeEvento());
+                        Log.i("APIListar", "Evento: -> " + evento.getIdCancha() + " - " +evento.getNomeEvento());
                     }
                     initial();
                 }
