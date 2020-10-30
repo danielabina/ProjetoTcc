@@ -27,7 +27,8 @@
     <ImageView
         android:id="@+id/imagemLocal"
         android:layout_width="match_parent"
-        android:layout_height="139dp"></ImageView>
+        android:layout_height="139dp"
+        android:background="@drawable/rrr"></ImageView>
     <RelativeLayout
         android:layout_width="373dp"
         android:layout_height="46dp"

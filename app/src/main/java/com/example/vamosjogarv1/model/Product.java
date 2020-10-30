@@ -8,13 +8,13 @@ public class Product {
     private double price;
     private int img;
 
-    public Product( String ident, String n, String d, int s, double p, int i ){
+    public Product( String ident, String n, String d, int s, double p ){
         id = ident;
         name = n;
         description = d;
         stock = s;
         price = p;
-        img = i;
+
     }
 
     public String getId() {

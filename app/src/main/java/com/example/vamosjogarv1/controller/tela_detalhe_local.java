@@ -91,7 +91,6 @@ public class tela_detalhe_local extends AppCompatActivity {
         Picasso
                 .with(this)
                 .load(foto)
-                .placeholder(R.drawable.carregando_animacao)
                 .into(imagemLocal);
     }
 

@@ -1,5 +1,6 @@
 package com.example.vamosjogarv1.controller;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -50,12 +51,11 @@ public class tela_metodo_pagamento extends AppCompatActivity implements Observer
 
     private void initProduct(){
         product = new Product(
-                "6658-3324599755412",
-                "TÊNIS ADIDAS BARRICADE COURT 2",
-                "Adiwear: Borracha de altíssima durabilidade que permite que a sola não marque o solo./ Adiprene +: Protege a parte dianteira do pé proporcionando./ Adiprene: Proporciona alta absorção de impactos para amortecer e proteger o calcanhar.",
+                "",
+                "",
+                " ",
                 3,
-                69.90,
-                R.drawable.tennis);
+                69.90);
     }
 
     private void initViews( Product product ){
@@ -96,6 +96,8 @@ public class tela_metodo_pagamento extends AppCompatActivity implements Observer
                 })
                 .create()
                 .show();
+        Intent it = new Intent(tela_metodo_pagamento.this, tela_pagamento_ok.class);
+        startActivity(it);
     }
 
     private String getViewContent( View root, int id ){
