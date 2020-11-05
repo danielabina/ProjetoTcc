@@ -19,7 +19,7 @@ public class connection {
     String UrlCadastrarAvaliacao;
     String UrlBuscarAvaliacao;
     String upload;
-    String IP = "192.168.25.2";
+    String IP = "192.168.1.80";
 
     public String getLogin() { return Login = "http://"+IP+"/Login/logar.php"; }
     public String getBuscaLocal() { return BuscaLocal = "http://"+IP+"/Controller/APIListarLocalDisp.php";}

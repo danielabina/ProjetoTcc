@@ -63,7 +63,6 @@ public class AdapterEventosPersonalizado extends RecyclerView.Adapter<AdapterEve
     @NonNull
     @Override
     public MeuViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        Evento evento = listaEvento.get(i);
         Context context = viewGroup.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
         View linhaView = inflater.inflate(R.layout.activity_tela_lista_evento_personalizada, viewGroup, false);
