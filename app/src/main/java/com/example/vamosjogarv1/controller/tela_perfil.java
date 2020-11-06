@@ -57,9 +57,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class tela_perfil extends AppCompatActivity {
-
-    Button btnAvaliacoes;
-    String pessoaa;
     Pessoa pessoa = new Pessoa();
     int idPessoa;
     String  nomePessoa,habilidade,senha,email,foto;
@@ -74,26 +71,16 @@ public class tela_perfil extends AppCompatActivity {
     connection con = new connection();
     List<Pessoa> pessoaList;
     boolean control;
-    //Declaring views
     private Button buttonChoose;
-    Context mContext;
-
-    //Image request code
     private int PICK_IMAGE_REQUEST = 1;
-
-    //storage permission code
     private static final int STORAGE_PERMISSION_CODE = 123;
-
-    //Bitmap to get image from gallery
     private Bitmap bitmap;
-
-    //Uri to store the image uri
     private Uri filePath;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
-
+        requestStoragePermission();
         Bundle extras = getIntent().getExtras();
         idPessoa = extras.getInt("IDPESSOA");
         nomePessoa = extras.getString("NOMEPESSOA");
@@ -111,20 +98,11 @@ public class tela_perfil extends AppCompatActivity {
         popularEdit(nomePessoa, email, senha, habilidade);
         CarregarImagem();
     }
-
-    /*
-     * This is the method responsible for image upload
-     * We need the full image path and the name for the image in this method
-     * */
     public class UploadMultipart extends AsyncTask<Void,Void,Void> {
-
-        //getting the actual path of the image
         String path ;
-
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-
             path = getPath(filePath);
         }
         @Override
@@ -133,8 +111,8 @@ public class tela_perfil extends AppCompatActivity {
                 new MultipartUploadRequest(tela_perfil.this, con.getUpdate())
                         .setMethod("POST")
                         .addFileToUpload(path, "image") //Adding file
-                        .addParameter("name", String.valueOf(idPessoa)) //Adding text parameter to the request
-                        .setMaxRetries(2)
+                        .addParameter("id_pessoa", String.valueOf(idPessoa)) //
+                        .addParameter("name", String.valueOf(idPessoa)) /// Adding text parameter to the request
                         .startUpload(); //Starting the upload
 
             } catch (Exception exc) {
@@ -146,59 +124,46 @@ public class tela_perfil extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            Toast.makeText(tela_perfil.this, "ok", Toast.LENGTH_SHORT).show();
+            Toast.makeText(tela_perfil.this, "Fota alterada com sucesso!!", Toast.LENGTH_SHORT).show();
         }
     }
-
-
-    //method to show file chooser
     private void showFileChooser() {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
     }
-
-    //handling the image chooser activity result
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
             filePath = data.getData();
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
                 photo.setImageBitmap(bitmap);
-
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
     }
-
-    //method to get the file path from uri
-    public String getPath(Uri uri) {
-        String result;
-        String[] filePathColumn = { MediaStore.Images.Media.DATA };
-
-        Cursor cursor = getContentResolver().query(uri, filePathColumn, null, null, null);
-        if (cursor == null) { // Source is Dropbox or other similar local file path
-            result = uri.getPath();
-        } else {
-            cursor.moveToFirst();
-            int idx = cursor.getColumnIndex(filePathColumn[0]);
-            result = cursor.getString(idx);
-            cursor.close();
-        }
-        return result;
+    public String getPath( final Uri uri )
+    {
+        Cursor cursor = getContentResolver().query(uri, null, null, null, null);
+        cursor.moveToFirst();
+        String document_id = cursor.getString(0);
+        document_id = document_id.substring(document_id.lastIndexOf(":") + 1);
+        cursor.close();
+        cursor = getContentResolver().query(
+                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                null, MediaStore.Images.Media._ID + " = ? ", new String[]{document_id}, null);
+        cursor.moveToFirst();
+        String path = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA));
+        cursor.close();
+        return path;
     }
-
-
-    //Requesting permission
     private void requestStoragePermission() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
             return;
-
         if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
             //If the user has denied the permission previously your code will come to this block
             //Here you can explain why you need this permission
@@ -207,9 +172,6 @@ public class tela_perfil extends AppCompatActivity {
         //And finally ask for the permission
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE);
     }
-
-
-    //This method will be called when the user will tap on allow or deny
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 
@@ -226,38 +188,28 @@ public class tela_perfil extends AppCompatActivity {
             }
         }
     }
-
     public void alterarImagem(View v){
         showFileChooser();
     }
-
     public void popularEdit(String nomePessoa, String email,String senha,String habilidade){
         nome_.setText(nomePessoa);
         email_.setText(email);
         senha_.setText(senha);
         habilidade_ .setText(habilidade);
-
     }
-
     public void CarregarImagem() {
-
         Picasso
                 .with(this)
                 .load(foto)
                 .placeholder(R.drawable.carregando_animacao)
                 .into(photo);
     }
-
-    public void limparEdit(String nomePessoa, String email,String senha,String habilidade){
+    public void limparEdit(){
         nome_.setText("");
         email_.setText("");
         senha_.setText("");
         habilidade_ .setText("");
     }
-
-
-
-
     public void editar(View view) throws InterruptedException {
         editEmail= (TextView)  findViewById(R.id.idEmail);
         editSenha = (EditText) findViewById(R.id.idSenha);
@@ -278,11 +230,8 @@ public class tela_perfil extends AppCompatActivity {
         if(control == true){
             Toast.makeText(tela_perfil.this, "Alterações realizadas com sucesso", Toast.LENGTH_LONG).show();
         }
-
     }
-
     public class EditarDadosAsyncTask extends AsyncTask<String, String, String> {
-
         String api_token, query;
         HttpURLConnection conn;
         URL url = null;
@@ -291,7 +240,6 @@ public class tela_perfil extends AppCompatActivity {
         final int READ_TIMEOUT = 10000; // MILISSEGUNDOS
         final int CONNECTION_TIMEOUT = 30000;
         int response_code;
-
         public EditarDadosAsyncTask( ){
             this.builder = new Uri.Builder();
             builder.appendQueryParameter("senha", senha);
@@ -299,139 +247,75 @@ public class tela_perfil extends AppCompatActivity {
             builder.appendQueryParameter("nome", nomePessoa);
             builder.appendQueryParameter("idPessoa", String.valueOf(idPessoa));
         }
-
         @Override
         protected void onPreExecute() {
-
             Log.i("APIListar", "onPreExecute()");
-
         }
-
         @Override
         protected String doInBackground(String... strings) {
-
             Log.i("APIListar", "doInBackground()");
-
-            // Gerar o conteúdo para a URL
-
             try {
-
                 url = new URL(URL_WEB_SERVICES);
-
             } catch (MalformedURLException e) {
-
                 Log.i("APIListar", "MalformedURLException --> " + e.getMessage());
-
             } catch (Exception e) {
-
                 Log.i("APIListar", "doInBackground() --> " + e.getMessage());
             }
-
-            // Gerar uma requisição HTTP - POST - Result será um ArrayJson
-
-            // conn
-
             try {
-
                 conn = (HttpURLConnection) url.openConnection();
                 conn.setReadTimeout(READ_TIMEOUT);
                 conn.setConnectTimeout(CONNECTION_TIMEOUT);
                 conn.setRequestMethod("POST");
                 conn.setRequestProperty("charset", "utf-8");
-
                 conn.setDoInput(true);
                 conn.setDoOutput(true);
-
                 conn.connect();
-
             } catch (Exception e) {
-
                 Log.i("APIListar", "HttpURLConnection --> " + e.getMessage());
-
             }
-
-            // Adicionar o TOKEN e/ou outros parâmetros como por exemplo
-            // um objeto a ser incluido, deletado ou alterado.
-            // CRUD completo
-
             try {
-
                 query = builder.build().getEncodedQuery();
-
                 OutputStream stream = conn.getOutputStream();
-
                 BufferedWriter writer = new BufferedWriter(
                         new OutputStreamWriter(stream, "utf-8"));
-
                 writer.write(query);
                 writer.flush();
                 writer.close();
                 stream.close();
-
                 conn.connect();
-
-
             } catch (Exception e) {
-
                 Log.i("APIListar", "BufferedWriter --> " + e.getMessage());
-
-
             }
-
-            // receber o response - arrayJson
-            // http - código do response | 200 | 404 | 503
-
             try {
-
                 response_code = conn.getResponseCode();
-
                 if (response_code == HttpURLConnection.HTTP_OK) {
-
-
                     InputStream input = conn.getInputStream();
                     BufferedReader reader = new BufferedReader(new InputStreamReader(input));
-
                     StringBuilder result = new StringBuilder();
-
                     String linha = null;
-
                     while ((linha = reader.readLine()) != null) {
-
                         result.append(linha);
                     }
-
                     return result.toString();
-
                 } else {
-
                     return "HTTP ERRO: " + response_code;
                 }
-
-
             } catch (Exception e) {
-
                 Log.i("APIListar", "StringBuilder --> " + e.getMessage());
-
                 return "Exception Erro: " + e.getMessage();
-
             } finally {
-
                 conn.disconnect();
             }
-
-
         }
 
         @Override
         protected void onPostExecute(String result) {
-
             Log.i("APIListar", "onPostExecute()--> Result: " + result);
-
             try {
                 JSONArray jsonArray = new JSONArray(result);
                 pessoaList = new ArrayList<>();
                 if(result.equals("[]")){
-                    limparEdit(nomePessoa,email,senha,habilidade);
+                    limparEdit();
                     control = true;
                     popularEdit(nomePessoa,email,senha,habilidade);
                 }
@@ -454,5 +338,4 @@ public class tela_perfil extends AppCompatActivity {
             }
         }
     }
-
 }

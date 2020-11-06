@@ -37,6 +37,6 @@ public class connection {
     public String getCancelarParticipacao(){return UrlCancelarParticipacao = "http://"+IP+"/Controller/cancelarParticipacao.php";}
     public String getUrlCadastrarAvaliacao(){return UrlCadastrarAvaliacao = "http://"+IP+"/Controller/cadastrarAvaliacao.php";}
     public String getUrlBuscarAvaliacao() {return UrlBuscarAvaliacao = "http://"+IP+"/Controller/buscarAvaliacao.php";}
-    public String getUpdate() {return upload = "http://"+IP+"/Controller/uploadd2.php";}
+    public String getUpdate() {return upload = "http://"+IP+"/Controller/upload.php";}
 
 }

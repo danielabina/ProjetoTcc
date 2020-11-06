@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.Image;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -34,7 +35,7 @@ import java.util.List;
 public class AdapterLocalPersonalizado extends RecyclerView.Adapter<AdapterLocalPersonalizado.ViewHolder> {
     private Context context;
     private List<Local> listaLocal;
-    String idPessoa,dataHora,nomEvento;
+    String idPessoa,dataHora,nomEvento,photo;
     public AdapterLocalPersonalizado(List<Local> locais,Context ctx1, String idPessoa,String dataHora,String nomEvento) {
         this.context = ctx1;
         this.idPessoa = idPessoa;
@@ -64,6 +65,8 @@ public class AdapterLocalPersonalizado extends RecyclerView.Adapter<AdapterLocal
         valor.setText(local.getValor());
         TextView endereco = holder.endereco;
         endereco.setText(local.getEndereco());
+         photo =  local.getPhoto();
+
     }
 
     @Override
@@ -73,6 +76,7 @@ public class AdapterLocalPersonalizado extends RecyclerView.Adapter<AdapterLocal
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView nome, categoria, endereco, valor;
+        ImageView foto;
         @SuppressLint("WrongViewCast")
         public ViewHolder(@NonNull View view) {
             super(view);
@@ -80,6 +84,14 @@ public class AdapterLocalPersonalizado extends RecyclerView.Adapter<AdapterLocal
             categoria = (TextView) view.findViewById(R.id.categoria);
             valor = (TextView) view.findViewById(R.id.valor);
             endereco = (TextView) view.findViewById(R.id.ende);
+            foto = (ImageView) view.findViewById(R.id.imgFotoLocal);
+
+            Picasso
+                    .with(view.getContext())
+                    .load(photo)
+                    .placeholder(R.drawable.carregando_animacao)
+                    .into(foto);
+
             view.setOnClickListener(this);
         }
 

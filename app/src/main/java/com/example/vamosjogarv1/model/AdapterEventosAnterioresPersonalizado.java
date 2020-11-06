@@ -39,6 +39,9 @@ public class MeuViewHolder extends RecyclerView.ViewHolder implements View.OnCli
         dataHoraEv = (TextView) view.findViewById(R.id.dataHoraEvAnteriores);
         endereco = (TextView) view.findViewById(R.id.enderecoEvAnteriores);
         modalidade = (TextView) view.findViewById(R.id.modalidadeAnteriores);
+
+
+
         view.setOnClickListener(this);
     }
 
