@@ -9,7 +9,7 @@
 
     <ImageButton
         android:layout_width="match_parent"
-        android:layout_height="131dp"
+        android:layout_height="127dp"
         android:background="@drawable/fundo_2"></ImageButton>
 
 
@@ -19,10 +19,11 @@
         android:layout_height="110dp"
         android:onClick="MenuPerfil"
         android:src="@drawable/perfilmenu"></ImageButton>
+
     <ImageButton
         android:id="@+id/menuAvaliacoes"
         android:layout_width="410dp"
-        android:layout_height="110dp"
+        android:layout_height="102dp"
         android:onClick="MenuAvaliacoes"
         android:src="@drawable/minhasavamenu"></ImageButton>
     <ImageButton
@@ -37,6 +38,12 @@
         android:layout_height="110dp"
         android:onClick="TemordeUsoMenu"
         android:src="@drawable/termomenu"></ImageButton>
+    <ImageButton
+        android:id="@+id/sair"
+        android:layout_width="410dp"
+        android:layout_height="110dp"
+        android:onClick="Sair"
+        android:src="@drawable/sair"></ImageButton>
 
 
 </LinearLayout>
