@@ -54,33 +54,5 @@ public class tela_menu_ajustes extends AppCompatActivity {
         startActivity(it);
     }
 
-    public void Sair(View view){
 
-        SharedPreferences.Editor pref = getSharedPreferences("info", MODE_PRIVATE).edit();
-
-        pref.putString(encrypt("email"), "");
-
-        pref.commit();
-
-        SharedPreferences pref1 = getSharedPreferences("info", MODE_PRIVATE);
-        String email = pref1.getString(encrypt("email"), null);
-
-        if(email.isEmpty()) {
-            finish();
-            Intent abrePrincipal = new Intent(tela_menu_ajustes.this, tela_login.class);
-            startActivity(abrePrincipal);
-            finish();
-        }
-        finish();
-    }
-
-    public String encrypt(String palavra) {
-
-        return Base64.encodeToString(palavra.getBytes(), Base64.DEFAULT);
-    }
-
-    public String decrypt(String palavra) {
-
-        return new String(Base64.decode(palavra, Base64.DEFAULT));
-    }
 }

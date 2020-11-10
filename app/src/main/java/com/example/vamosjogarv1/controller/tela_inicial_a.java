@@ -6,9 +6,11 @@ import com.example.vamosjogarv1.model.Local;
 import com.example.vamosjogarv1.model.Pessoa;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -38,6 +40,7 @@ String email;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_inicial_a);
+
 
         Intent it = getIntent();
         email = it.getStringExtra("EMAIL");
@@ -185,5 +188,34 @@ String email;
                 Log.i("APIListar", "onPostExecute()--> " + e.getMessage());
             }
         }
+    }
+
+    public void Sair(View view){
+        finish();
+        SharedPreferences.Editor pref = getSharedPreferences("info", MODE_PRIVATE).edit();
+
+        pref.putString(encrypt("email"), "");
+
+        pref.commit();
+
+        SharedPreferences pref1 = getSharedPreferences("info", MODE_PRIVATE);
+        String email = pref1.getString(encrypt("email"), null);
+
+        if(email.isEmpty()) {
+            finish();
+            Intent abrePrincipal = new Intent(tela_inicial_a.this, tela_login.class);
+            startActivity(abrePrincipal);
+            finish();
+        }
+    }
+
+    public String encrypt(String palavra) {
+
+        return Base64.encodeToString(palavra.getBytes(), Base64.DEFAULT);
+    }
+
+    public String decrypt(String palavra) {
+
+        return new String(Base64.decode(palavra, Base64.DEFAULT));
     }
 }

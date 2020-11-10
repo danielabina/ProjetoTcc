@@ -9,7 +9,7 @@
 
     <ImageButton
         android:layout_width="match_parent"
-        android:layout_height="127dp"
+        android:layout_height="133dp"
         android:background="@drawable/fundo_2"></ImageButton>
 
 
@@ -38,12 +38,6 @@
         android:layout_height="110dp"
         android:onClick="TemordeUsoMenu"
         android:src="@drawable/termomenu"></ImageButton>
-    <ImageButton
-        android:id="@+id/sair"
-        android:layout_width="410dp"
-        android:layout_height="110dp"
-        android:onClick="Sair"
-        android:src="@drawable/sair"></ImageButton>
 
 
 </LinearLayout>

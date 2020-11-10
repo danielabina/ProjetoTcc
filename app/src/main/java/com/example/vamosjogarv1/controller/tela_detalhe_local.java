@@ -318,12 +318,14 @@ public class tela_detalhe_local extends AppCompatActivity {
                 it.putExtra("IDPESSOA",idPessoa);
                 it.putExtra("nomeEvento",nomeEvento);
                 it.putExtra("dataHora",dataHora);
+                it.putExtra("VALOR",local.getValor());
                 it.putExtra("ID",idLocal);
 
                 bundle.putString("VALOR",local.getValor());
                 bundle.putString("IDPESSOA",idPessoa);
                 bundle.putString("nomeEvento",nomeEvento);
                 bundle.putString("dataHora",dataHora);
+                bundle.putString("FOTO",foto);
 
                 startActivity(it);
                 finish();

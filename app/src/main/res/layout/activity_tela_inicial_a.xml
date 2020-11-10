@@ -10,15 +10,25 @@
 
     <ImageButton
         android:layout_width="match_parent"
-        android:layout_height="121dp"
+        android:layout_height="115dp"
         android:background="@drawable/fundo_2"></ImageButton>
+
+    <ImageButton
+        android:id="@+id/desligar"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:background="@drawable/deslogar"
+        android:layout_marginLeft="328dp"
+        android:layout_marginTop="5dp"
+        android:onClick="Sair">
+    </ImageButton>
 
     <ImageButton
         android:id="@+id/EventosProximos"
         android:layout_width="390dp"
         android:layout_height="140dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/eventosp"
         android:onClick="BuscarEvento"></ImageButton>
 
