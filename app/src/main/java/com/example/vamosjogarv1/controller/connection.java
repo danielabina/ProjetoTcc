@@ -26,7 +26,6 @@ public class connection {
     public String getBuscaLocalDetalhe() { return BuscaLocalDetalhe = "http://"+IP+"/Controller/APIListarLocalDetalhe.php"; }
     public String getCadastrar() { return Cadastrar = "http://"+IP+"/Login/cadastrar.php"; }
     public String getBuscaIdPessoa() { return BuscaIdPessoa = "http://"+IP+"/Controller/APIBuscaIdPessoa.php";}
-    public String getUrlPagamento() { return UrlPagamento = "http://"+IP+"/Controller/android-payment/";}
     public String getUrlCadastrarEvento() { return UrlCadastrarEvento = "http://"+IP+"/Controller/cadastrarEvento.php";}
     public String getUrlEditarDados() {return UrlEditarDados = "http://"+IP+"/Controller/editarDadosPerfil.php";}
     public String getBuscaEvento() {return UrlBuscarEvento = "http://"+IP+"/Controller/buscarEventos.php";}

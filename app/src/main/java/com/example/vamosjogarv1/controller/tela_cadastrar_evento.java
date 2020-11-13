@@ -69,7 +69,7 @@ public class tela_cadastrar_evento extends AppCompatActivity implements View.OnC
                     Intent it = new Intent(tela_cadastrar_evento.this, tela_lista_local.class);
                     endereco = nomeRua.getText().toString();
                     nomeEvento = nome.getText().toString();
-                    dataHora = String.valueOf(calendar.get(Calendar.DATE)) + "/" + String.valueOf(calendar.get(Calendar.MONTH) + 1) + "/" + String.valueOf(calendar.get(Calendar.YEAR)) + " "
+                    dataHora = String.valueOf(calendar.get(Calendar.YEAR)) + "-" + String.valueOf(calendar.get(Calendar.MONTH) + 1) + "-" + String.valueOf(calendar.get(Calendar.DATE)) + " "
                             + String.valueOf(calendar.get(Calendar.HOUR)) + ":" + String.valueOf(calendar.get(Calendar.MINUTE));
                     it.putExtra("categoria", categoria);
                     it.putExtra("dataHora", dataHora);
