@@ -42,6 +42,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.TimerTask;
 import java.util.concurrent.ExecutionException;
 
 import cieloecommerce.sdk.Merchant;
@@ -71,9 +72,9 @@ public class tela_metodo_pagamento extends AppCompatActivity{
     connection con = new connection();
     List<Evento> eventoList;
     CadastrarEventoAsyncTask cadastrarEventoAsyncTask;
-    InsertParticipanteEvento insertParticipanteEvento;
     CreditCard creditCard = new CreditCard();
     Boolean cont;
+    Evento evento;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,13 +115,20 @@ public class tela_metodo_pagamento extends AppCompatActivity{
             public void onClick(DialogInterface dialog, int which) {
                 if(pagar()== true){
                     Toast.makeText(tela_metodo_pagamento.this,"Pagamento confirmado com sucesso!",Toast.LENGTH_SHORT).show();
-                    if(gerarEvento() == true){
-                        Toast.makeText(tela_metodo_pagamento.this,"Cadastro de evento confirmado com sucesso!",Toast.LENGTH_SHORT).show();
-                        Intent it = new Intent(tela_metodo_pagamento.this, tela_pagamento_ok.class);
-                        startActivity(it);
-                        finish();
-                    }else{
-                        Toast.makeText(tela_metodo_pagamento.this,"OPS! algo deu errado no para cadstrar evento,tente novamente ",Toast.LENGTH_SHORT).show();
+                    try {
+                        if(gerarEvento() == true){
+                            //if(adcListaEvento(evento)) {
+                                Toast.makeText(tela_metodo_pagamento.this, "Cadastro de evento confirmado com sucesso!", Toast.LENGTH_SHORT).show();
+                                Intent it = new Intent(tela_metodo_pagamento.this, tela_pagamento_ok.class);
+                                it.putExtra("IDPESSOA", idPessoa);
+                                startActivity(it);
+                                finish();
+                           // }
+                        }else{
+                            Toast.makeText(tela_metodo_pagamento.this,"OPS! algo deu errado no para cadstrar evento,tente novamente ",Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
                     }
                 }else{
                     Toast.makeText(tela_metodo_pagamento.this,"OPS! algo deu errado no pagamento,tente novamente ",Toast.LENGTH_SHORT).show();
@@ -169,8 +177,7 @@ public class tela_metodo_pagamento extends AppCompatActivity{
         creditCard.setYear("2021");
         creditCard.setCvv("123");
     }
-    private boolean gerarEvento()
-    {
+    private boolean gerarEvento() throws InterruptedException {
         cadastrarEventoAsyncTask = new CadastrarEventoAsyncTask();
         cadastrarEventoAsyncTask.execute();
         return true;
@@ -263,7 +270,7 @@ public class tela_metodo_pagamento extends AppCompatActivity{
         protected void onPostExecute(String result) {
             Log.i("APIListar", "onPostExecute()--> Result: " + result);
             try {
-                Evento evento;
+
                 JSONArray jsonArray = new JSONArray(result);
                 eventoList = new ArrayList<>();
                 if (jsonArray.length() != 0) {
@@ -273,7 +280,6 @@ public class tela_metodo_pagamento extends AppCompatActivity{
                                 jsonObject.getInt("idCancha"),
                                 jsonObject.getInt("idPessoa"));
                         eventoList.add(evento);
-                        adcListaEvento(evento);
                     }
                 }
             } catch (Exception e) {
@@ -281,94 +287,7 @@ public class tela_metodo_pagamento extends AppCompatActivity{
             }
         }
     }
-    public void adcListaEvento(Evento evento){
-        insertParticipanteEvento = new InsertParticipanteEvento(evento);
-        insertParticipanteEvento.execute();
-    }
-    public class InsertParticipanteEvento extends AsyncTask<String, String, String> {
-        String api_token, query;
-        HttpURLConnection conn;
-        URL url = null;
-        Uri.Builder builder;
-        final String URL_WEB_SERVICES = con.getInserirParticipanteEvento();
-        final int READ_TIMEOUT = 10000; // MILISSEGUNDOS
-        final int CONNECTION_TIMEOUT = 30000;
-        int response_code;
-        public InsertParticipanteEvento(Evento evento){
-            this.builder = new Uri.Builder();
-            builder.appendQueryParameter("api_idEvento", String.valueOf(evento.getIdEvento()));
-            builder.appendQueryParameter("api_idPessoa", String.valueOf(evento.getIdPessoa()));
-            builder.appendQueryParameter("api_idCancha", String.valueOf(evento.getIdCancha()));
-        }
-        @Override
-        protected void onPreExecute() {
-            Log.i("APIListar", "onPreExecute()");
-        }
-        @Override
-        protected String doInBackground(String... strings) {
-            try {
-                url = new URL(URL_WEB_SERVICES);
-            } catch (MalformedURLException e) {
-                Log.i("APIListar", "MalformedURLException --> " + e.getMessage());
-            } catch (Exception e) {
-                Log.i("APIListar", "doInBackground() --> " + e.getMessage());
-            }
-            try {
-                conn = (HttpURLConnection) url.openConnection();
-                conn.setReadTimeout(READ_TIMEOUT);
-                conn.setConnectTimeout(CONNECTION_TIMEOUT);
-                conn.setRequestMethod("POST");
-                conn.setRequestProperty("charset", "utf-8");
-                conn.setDoInput(true);
-                conn.setDoOutput(true);
-                conn.connect();
-            } catch (Exception e) {
-                Log.i("APIListar", "HttpURLConnection --> " + e.getMessage());
-            }
-            try {
-                query = builder.build().getEncodedQuery();
-                OutputStream stream = conn.getOutputStream();
-                BufferedWriter writer = new BufferedWriter(
-                        new OutputStreamWriter(stream, "utf-8"));
-                writer.write(query);
-                writer.flush();
-                writer.close();
-                stream.close();
-                conn.connect();
-            } catch (Exception e) {
-                Log.i("APIListar", "BufferedWriter --> " + e.getMessage());
-            }
-            try {
-                response_code = conn.getResponseCode();
-                if (response_code == HttpURLConnection.HTTP_OK) {
-                    InputStream input = conn.getInputStream();
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(input));
-                    StringBuilder result = new StringBuilder();
-                    String linha = null;
-                    while ((linha = reader.readLine()) != null) {
-                        result.append(linha);
-                    }
-                    return result.toString();
-                } else {
-                    return "HTTP ERRO: " + response_code;
-                }
-            } catch (Exception e) {
-                Log.i("APIListar", "StringBuilder --> " + e.getMessage());
-                return "Exception Erro: " + e.getMessage();
-            } finally {
-                conn.disconnect();
-            }
-        }
 
-        @Override
-        protected void onPostExecute(String result) {
-            Log.i("APIListarEventoderalhe", "onPostExecute()--> Result: " + result);
-            try {
-            } catch (Exception e) {
-                Log.i("APIListar", "onPostExecute()--> " + e.getMessage());
-            }
-        }
-    }
     public void CieloPagar( ){
         // Configure seu merchant
         Merchant merchant = new Merchant("ca1eb86b-e1c7-4f7d-af09-187fc334ac9e", "EYRUOQZXXPXRXZYLMSNTIJNKYRDNXPCXQNFSGCWK");

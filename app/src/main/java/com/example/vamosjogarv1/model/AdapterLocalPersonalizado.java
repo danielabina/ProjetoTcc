@@ -108,6 +108,7 @@ public class AdapterLocalPersonalizado extends RecyclerView.Adapter<AdapterLocal
                 intent.putExtra("IDPESSOA", idPessoa);
                 intent.putExtra("nomeEvento", nomEvento);
                 intent.putExtra("dataHora", dataHora);
+
                 context.startActivity(intent);
             }
         }

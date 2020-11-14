@@ -31,20 +31,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class tela_inicial_a extends AppCompatActivity {
-String email;
+String email,idPessoa;
     BuscaIdPessoaAsyncTask buscaIdPessoaAsyncTask;
     connection con = new connection();
     List<Pessoa> pessoaList;
-    Pessoa pessoa;
+    Pessoa pessoa = new Pessoa();
+    int telapag,idPessoaint;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_inicial_a);
 
 
+
         Intent it = getIntent();
         email = it.getStringExtra("EMAIL");
-        buscaIdPessoaAsyncTask = new BuscaIdPessoaAsyncTask();
+        telapag = it.getIntExtra("telapag",0);
+        if(telapag == 1){
+            idPessoa = it.getStringExtra("IDPESSOA");
+            idPessoaint = Integer.valueOf(idPessoa);
+            pessoa.setIdPessoa(idPessoaint);
+        }        buscaIdPessoaAsyncTask = new BuscaIdPessoaAsyncTask();
         buscaIdPessoaAsyncTask.execute();
     }
 

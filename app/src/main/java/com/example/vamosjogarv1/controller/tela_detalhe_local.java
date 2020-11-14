@@ -68,6 +68,7 @@ public class tela_detalhe_local extends AppCompatActivity {
 
 
         Bundle it = getIntent().getExtras();
+
         idLocal= it.getInt("idLocal");
         idPessoa = it.getString("IDPESSOA");
         nomeEvento = it.getString("nomeEvento");
@@ -76,6 +77,7 @@ public class tela_detalhe_local extends AppCompatActivity {
         CarregarImagem();
         listarLocaisDetalheAsyncTask = new ListarLocaisDetalheAsyncTask();
         listarLocaisDetalheAsyncTask.execute();
+        getIntent().setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
 
         btnproximook.setOnClickListener(new View.OnClickListener() {
