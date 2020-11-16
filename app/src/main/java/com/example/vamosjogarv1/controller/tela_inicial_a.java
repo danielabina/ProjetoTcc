@@ -36,22 +36,30 @@ String email,idPessoa;
     connection con = new connection();
     List<Pessoa> pessoaList;
     Pessoa pessoa = new Pessoa();
-    int telapag,idPessoaint;
+    int telapag,idPessoaint,telaEvento,telaAva;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_inicial_a);
 
+        SharedPreferences pref = getSharedPreferences("info", MODE_PRIVATE);
+        String emailEncrypt = pref.getString(encrypt("email"), "");
 
+        String emails = decrypt(emailEncrypt);
 
         Intent it = getIntent();
         email = it.getStringExtra("EMAIL");
+        if(email == null){
+            email = emails;
+        }
         telapag = it.getIntExtra("telapag",0);
-        if(telapag == 1){
+        telaEvento = it.getIntExtra("telaEvento",0);
+        telaAva = it.getIntExtra("telaEvento",0);
+        if(telapag == 1  || telaEvento == 1){
             idPessoa = it.getStringExtra("IDPESSOA");
             idPessoaint = Integer.valueOf(idPessoa);
-            pessoa.setIdPessoa(idPessoaint);
-        }        buscaIdPessoaAsyncTask = new BuscaIdPessoaAsyncTask();
+            pessoa.setIdPessoa(idPessoaint);}
+        buscaIdPessoaAsyncTask = new BuscaIdPessoaAsyncTask();
         buscaIdPessoaAsyncTask.execute();
     }
 
@@ -188,7 +196,7 @@ String email,idPessoa;
                         pessoaList.add(pessoa);
                         Log.i("APIListar", "detalhe: -> " + pessoa.getIdPessoa() + " - " +pessoa.getNome());
                     }
-                    Toast.makeText(tela_inicial_a.this, " Seja Bem vindo(a)!!"+ pessoa.getNome(), Toast.LENGTH_LONG)
+                    Toast.makeText(tela_inicial_a.this,  pessoa.getNome(), Toast.LENGTH_LONG)
                             .show();
                 }
             } catch (Exception e) {

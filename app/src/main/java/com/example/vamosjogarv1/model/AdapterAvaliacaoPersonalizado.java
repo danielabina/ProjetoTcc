@@ -33,12 +33,13 @@ public class AdapterAvaliacaoPersonalizado extends RecyclerView.Adapter<AdapterA
 
     public class MeuViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        TextView comentario;
+        TextView comentario,nomeEvento;
                 RatingBar valorEstrela;
         @SuppressLint("WrongViewCast")
         public MeuViewHolder(@NonNull View view) {
             super(view);
             comentario = (TextView) view.findViewById(R.id.comentarioAva);
+            nomeEvento = (TextView) view.findViewById(R.id.eventoAva);
             valorEstrela = (RatingBar) view.findViewById(R.id.ratingBar2);
             view.setOnClickListener(this);
         }
@@ -68,6 +69,8 @@ public class AdapterAvaliacaoPersonalizado extends RecyclerView.Adapter<AdapterA
         Avaliacao avaliacao = listaAvaliacao.get(i);
         TextView nome = meuViewHolder.comentario;
         nome.setText(avaliacao.getComentario());
+        TextView nomeEvento = meuViewHolder.nomeEvento;
+        nomeEvento.setText(avaliacao.getNomeEvento());
         RatingBar valor = meuViewHolder.valorEstrela;
         valor.setRating(avaliacao.getValorEstrela());
     }

@@ -61,15 +61,7 @@ public class tela_avaliar extends AppCompatActivity {
 
     public void addListenerOnRatingBar() {
          ratingBar = (RatingBar) findViewById(R.id.ratingBar);
-        txtValorAvaliacao = (TextView) findViewById(R.id.txtValorAvaliacao);
 
-        //se o valor de avaliação mudar,
-        //exiba o valor de avaliação atual no resultado (textview) automaticamente
-        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-            public void onRatingChanged(RatingBar ratingBar, float avaliacao, boolean fromUser) {
-                txtValorAvaliacao.setText(String.valueOf(avaliacao));
-            }
-        });
     }
 
     public void addListenerOnButton() {
@@ -84,6 +76,7 @@ public class tela_avaliar extends AppCompatActivity {
                 valor = String.valueOf(ratingBar.getRating());
                 cadastrarAvaliacaoAsyncTask = new CadastrarAvaliacaoAsyncTask();
                 cadastrarAvaliacaoAsyncTask.execute();
+                finish();
             }
         });
     }
@@ -176,8 +169,10 @@ public class tela_avaliar extends AppCompatActivity {
 
                 if(result.equals("SUCESSO")){
                     controlador=1;
-                }else if(result.equals("JA EXISTE")){
-                    controlador=2;
+                }else if(result.equals("JA EXISTE")) {
+                    controlador = 2;
+                }else if(result.equals("VOCE NÃO PODE SE AVALIAR DUAS VEZES!")){
+                    controlador = 3;
                 }else{
                     controlador=0;
                 }
@@ -194,7 +189,10 @@ public class tela_avaliar extends AppCompatActivity {
                 }else if(controlador == 0){
                     Toast.makeText(tela_avaliar.this, "Algo deu errado tente novamente " +
                             "", Toast.LENGTH_LONG).show();
-                }
+                }else if(controlador == 3){
+                Toast.makeText(tela_avaliar.this, "Voce não pode se avaliar duas vezes! " +
+                        "", Toast.LENGTH_LONG).show();
+            }
             } catch (Exception e) {
                 Log.i("APIListar", "onPostExecute()--> " + e.getMessage());
             }

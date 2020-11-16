@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -140,22 +141,32 @@ public class tela_lista_meus_eventos_anteriores extends AppCompatActivity {
         protected void onPostExecute(String result) {
             Log.i("APIListarEventoderalhe", "onPostExecute()--> Result: " + result);
             try {
-                Evento evento;
-                JSONArray jsonArray = new JSONArray(result);
-                eventoList = new ArrayList<>();
-                if (jsonArray.length() != 0) {
-                    for (int i = 0; i < jsonArray.length(); i++) {
-                        JSONObject jsonObject = jsonArray.getJSONObject(i);
-                        evento = new  Evento(jsonObject.getString("idEvento"),
-                                jsonObject.getString("dataHora"),
-                                jsonObject.getString("nomeEvento"),
-                                jsonObject.getString("categoria"),
-                                jsonObject.getString("endereco"));
-                        eventoList.add(evento);
-                        Log.i("APIListar", "Estado: -> " + evento.getIdCancha() + " - " +evento.getNomeEvento());
+                if(result.contains("nenhum")){
+                    Toast.makeText(tela_lista_meus_eventos_anteriores.this, "Voce não possui nenhum evento anterior", Toast.LENGTH_SHORT).show();
+                    Intent it = new Intent(tela_lista_meus_eventos_anteriores.this, tela_menu_eventos.class);
+                    it.putExtra("IDPESSOA", Integer.valueOf(idPessoa));
+                    it.putExtra("telaEvento", 1);
+                    startActivity(it);
+                    finish();
+
+                }else {
+                    Evento evento;
+                    JSONArray jsonArray = new JSONArray(result);
+                    eventoList = new ArrayList<>();
+                    if (jsonArray.length() != 0) {
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject = jsonArray.getJSONObject(i);
+                            evento = new Evento(jsonObject.getString("idEvento"),
+                                    jsonObject.getString("dataHora"),
+                                    jsonObject.getString("nomeEvento"),
+                                    jsonObject.getString("categoria"),
+                                    jsonObject.getString("endereco"));
+                            eventoList.add(evento);
+                            Log.i("APIListar", "Estado: -> " + evento.getIdCancha() + " - " + evento.getNomeEvento());
+                        }
                     }
+                    initial();
                 }
-                initial();
             } catch (Exception e) {
                 Log.i("APIListar", "onPostExecute()--> " + e.getMessage());
             }

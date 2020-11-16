@@ -71,9 +71,9 @@ public class tela_detalhe_meus_proximos_eventos extends AppCompatActivity {
         msgBox.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(tela_detalhe_meus_proximos_eventos.this, "Voce confirmou o cancelamento", Toast.LENGTH_SHORT).show();
-                Intent it = new Intent(tela_detalhe_meus_proximos_eventos.this, tela_inicial_a.class);
-                startActivity(it);
+                cancelarPartiparEvento = new CancelarPartiparEvento();
+                cancelarPartiparEvento.execute();
+
             }
         });
         msgBox.setNegativeButton("Não", new DialogInterface.OnClickListener() {
@@ -199,6 +199,8 @@ public class tela_detalhe_meus_proximos_eventos extends AppCompatActivity {
                 if (controlador == true) {
                     Toast.makeText(tela_detalhe_meus_proximos_eventos.this, "Que pena! Sua participação foi cancelada com sucesso", Toast.LENGTH_SHORT).show();
                     Intent it = new Intent(tela_detalhe_meus_proximos_eventos.this, tela_inicial_a.class);
+                    it.putExtra("IDPESSOA", idPessoa);
+                    it.putExtra("telaEvento", 1);
                     startActivity(it);
                     finish();
                 } else {

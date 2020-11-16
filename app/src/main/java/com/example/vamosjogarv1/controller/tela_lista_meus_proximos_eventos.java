@@ -149,6 +149,7 @@ public class tela_lista_meus_proximos_eventos extends AppCompatActivity {
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
                         evento = new Evento(jsonObject.getInt("idEvento"),
+                                jsonObject.getInt("idCancha"),
                                 jsonObject.getString("dataHora"),
                                 jsonObject.getString("nomeEvento"),
                                 jsonObject.getString("modalidade"),

@@ -18,7 +18,6 @@ tools:context=".controller.tela_avaliacao">
     android:id="@+id/recyclerViewAvaliacao"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:scaleType="fitEnd"
-    android:layout_marginTop="20dp"/>
+    android:scaleType="fitEnd" />
 </LinearLayout>
 

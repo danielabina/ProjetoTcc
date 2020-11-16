@@ -56,7 +56,8 @@ public class Evento {
         this.nomeEvento = nomeEvento;
     }
 
-    public Evento(int idCancha, String dataHoraa, String nomeEvento,String modalidade,String endereco) {
+    public Evento(int idEvento, int idCancha,String dataHoraa, String nomeEvento,String modalidade,String endereco) {
+        this.idEvento = idEvento;
         this.idCancha = idCancha;
         this.dataHoraa = dataHoraa;
         this.nomeEvento = nomeEvento;

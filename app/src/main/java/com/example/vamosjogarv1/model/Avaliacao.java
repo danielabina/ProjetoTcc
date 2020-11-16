@@ -7,12 +7,14 @@ public class Avaliacao {
     int idEvento;
     int idAvaliado;
     String comentario;
+    String nomeEvento;
     int valorEstrela;
 
-    public Avaliacao(int idAvaliacao, String comentario, int valorEstrela) {
+    public Avaliacao(int idAvaliacao, String comentario, int valorEstrela,String nomeEvento) {
         this.idAvaliacao = idAvaliacao;
         this.comentario = comentario;
         this.valorEstrela = valorEstrela;
+        this.nomeEvento = nomeEvento;
     }
 
 
@@ -54,6 +56,14 @@ public class Avaliacao {
 
     public void setComentario(String comentario) {
         this.comentario = comentario;
+    }
+
+    public String getNomeEvento() {
+        return nomeEvento;
+    }
+
+    public void setNomeEvento(String nomeEvento) {
+        this.nomeEvento = nomeEvento;
     }
 
     public int getValorEstrela() {

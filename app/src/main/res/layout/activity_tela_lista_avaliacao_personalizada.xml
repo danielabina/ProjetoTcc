@@ -4,15 +4,32 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="361dp"
         android:layout_height="196dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/bg_form_field_top"
         android:orientation="vertical">
 
+    <TextView
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="19dp"
+        android:text="Evento :"
+        android:textColor="#000000"
+        android:textSize="18dp"></TextView>
+
+    <TextView
+        android:id="@+id/eventoAva"
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="5dp"
+        android:textColor="#000000"
+        android:textSize="18dp"></TextView>
         <TextView
             android:layout_width="310dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="9dp"
             android:text="Comentario :"
             android:textColor="#000000"
             android:textSize="18dp"></TextView>
@@ -22,15 +39,15 @@ xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="310dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:textColor="#000000"
             android:textSize="18dp"></TextView>
 
-        <RatingBar
-            android:id="@+id/ratingBar2"
-            android:layout_width="296dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
-            android:isIndicator="true" />
+    <RatingBar
+        android:id="@+id/ratingBar2"
+        android:layout_width="296dp"
+        android:layout_height="41dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:isIndicator="true" />
     </LinearLayout>

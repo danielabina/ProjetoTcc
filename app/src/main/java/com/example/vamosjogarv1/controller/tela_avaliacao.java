@@ -149,22 +149,29 @@ public class tela_avaliacao extends AppCompatActivity {
         protected void onPostExecute(String result) {
             Log.i("APIListar", "onPostExecute()--> Result: " + result);
             try {
-                Avaliacao avaliacao;
-                String result2 = result;
-                JSONArray jsonArray = new JSONArray(result);
-                avaliacaoList = new ArrayList<>();
-                if (jsonArray.length() != 0) {
-                    for (int i = 0; i < jsonArray.length(); i++) {
-                        JSONObject jsonObject = jsonArray.getJSONObject(i);
-                        avaliacao = new Avaliacao(jsonObject.getInt("idAvaliacao"),
-                                jsonObject.getString("comentario"),
-                                jsonObject.getInt("valorEstrela"));
-                        avaliacaoList.add(avaliacao);
+                if(result.contains("nenhum")){
+                    Toast.makeText(tela_avaliacao.this, "Voce não possui nenhuma avaliação ainda", Toast.LENGTH_SHORT).show();
+                    Intent it = new Intent(tela_avaliacao.this, tela_inicial_a.class);
+                    it.putExtra("IDPESSOA", idPessoa);
+                    it.putExtra("telaAva", 1);
+                    startActivity(it);
+                    finish();
+
+                }else {
+                    Avaliacao avaliacao;
+                    JSONArray jsonArray = new JSONArray(result);
+                    avaliacaoList = new ArrayList<>();
+                    if (jsonArray.length() != 0) {
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject = jsonArray.getJSONObject(i);
+                            avaliacao = new Avaliacao(jsonObject.getInt("idAvaliacao"),
+                                    jsonObject.getString("comentario"),
+                                    jsonObject.getInt("valorEstrela"),
+                                    jsonObject.getString("nomeEvento"));
+                            avaliacaoList.add(avaliacao);
+                        }
                     }
                     initial();
-                }else if(result2.equals("nenhum dado encontrado")){
-                    Toast.makeText(tela_avaliacao.this, "Voce não possui nenhuma avaliação ainda" +
-                            "", Toast.LENGTH_LONG).show();
                 }
             } catch (Exception e) {
                 Log.i("APIListar", "onPostExecute()--> " + e.getMessage());

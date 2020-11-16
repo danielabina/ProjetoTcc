@@ -84,6 +84,7 @@ String idPessoa,dataHoraEv,modalidade,endereco,nome;
                 //insert de participação
                 insertPartiparEvento = new InsertPartiparEvento();
                 insertPartiparEvento.execute();
+
             }
         });
         msgBox.setNegativeButton("Não", new DialogInterface.OnClickListener() {
@@ -208,6 +209,8 @@ String idPessoa,dataHoraEv,modalidade,endereco,nome;
                 if(controlador == true) {
                     Toast.makeText(tela_detalhe_evento.this,"Muito bem! estamos ansiosos pelo dia!",Toast.LENGTH_SHORT).show();
                     Intent it = new Intent(tela_detalhe_evento.this, tela_participacao_ok.class);
+                    it.putExtra("IDPESSOA", idPessoa);
+                    it.putExtra("telaEvento", 1);
                     startActivity(it);
                     finish();
                 }else{
