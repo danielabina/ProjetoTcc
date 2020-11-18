@@ -42,7 +42,7 @@ public class tela_detalhe_local extends AppCompatActivity {
     Button btnproximook;
     TextView txtNomeLocal,txtEnderecoLocal,txtDescricaoLocal,txtValor;
     int idLocal;
-    String idPessoa,nomeEvento,dataHora,foto;
+    String idPessoa,nomeEvento,dataHora,foto,dataHoraUm;
     private Bundle extra;
     connection con = new connection();
     ListarLocaisDetalheAsyncTask listarLocaisDetalheAsyncTask;
@@ -73,6 +73,7 @@ public class tela_detalhe_local extends AppCompatActivity {
         idPessoa = it.getString("IDPESSOA");
         nomeEvento = it.getString("nomeEvento");
         dataHora = it.getString("dataHora");
+        dataHoraUm = it.getString("dataHoraUm");
         foto = it.getString("FOTO");
         CarregarImagem();
         listarLocaisDetalheAsyncTask = new ListarLocaisDetalheAsyncTask();
@@ -320,6 +321,7 @@ public class tela_detalhe_local extends AppCompatActivity {
                 it.putExtra("IDPESSOA",idPessoa);
                 it.putExtra("nomeEvento",nomeEvento);
                 it.putExtra("dataHora",dataHora);
+                it.putExtra("dataHoraUm",dataHoraUm);
                 it.putExtra("VALOR",local.getValor());
                 it.putExtra("ID",idLocal);
 
@@ -327,6 +329,7 @@ public class tela_detalhe_local extends AppCompatActivity {
                 bundle.putString("IDPESSOA",idPessoa);
                 bundle.putString("nomeEvento",nomeEvento);
                 bundle.putString("dataHora",dataHora);
+                bundle.putString("dataHoraUm",dataHoraUm);
                 bundle.putString("FOTO",foto);
 
                 startActivity(it);

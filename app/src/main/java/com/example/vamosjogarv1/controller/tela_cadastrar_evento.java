@@ -28,6 +28,7 @@ public class tela_cadastrar_evento extends AppCompatActivity implements View.OnC
     DatePickerDialog.OnDateSetListener  setListener;
     String categoria;
     String dataHora;
+    String dataHoraUm;
     String endereco;
     String nomeEvento;
     EditText nome;
@@ -70,9 +71,12 @@ public class tela_cadastrar_evento extends AppCompatActivity implements View.OnC
                     endereco = nomeRua.getText().toString();
                     nomeEvento = nome.getText().toString();
                     dataHora = String.valueOf(calendar.get(Calendar.YEAR)) + "-" + String.valueOf(calendar.get(Calendar.MONTH) + 1) + "-" + String.valueOf(calendar.get(Calendar.DATE)) + " "
-                            + String.valueOf(calendar.get(Calendar.HOUR)) + ":" + String.valueOf(calendar.get(Calendar.MINUTE));
+                            + String.valueOf(calendar.get(Calendar.HOUR_OF_DAY)) + ":" + String.valueOf(calendar.get(Calendar.MINUTE));
+                    dataHoraUm = String.valueOf(calendar.get(Calendar.YEAR)) + "-" + String.valueOf(calendar.get(Calendar.MONTH) + 1) + "-" + String.valueOf(calendar.get(Calendar.DATE)) + " "
+                            + String.valueOf(calendar.get(Calendar.HOUR_OF_DAY)) + ":" + String.valueOf(calendar.get(Calendar.MINUTE));
                     it.putExtra("categoria", categoria);
                     it.putExtra("dataHora", dataHora);
+                    it.putExtra("dataHoraUm", dataHoraUm);
                     it.putExtra("endereco", endereco);
                     it.putExtra("nomeEvento", nomeEvento);
                     it.putExtra("IDPESSOA",Integer.toString(idPessoa));

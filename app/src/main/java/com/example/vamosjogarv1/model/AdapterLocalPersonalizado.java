@@ -35,13 +35,14 @@ import java.util.List;
 public class AdapterLocalPersonalizado extends RecyclerView.Adapter<AdapterLocalPersonalizado.ViewHolder> {
     private Context context;
     private List<Local> listaLocal;
-    String idPessoa,dataHora,nomEvento,photo;
-    public AdapterLocalPersonalizado(List<Local> locais,Context ctx1, String idPessoa,String dataHora,String nomEvento) {
+    String idPessoa,dataHora,nomEvento,photo,dataHoraUm;
+    public AdapterLocalPersonalizado(List<Local> locais,Context ctx1, String idPessoa,String dataHora,String nomEvento,String dataHoraUm) {
         this.context = ctx1;
         this.idPessoa = idPessoa;
         this.dataHora = dataHora;
         this.nomEvento = nomEvento;
         this.listaLocal = locais;
+        this.dataHoraUm = dataHoraUm;
     }
     @NonNull
     @Override
@@ -108,6 +109,7 @@ public class AdapterLocalPersonalizado extends RecyclerView.Adapter<AdapterLocal
                 intent.putExtra("IDPESSOA", idPessoa);
                 intent.putExtra("nomeEvento", nomEvento);
                 intent.putExtra("dataHora", dataHora);
+                intent.putExtra("dataHoraUm", dataHoraUm);
 
                 context.startActivity(intent);
             }

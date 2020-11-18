@@ -66,7 +66,7 @@ public class tela_metodo_pagamento extends AppCompatActivity{
     Button btnProximoListar;
     EditText numeroCartao,nome,mes,ano,cvv;
     int idLocal;
-    String idPessoa,nomeEvento,dataHora,valor,foto;
+    String idPessoa,nomeEvento,dataHora,valor,foto,dataHoraUm;
     TextView nomePag,pricePag,dataLocalPag;
     ImageView imgPag;
     connection con = new connection();
@@ -84,6 +84,7 @@ public class tela_metodo_pagamento extends AppCompatActivity{
         idLocal= it.getInt("ID");
         idPessoa= it.getString("IDPESSOA");
         dataHora= it.getString("dataHora");
+        dataHoraUm= it.getString("dataHoraUm");
         nomeEvento = it.getString("nomeEvento");
          valor = it.getString("VALOR");
         foto = it.getString("FOTO");
@@ -204,6 +205,8 @@ public class tela_metodo_pagamento extends AppCompatActivity{
             builder.appendQueryParameter("idPessoa", idPessoa);
             builder.appendQueryParameter("idCancha", String.valueOf(idLocal));
             builder.appendQueryParameter("dataHora", String.valueOf(dataHora));
+            builder.appendQueryParameter("dataHoraUm", String.valueOf(dataHoraUm));
+            builder.appendQueryParameter("valor", valor);
             builder.appendQueryParameter("nomeEvento", nomeEvento);
         }
         @Override
