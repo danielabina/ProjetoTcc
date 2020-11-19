@@ -89,8 +89,7 @@ public class tela_metodo_pagamento extends AppCompatActivity{
         nomeEvento = it.getString("nomeEvento");
          valor = it.getString("VALOR");
          valorPorcemtagem = Double.parseDouble(valor);
-        double percentual = 10 / 100;
-        total = percentual * valorPorcemtagem;
+        total = 0.1 * valorPorcemtagem;
         foto = it.getString("FOTO");
 
         numeroCartao = (EditText) findViewById(R.id.card_number );
