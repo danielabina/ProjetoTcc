@@ -75,6 +75,7 @@ public class tela_metodo_pagamento extends AppCompatActivity{
     CreditCard creditCard = new CreditCard();
     Boolean cont;
     Evento evento;
+    Double valorPorcemtagem,total;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +88,9 @@ public class tela_metodo_pagamento extends AppCompatActivity{
         dataHoraUm= it.getString("dataHoraUm");
         nomeEvento = it.getString("nomeEvento");
          valor = it.getString("VALOR");
+         valorPorcemtagem = Double.parseDouble(valor);
+        double percentual = 10 / 100;
+        total = percentual * valorPorcemtagem;
         foto = it.getString("FOTO");
 
         numeroCartao = (EditText) findViewById(R.id.card_number );
@@ -103,7 +107,7 @@ public class tela_metodo_pagamento extends AppCompatActivity{
     }
     public void initial(){
         nomePag.setText(nomeEvento);
-        pricePag.setText(valor);
+        pricePag.setText(String.valueOf(total));
         dataLocalPag.setText(dataHora);
     }
     public void confirmarPagamento(){

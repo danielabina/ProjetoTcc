@@ -63,12 +63,7 @@ public class tela_detalhe_local extends AppCompatActivity {
         txtDescricaoLocal = (TextView) findViewById(R.id.descricaolocal);
         txtValor = (TextView) findViewById(R.id.valorLocal);
         imagemLocal = (ImageView) findViewById(R.id.imagemLocal);
-
-
-
-
         Bundle it = getIntent().getExtras();
-
         idLocal= it.getInt("idLocal");
         idPessoa = it.getString("IDPESSOA");
         nomeEvento = it.getString("nomeEvento");
@@ -79,8 +74,6 @@ public class tela_detalhe_local extends AppCompatActivity {
         listarLocaisDetalheAsyncTask = new ListarLocaisDetalheAsyncTask();
         listarLocaisDetalheAsyncTask.execute();
         getIntent().setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
-
         btnproximook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,15 +81,16 @@ public class tela_detalhe_local extends AppCompatActivity {
             }
         });
     }
-
     public void CarregarImagem() {
 
         Picasso
                 .with(this)
                 .load(foto)
+                .resize(20, 20).
+                centerCrop()
+                .placeholder(R.drawable.carregando_animacao)
                 .into(imagemLocal);
     }
-
     public class ListarLocaisDetalheAsyncTask extends AsyncTask<String, String, String> {
 
         String api_token, query;
@@ -301,11 +295,6 @@ public class tela_detalhe_local extends AppCompatActivity {
            txtValor.setText(local.getValor());
        }
     }
-
-
-
-
-
     public void escolherEvento(){
         AlertDialog.Builder msgBox = new AlertDialog.Builder(this);
         msgBox.setTitle("Confirmar Local");

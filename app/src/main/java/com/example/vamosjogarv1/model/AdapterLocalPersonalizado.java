@@ -89,7 +89,8 @@ public class AdapterLocalPersonalizado extends RecyclerView.Adapter<AdapterLocal
 
             Picasso
                     .with(view.getContext())
-                    .load(photo)
+                    .load(photo).resize(50, 50).
+                    centerCrop()
                     .placeholder(R.drawable.carregando_animacao)
                     .into(foto);
 
